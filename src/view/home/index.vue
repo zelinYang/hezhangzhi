@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div style="dispay:flex;padding:30px"> 
         // 左边
-        <div></div>
+        <div class="left"></div>
         // 中间
         <el-col :span="19"></el-col>
         // 右边
