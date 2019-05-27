@@ -71,7 +71,7 @@
 </template>
 
 <script>
-    let data = require('../../../../public/data/echartsData');
+    let data = require('../../../../public/data/echartsData.js');
     let echarts = require('echarts');
     export default {
         name: "allclear",
