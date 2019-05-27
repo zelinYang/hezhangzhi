@@ -1,0 +1,190 @@
+[
+  {
+    "label": "柳州市",
+    "children": [
+      {
+        "duty": "县级河长",
+        "phone": "0772-2356712",
+        "email": "admin@.163.com",
+        "river": "柳江河全流域",
+        "startR": "浔江三江段",
+        "endR": "洛青柳东新区段",
+        "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg",
+        "label": "市级河长",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "蔡徐坤",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "城中区",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "鹿晗",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "柳北区",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "Justin",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "柳南区",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "陈立农",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "柳城县",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "范丞丞",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "柳江区",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "吴磊",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "融安县",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "王俊凯",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "鱼峰区",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "王源",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "鹿寨县",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "易烊千玺",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "三江侗族自治县",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "卜凡",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      },
+      {
+        "label": "融水苗族自治县",
+        "children": [
+          {
+            "duty": "县级河长",
+            "label": "管理员",
+            "children": [],
+            "phone": "0772-2356712",
+            "email": "admin@.163.com",
+            "river": "柳江河全流域",
+            "startR": "浔江三江段",
+            "endR": "洛青柳东新区段",
+            "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558675505582&di=03f03b38abc465e21138fb0503b8072a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F18%2F20170818155712_2tPjG.jpeg"
+          }
+        ]
+      }
+    ]
+  }
+]
