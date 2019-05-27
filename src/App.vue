@@ -24,7 +24,7 @@
 			  
 			  
 			  <!-- 收起展开菜单按钮 -->
-			  <el-menu-item :index="$route.path" @click="isCollapse = !isCollapse;" style="width: 64px; max-width: 64px; padding: 0 10px; text-align: center;"><i class="el-icon-menu"></i></el-menu-item>
+			  <!-- <el-menu-item :index="$route.path" @click="isCollapse = !isCollapse;" style="width: 64px; max-width: 64px; padding: 0 10px; text-align: center;"><i class="el-icon-menu"></i></el-menu-item> -->
 			
 
 
