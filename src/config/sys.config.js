@@ -10,6 +10,7 @@ export default {
                 {title:'商品与服务管理', url:'/goods/list', icon:'el-icon-goods'},
                 {title:'统计分析', url:'/home/counter', icon:'el-icon-sort'},
                 {title:'系统设置', url:'/home/system/setup', icon:'el-icon-setting'},
+                {title:'关于我们', url:'/home/system/setup', icon:'el-icon-setting'},
             ],
             api:{
             	login: '/index/user/trylogin',
