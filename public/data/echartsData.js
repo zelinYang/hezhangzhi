@@ -5,7 +5,7 @@ let data = {
             orient:
                 'horizontal',
             bottom:
-                130,
+                100,
             right:
                 0,
             itemGap:
