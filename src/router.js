@@ -17,10 +17,10 @@ export default new Router({
                     path: '/river/pig',
                     component: () => import('./view/affair/api/pig.vue')
                 },
-                // {
-                //                 //     path: '/river/sewage',
-                //                 //     component: () => import('./view/affair/api/sewage.vue')
-                //                 // },
+                {
+                    path: '/river/sewage',
+                    component: () => import('./view/affair/api/sewage.vue')
+                },
             ]
         },
         // {path: '/river/asess',component: () =>('./view/affair/affairChildren/')}

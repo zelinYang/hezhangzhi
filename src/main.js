@@ -12,8 +12,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 
-
-
 // axios
 import axios from 'axios'
 Vue.prototype.axios = axios;

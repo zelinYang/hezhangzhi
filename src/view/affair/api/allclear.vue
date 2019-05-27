@@ -161,6 +161,124 @@
     }
 </script>
 
-<style scoped lang="less">
-    @shodow: -1px -1px 5px #ccc;
+<style  lang="less">
+       @shodow: -1px -1px 5px #ccc;
+    @border: 0;
+    .left-content1{
+        min-width: 200px;
+        margin-right: 10px;
+        min-height: 93vh;
+        box-shadow: @shodow;
+        background-color: #1c1c1c;
+        .left-content-wrap{
+            height: 90%;
+            margin-top: 10px;
+            div{
+                height: 100px;
+                margin-bottom: 10px;
+                background-color: #1c1c1c;
+                border-radius: 3px;
+                display: flex;
+                div{
+                    width: 50%;
+                }
+                div:nth-child(1){
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                div:nth-child(2){
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    i{
+                        font-size: 1.5em;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .left-content1>.left-content-wrap{
+        height: 90%;
+        margin-top: 10px;
+    }
+    .left-content1>.left-content-wrap>div{
+        height: 100px;
+        margin-bottom: 10px;
+        background-color: #1c1c1c;
+        border-radius: 3px;
+        display: flex;
+    }
+    .left-content1>.left-content-wrap>div>div{
+        width: 50%;
+    }
+    .left-content1>.left-content-wrap>div>div:nth-child(1){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .left-content1>.left-content-wrap>div>div:nth-child(2){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .left-content-wrap{
+        ul{
+            li{
+                color: #fff;
+                a{
+                    /*color: #fff;*/
+                }
+            }
+        }
+    }
+    .left-content-wrap .el-menu-item.is-active { background-color: #fff !important; color: #333 !important; }
+
+    .right-content{
+        border: @border;
+        padding: 35px;
+        box-shadow: @shodow;
+        background-color: #fff;
+        margin-top: 30px;
+        div{
+            .top-left{
+                i{
+                    display: inline-block;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 10px;
+                    background-color: #a7dcff;
+                }
+            }
+        }
+    }
+    .top_title{
+        margin-bottom: 30px;
+        div{
+            div{
+                input{
+                    width: 100px;
+                }
+            }
+        }
+    }
+    .right-m{
+        display: flex;
+        div{ margin-right: 1vw;
+
+        }
+    }
+    .mInp{
+        display: flex;
+        align-items: center;
+        div{
+            div{
+                width: 150px;
+                input{
+                }
+            }
+        }
+    }
 </style>
