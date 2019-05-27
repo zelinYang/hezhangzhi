@@ -1,5 +1,5 @@
 export default {
-        	title: '后台管理系统',
+        	title: '河长制管理系统',
             author: '',
             ver: '1.2',
 
