@@ -47,13 +47,13 @@
 					<router-link to="/river/allclear">
 						<el-menu-item index="2-0">涉河事务首页</el-menu-item>
 					</router-link>
-					<router-link to="/affairChildren/task">
+					<router-link to="/river/task">
 						<el-menu-item index="2-1">专项任务</el-menu-item>
 					</router-link>
-					<router-link to="/affairChildren/affairRiver/eventAn">
+					<router-link to="/river/eventAn">
 						<el-menu-item index="2-2">事件分析</el-menu-item>
 					</router-link>
-					<router-link to="/affairChildren/assess">
+					<router-link to="/river/assess">
 						<el-menu-item index="2-3">考核评估</el-menu-item>
 					</router-link>
 				</el-submenu>

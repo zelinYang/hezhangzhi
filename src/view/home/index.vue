@@ -46,24 +46,28 @@
     </div>
     <!-- 中间 -->
     <el-col :span="19" class="center">
-        <div class="m-first">
-            <div id="map">
-            </div>
+      <div class="m-first">
+        <div id="map"></div>
+        此处放水系地图
       </div>
       <div style="padding:20px">
-        <div style="height: 50px;line-height:50px;font-size:1.2em;"><b>柳州市专项行动完成情况</b></div>
+        <div style="height: 50px;line-height:50px;font-size:1.2em;">
+          <b>柳州市专项行动完成情况</b>
+        </div>
         <el-tabs v-model="activeName3" @tab-click="handleClick">
           <el-tab-pane label="全面清障" name="first">
-              <div style="width:100%;height:100%;display:flex">
-                  <el-col>
-                    <div id="myEcharts" style="width: 30vw;height: 400px;"></div>
-                </el-col>
-                <el-col>
-                    <div id="myEchartsType" style="width: 30vw;height: 400px;"></div>
-                </el-col>
-              </div>
+            <div style="width:100%;height:100%;display:flex">
+              <el-col>
+                <div id="myEcharts" style="width: 30vw;height: 400px;"></div>
+              </el-col>
+              <el-col>
+                <div id="myEchartsType" style="width: 30vw;height: 400px;"></div>
+              </el-col>
+            </div>
           </el-tab-pane>
-          <el-tab-pane label="生猪污染" name="second">配置管理</el-tab-pane>
+          <el-tab-pane label="生猪污染" name="second">
+           
+          </el-tab-pane>
           <el-tab-pane label="黑臭水体" name="third">角色管理</el-tab-pane>
         </el-tabs>
       </div>
@@ -147,6 +151,7 @@
 </template>
 
 <script>
+// import BMap from 'BMap'
 const data = require("../../../public/data/echartsData.js");
 let echarts = require("echarts");
 export default {
@@ -166,13 +171,13 @@ export default {
       let cate = data.default.pieData1;
       this.rander(myech, cate);
       //底部第一个echarts
-      const myec = document.getElementById('myEcharts');
+      const myec = document.getElementById("myEcharts");
       let cate1 = data.default.cateData;
       this.rander(myec, cate1);
       // 底部第二个echarts
-      const myecType = document.getElementById('myEchartsType');
+      const myecType = document.getElementById("myEchartsType");
       let cate2 = data.default.cateData2;
-      this.rander(myecType,cate2)
+      this.rander(myecType, cate2);
     },
     // 渲染
     rander(el, option) {
@@ -182,25 +187,25 @@ export default {
       echart.setOption(option);
     },
 
-    createMap () {
-      /* eslint-disable */
-      // 创建Map实例
-      var map = new BMap.Map("map")
-      // 初始化地图,设置中心点坐标和地图级别
-      map.centerAndZoom(new BMap.Point(116.404, 39.915), 11)
-      //添加地图类型控件
-    //   map.addControl(new BMap.MapTypeControl({
-    //     mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
-    //   }))
-      // 设置地图显示的城市 此项是必须设置的
-      map.setCurrentCity("北京")
-      //开启鼠标滚轮缩放
-      map.enableScrollWheelZoom(true)
-      /* eslint-enable */
-    }
+    // createMap() {
+    //   /* eslint-disable */
+    //   // 创建Map实例
+    //   var map = new BMap.Map("map");
+    //   // 初始化地图,设置中心点坐标和地图级别
+    //   map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+    //   //添加地图类型控件
+    //   //   map.addControl(new BMap.MapTypeControl({
+    //   //     mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+    //   //   }))
+    //   // 设置地图显示的城市 此项是必须设置的
+    //   map.setCurrentCity("北京");
+    //   //开启鼠标滚轮缩放
+    //   map.enableScrollWheelZoom(true);
+    //   /* eslint-enable */
+    // }
   },
   mounted() {
-    this.createMap();
+    // this.createMap();
     this.getEchartData();
     console.log(data.default.cateData);
   }
