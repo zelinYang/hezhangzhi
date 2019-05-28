@@ -1,7 +1,7 @@
 <template>
     <div style="display: flex;">
         <!--左边-->
-        <div class="left-content1">
+        <div class="left-content2">
             <div class="left-first">
                 <b style="font-size: 1.2em;">省级河长</b>
                 <span style="display: block">总河长：<span style="color: #2f2bff">广西壮族自治区副河长</span></span>
@@ -50,7 +50,7 @@
         </el-col>
 
         <!--右边-->
-        <div class="left-content1 borderN">
+        <div class="left-content2 borderN">
             <el-tabs type="border-card">
                 <el-tab-pane label="巡河统计">
                     <div class="right-second">
@@ -281,7 +281,7 @@
     }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     @border: #ebebeb 1px solid;
     @shodow: 1px 1px 5px #ccc;
 
@@ -315,10 +315,112 @@
         color: #fff;
         background-color: #066dff;
     }
-    .left-content1,.middle-content{
-        margin-top: 30px;
-    }
-    .left-content1 {
-        min-width: 250px;
+    @border: #ccc 1px solid;
+    .left-content2 {
+        min-width: 270px;
         min-height: 800px;
-        margin-right{"remainingRequest":"G:\\联通河长制系统项目\\联通河长制系统项目\\node_modules\\vue-loader\\lib\\index.js??vue-loader-options!G:\\联通河长制系统项目\\联通河长制系统项目\\src\\App.vue?vue&type=script&lang=js&","dependencies":[{"path":"G:\\联通河长制系统项目\\联通河长制系统项目\\src\\App.vue","mtime":1558699295347},{"path":"G:\\联通河长制系统项目\\联通河长制系统项目\\node_modules\\cache-loader\\dist\\cjs.js","mtime":499162500000},{"path":"G:\\联通河长制系统项目\\联通河长制系统项目\\node_modules\\babel-loader\\lib\\index.js","mtime":499162500000},{"path":"G:\\联通河长制系统项目\\联通河长制系统项目\\node_modules\\cache-loader\\dist\\cjs.js","mtime":499162500000},{"path":"G:\\联通河长制系统项目\\联通河长制系统项目\\node_modules\\vue-loader\\lib\\index.js","mtime":499162500000}],"contextDependencies":[],"result":["//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\timport sys_config from '@/config/sys.config.js'\n\timport LoginView from '@/views/Login.vue'\n\n  export default {\n    data() {\n\t\treturn {\n\t\t\tisCollapse: false,\n\t\t\tLoadedData: true,\n\t\t\tLoading_saving: false,\n\t\t\ttitle: '河长制综合管理平台',\n\t\t\tsys_config: sys_config,\n\t\t\tuserName: '柳州市河长办'\n\t\t};\n    },\n    mounted(){\n    \tthis.$store.state.sys = sys_config;\n    },\n    methods: {\n    \tSave(data){\n    \t\tthis.Loading_saving = true;\n    \t\tthis.axios.post('/admineditor/api/save_sys', {sys: data} ).then((res)=>{\n    \t\t\tthis.Loading_saving = false;\n    \t\t}).catch((error) => {\n                this.Loading_saving = false;\n            });\n    \t},\n    \tLoad(){\n    \t\tif (this.$route.query.name == '') return;\n\n    \t\tthis.axios.post('/admineditor/api/get_sys', {name: this.$route.query.name}).then((res) => {\n    \t\t    //this.sys = res.data.data;\n    \t\t});\n    \t},\n\t\tlinkRiver(){\n    \t\tdebugger\n    \t\tthis.$router.push('/affairChildren/affairRiver/allClear')\n\t\t},\n    \tLogout(){\n    \t\tthis.$store.state.logined=false;\n    \t},\n    \tClickPage(item, mod){\n    \t    this.LoadedData = false;\n\n    \t    let _this=this;\n    \t    setTimeout(() => { _this.LoadedData = true; }, 300);\n    \t},\n    },\n    computed: {},\n    components: { LoginView },\n\t  created() {\n    \tconsole.log(\"initMap\",this.$baiduMap)\n\t  }\n  }\n",{"version":3,"sources":["App.vue"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        margin-top: 30px;
+        background-color: #fff;
+        border-top: 3px solid #2f2bff;
+        padding: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .left-first {
+            padding-top: 20px;
+            height: 200px;
+
+        }
+
+        .left-second {
+            height: 50px;
+        }
+        .left-content2{
+            margin-top: 30px;
+        }
+        .left-third {
+            border: @border;
+            padding: 10px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .left-fourth {
+            height: 500px;
+            border: @border;
+            overflow: auto;
+        }
+
+        .right-fist {
+            height: 80px;
+            padding: 20px;
+
+            div {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+        }
+    }
+
+    @padding: 10px 20px 10px 20px;
+    .borderN {
+        width: 370px;
+        padding: 0;
+        border-top: 0;
+
+        .right-second {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            padding: @padding;
+        }
+
+        .right-third {
+            height: 70px;
+            justify-content: space-between;
+
+            div {
+                padding: 0 20px 0 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .san {
+            height: 250px !important;
+        }
+
+        .right-fourth {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 10px;
+
+            .aqwe {
+                margin-left: 10px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+
+    }
+    .middle-content {
+        margin-right: 10px;
+        position: relative;
+
+        .middle-first{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            background-color: #fff;
+            position: absolute;
+        }
+
+    }
+</style>     

@@ -8,7 +8,7 @@ export default {
         {title: '实时信息', url: '/info/infoNew', icon: 'el-icon-timer'},
     ],
     menu2: [
-        {title: '组织信息', url: '/organize/organizeInfo', icon: 'el-icon-printer'},
+        {title: '组织信息', url: '/organize', icon: 'el-icon-printer'},
         {title: '视频监控', url: '/monitor/monitorVideo', icon: 'el-icon-monitor'},
         {title: '资料文件', url: '/file/fileData/guidang', icon: 'el-icon-document'},
         {title: '工作台', url: '/work/workTai/index', icon: 'el-icon-setting'},
