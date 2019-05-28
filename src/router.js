@@ -25,7 +25,9 @@ export default new Router({
         },
         {path: '/river/task',component: () => import('./view/affair/affairChildren/task.vue')},
         {path: '/river/eventAn',component: () => import('./view/affair/affairChildren/eventAn.vue')},
-        {path: '/river/assess',component: () => import('./view/affair/affairChildren/assess.vue')}
+        {path: '/river/assess',component: () => import('./view/affair/affairChildren/assess.vue')},
+
+        {path:'/organize',component: () => import('./view/organize/organize-info.vue')}
         // {path: '/river/asess',component: () =>('./view/affair/affairChildren/')}
 
 
