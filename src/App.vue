@@ -44,7 +44,7 @@
 				<!--涉河事务-->
 				<el-submenu index="2"  class="menu-river">
 					<template slot="title" >涉河事务</template>
-					<router-link to="/affairChildren/affairRiver/allClear">
+					<router-link to="/river/allclear">
 						<el-menu-item index="2-0">涉河事务首页</el-menu-item>
 					</router-link>
 					<router-link to="/affairChildren/task">

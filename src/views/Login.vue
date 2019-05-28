@@ -8,7 +8,6 @@
 		<div style="background-color: #fff; box-sizing: border-box; padding: 3em; text-align: center; ">
 			<div style="margin-top: -100px;  max-width: 500px; width: 100%; text-align: left; display: inline-block;  background-color: #fff; padding: 50px 30px; box-sizing: border-box; box-shadow: 0px 10px 60px #ccc;">
 				<el-form ref="form" :model="form" label-width="80px">
-                  <el-form-item label="系统代码"> <el-input v-model="form.sys" placeholder=""></el-input> </el-form-item>
 				  <el-form-item label="账号"> <el-input v-model="form.acc" placeholder="请输入账号"></el-input> </el-form-item>
 				  <el-form-item label="密码"> <el-input v-model="form.pwd" type="password" placeholder="请输入密码"></el-input> </el-form-item>
 				  <el-form-item label="记住账号"> <el-switch v-model="form.remember"></el-switch> </el-form-item>
@@ -20,7 +19,7 @@
 			</div>
 		</div>
         
-		<p style="font-size: 12px; color: #eee; margin: 2em; text-align: center;">Copyright 2018</p>
+		<p style="font-size: 12px; color: #eee; margin: 2em; text-align: center;">Copyright 2019</p>
 	</div>
 </template>
 
