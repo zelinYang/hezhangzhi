@@ -4,21 +4,21 @@
         <el-col class="left-content-wrap" :span="24">
             <el-menu default-active="1-1" background-color="#545c64" text-color="#fff" active-text-color="#000" style="width: 100%;" class="el-menu-vertical-demo">
 
-                <router-link to="/affairChildren/affairRiver/allClear">
+                <router-link to="/river/allclear">
                     <el-menu-item index="1-1">
                         <i class="el-icon-folder"></i>
                         <span>全面清障进度</span>
                     </el-menu-item>
                 </router-link>
 
-                <router-link to="/affairChildren/affairRiver/pig">
+                <router-link to="/river/pig">
                     <el-menu-item index="1-2">
                         <i class="el-icon-coordinate"></i>
                         <span>生猪养殖污染防治</span>
 
                     </el-menu-item>
                 </router-link>
-                <router-link to="/affairChildren/affairRiver/sewage">
+                <router-link to="/river/sewage">
                     <el-menu-item index="1-3">
                         <i class="el-icon-s-cooperation"></i>
                         <span>黑臭水体整治</span>

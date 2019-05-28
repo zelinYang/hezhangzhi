@@ -3,7 +3,7 @@
 
         <!--右边-->
         <el-col :span="20" class="right-content">
-
+            
         </el-col>
     </div>
 </template>
