@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="min-width: 770px;">
         <el-col class="top_title"
                 style="display:flex;justify-content: space-between;border-bottom: 2px solid #cccccc;height: 60px;align-items: center">
             <div class="top-left" >

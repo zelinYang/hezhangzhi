@@ -217,7 +217,7 @@ export default {
   height: 450px;
   width: 300px;
 }
-@bgc: #fff;
+@bgc: #efefef;
 @shade: 1px 2px 5px rgb(170, 170, 170);
 .leftContent,
 .rightContent {
