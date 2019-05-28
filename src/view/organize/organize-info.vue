@@ -380,13 +380,16 @@
 
         .right-third {
             height: 70px;
+            display:flex;
             justify-content: space-between;
 
             div {
-                padding: 0 20px 0 20px;
+                width: 25%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                text-align: center;
+                border: solid 1px #ccc;
             }
         }
 
@@ -396,7 +399,9 @@
 
         .right-fourth {
             width: 100%;
-            height: 400px;
+            height: 50px;
+            display:flex;
+            align-items: center;
             margin-bottom: 10px;
 
             .aqwe {
@@ -409,17 +414,17 @@
 
     }
     .middle-content {
-        margin-right: 10px;
+        margin-top: 30px;
         position: relative;
 
         .middle-first{
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             width: 100%;
             height: 60px;
-            background-color: #fff;
-            position: absolute;
+            background-color: #f4f4f4;
+            position: absolute;padding:10px;
         }
 
     }
