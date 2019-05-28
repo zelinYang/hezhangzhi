@@ -27,8 +27,46 @@ export default new Router({
         {path: '/river/eventAn',component: () => import('./view/affair/affairChildren/eventAn.vue')},
         {path: '/river/assess',component: () => import('./view/affair/affairChildren/assess.vue')},
 
-        {path:'/organize',component: () => import('./view/organize/organize-info.vue')}
+        {path:'/organize',component: () => import('./view/organize/organize-info.vue')},
         // {path: '/river/asess',component: () =>('./view/affair/affairChildren/')}
+
+        {path:'/file',component: () => import('./view/file/file-data.vue'), children: [
+            {
+                path:'/file/guidang',
+                component: () => import('./view/file/api/guidang.vue')
+            },
+            {
+                path:'/file/falv',
+                component: () => import('./view/file/api/falv.vue')
+            },
+            {
+                path:'/file/yihe',
+                component: () => import('./view/file/api/yihe.vue')
+            },
+            {
+                path:'/file/fangan',
+                component: () => import('./view/file/api/fangan.vue')
+            },
+            {
+                path:'/file/zhuangtai',
+                component: () => import('./view/file/api/zhuangtai.vue')
+            }
+        ] },
+        {path:'/work',component: () => import('./view/work/work-tai.vue'), children:[
+            {
+                path:'/work/banli' ,
+                component: () => import('./view/work/api/banli.vue')
+            },
+            {
+                path:'/work/areaEvent' ,
+                component: () => import('./view/work/api/areaEvent.vue')
+            }
+        ]},
+
+        {path:'/info',  component: () => import('./view/info/info-new.vue')},
+        {path:'/monitor',  component: () => import('./view/monitor/monitor-video.vue')}
+
+
 
 
 

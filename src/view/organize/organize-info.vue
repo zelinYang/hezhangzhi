@@ -104,7 +104,7 @@
                             border
                             style="width: 100%">
                         <el-table-column
-                                prop="around"
+                                prop="round"
                                 label="统计范围">
                         </el-table-column>
                         <el-table-column
@@ -270,6 +270,13 @@
                     //     console.log(`错误${error}`)
                     // })
                     this.data = res.data
+                }).catch(err => {
+                    console.log(`错误${err}`)
+                })
+
+                this.axios.get('data/tableData.json').then(res => {
+                    this.tableData1 = res.data
+                    console.log(res.data)
                 }).catch(err => {
                     console.log(`错误${err}`)
                 })
