@@ -184,7 +184,7 @@
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #00CED1;float: left;"></i>小雨</span>
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #81d14d;float: left;"></i>中雨</span>
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1cd59;float: left;"></i>大雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1b05d;float: left;"></i>暴雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1a362;float: left;"></i>暴雨</span>
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d17f62;float: left;"></i>大暴雨</span>
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1332d;float: left;"></i>特大暴雨</span>
             </el-tab-pane>
