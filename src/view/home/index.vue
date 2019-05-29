@@ -67,7 +67,48 @@
             </div>
           </el-tab-pane>
           <el-tab-pane label="生猪污染" name="second">
+            <el-col class="right-m" style="display: block">
+              <div style>
+                <el-col :span="10" class="bottom-second" style="height: 500px; ">
+                  <el-col style="font-size: 1.2em">禁养区</el-col>
+                  <el-col style="margin-top: 20px"><span>已关闭拆除0.00%</span><span>未关闭拆除0.00%</span></el-col>
+                  <el-col><span>消灭生猪0.00%</span><span>存栏生猪0.00%</span></el-col>
+                  <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(250头以上)</el-col>
+                  <el-progress :text-inside="true"
+                               :stroke-width="18"
+                               :show-text="false"
+                               style="height: 20px"
+                               :percentage="100"
+                               status="success">
+                  </el-progress>
+                  <el-col><span>已关闭拆除100.00%</span><span>未关闭拆除0.00%</span></el-col>
+                  <el-progress :text-inside="true"
+                               :stroke-width="18"
+                               :show-text="false"
+                               style="height: 20px"
+                               :percentage="100"
+                               status="success">
+                  </el-progress>
+                  <el-col><span>消灭生猪100.00%</span><span>存栏生猪0.00%</span></el-col>
+                  <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(1500-5000头)</el-col>
+                  <el-col style="margin-top: 20px"><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+                </el-col>
+                <el-col :span="2" style="height: 500px;"></el-col>
 
+
+                <el-col :span="10" class="bottom-second" style="height: 500px;">
+                  <el-col style="font-size: 1.2em">可养区(250头以下)</el-col>
+                  <el-col style="margin-top: 20px"><span>已关闭拆除0.00%</span><span>已改造0.00%</span><span>未完成0.00%</span>
+                  </el-col>
+                  <el-col><span>消灭生猪0.00%</span><span>存栏生猪0.00%</span><span>改造0.00%</span></el-col>
+                  <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(250-1500头)</el-col>
+                  <el-col style=""><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+                  <el-col style="height: 20px"></el-col>
+                  <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(5000头以上)</el-col>
+                  <el-col style="margin-top: 20px"><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+                </el-col>
+              </div>
+            </el-col>
           </el-tab-pane>
           <el-tab-pane label="黑臭水体" name="third">角色管理</el-tab-pane>
         </el-tabs>
@@ -218,7 +259,12 @@ export default {
   height: 450px;
   width: 300px;
 }
-@bgc: #efefef;
+
+.bottom-second>span{
+
+}
+
+@bgc: #fff;
 @shade: 1px 2px 5px rgb(170, 170, 170);
 .leftContent,
 .rightContent {
