@@ -1,8 +1,6 @@
 let data = {
     pieData1: {
-        grid: {
-            top: '40',
-        },
+
         legend: {
             type: 'plain',
             orient:
@@ -39,6 +37,10 @@ let data = {
         }
     },
     cateData: {
+        grid: {
+           width: '80%',
+            x: '50'
+        },
         title: {
             text: '柳州市全面清障整体完工情况',
 
@@ -51,8 +53,7 @@ let data = {
         }
         ,
         x: 0,
-        y:
-            0,
+        y: 0,
         xAxis:
             {
                 type: 'category',
@@ -103,6 +104,10 @@ let data = {
         title: {
             text: '柳州市各类型清障统计',
 
+        },
+        grid: {
+            width: '80%',
+            x: '50'
         },
         tooltip: {
             trigger: 'item',

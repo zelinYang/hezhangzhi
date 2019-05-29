@@ -50,18 +50,18 @@
         <div id="map"></div>
         此处放水系地图
       </div>
-      <div style="padding:20px">
+      <div class="m-second" style="padding:20px;margin-top: 10px;">
         <div style="height: 50px;line-height:50px;font-size:1.2em;">
           <b>柳州市专项行动完成情况</b>
         </div>
         <el-tabs v-model="activeName3" @tab-click="handleClick">
           <el-tab-pane label="全面清障" name="first">
             <div style="width:100%;height:100%;display:flex">
-              <el-col>
-                <div id="myEcharts" style="width: 30vw;height: 400px;"></div>
+              <el-col :span="12">
+                <div id="myEcharts" style="width: 25vw;height: 400px;"></div>
               </el-col>
-              <el-col style="position: relative">
-                <div id="myEchartsType" style="width: 30vw;height: 400px;"></div>
+              <el-col :span="12" style="position: relative">
+                <div id="myEchartsType" style="width: 25vw;height: 400px;"></div>
 
               </el-col>
             </div>
@@ -154,15 +154,15 @@
           <a href="#">河道有垃圾</a>
         </div>
         <div>
-          <div id="main"style="width: 300px; height: 450px;"></div>
+          <div id="main" style="width: 300px; height: 450px;"></div>
         </div>
       </div>
       <div class="right-fourth">
         <div>
           <b>河道专员巡河完成率</b>
         </div>
-        <div>
-          <el-col :span="8" class="rf-left">
+        <div style="margin-top: 20px">
+          <el-col :span="6" class="rf-left">
             <div>城中区</div>
             <div>鱼峰区</div>
             <div>柳南区</div>
@@ -174,7 +174,7 @@
             <div>融安县</div>
             <div>三江县</div>
           </el-col>
-          <el-col :span="16" class="rf-right">
+          <el-col :span="18" class="rf-right">
             <div>0.0%</div>
             <div style="display: flex;justify-content:flex-end">0.0%</div>
             <div>0.0%</div>
@@ -209,25 +209,45 @@ export default {
     handleClick() {},
     getEchartData() {
       // 右边第一个
-      const myech = document.getElementById("main");
-      let cate = data.default.pieData1;
-      this.rander(myech, cate);
+      // const myech = document.getElementById("main");
+      // let cate = data.default.pieData1;
+      // // this.rander(myech, cate);
       //底部第一个echarts
       const myec = document.getElementById("myEcharts");
+      console.log(myec);
+      debugger
       let cate1 = data.default.cateData;
-      this.rander(myec, cate1);
+      let catea = echarts.init(myec);
+      catea.setOption(cate1);
+      // this.rander(myec, cate1);
       // 底部第二个echarts
       const myecType = document.getElementById("myEchartsType");
       let cate2 = data.default.cateData2;
-      this.rander(myecType, cate2);
+      let catea2 = echarts.init(myecType);
+      catea2.setOption(cate2);
+
+      // this.rander(myecType, cate2);
+
+      window.onresize = function () {
+        catea.resize();
+        catea2.resize();
+        // .resize后加括号哦，这里还可以写其他的事件
+      }
     },
+
     // 渲染
-    rander(el, option) {
-      // 初始化
-      let echart = echarts.init(el);
-      // 渲染
-      echart.setOption(option);
-    },
+    // rander(el, option) {
+    //   // 初始化
+    //   let echart = echarts.init(el);
+    //   // 渲染
+    //   echart.setOption(option);
+    //   window.onresize = function () {
+    //     echart.resize();
+    //     // .resize后加括号哦，这里还可以写其他的事件
+    //   }
+    //
+    // },
+
 
     // createMap() {
     //   /* eslint-disable */
@@ -259,37 +279,29 @@ export default {
   height: 450px;
   width: 300px;
 }
-<<<<<<< HEAD
 @bgc: #FFF;
-=======
 
 .bottom-second>span{
 
 }
 
 @bgc: #fff;
->>>>>>> 575352b2a3cb0d42d7e2c30c274d7edd4b3a4b59
 @shade: 1px 2px 5px rgb(170, 170, 170);
 .leftContent,
 .rightContent {
   max-width: 350px;
-  min-width: 350px;
+  min-width: 300px;
   min-height: 85vh;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: @bgc;
-  box-shadow: @shade;
 }
 .center {
   min-height: 85vh;
   min-width: 400px;
-  background-color: @bgc;
-  box-shadow: @shade;
 }
 
 .leftContent {
   .weather {
-    min-width: 350px;
     min-height: 200px;
     box-shadow: @shade;
     background-color: #8ba5ee;
@@ -299,7 +311,6 @@ export default {
       justify-content: space-between;
       height: 30px;
       line-height: 30px;
-      width: 330px;
       color: #fff;
       padding-left: 10px;
       padding-top: 10px;
@@ -319,7 +330,6 @@ export default {
     }
   }
   .imag {
-    width: 350px;
     height: 200px;
     box-shadow: @shade;
     margin-top: 10px;
@@ -339,8 +349,8 @@ export default {
 
 .rightContent {
   .right-first {
-    width: 310px;
     height: 230px;
+    background-color: #fff;
     padding: 20px;
     box-shadow: @shade;
     .title-top {
@@ -350,12 +360,13 @@ export default {
       padding-bottom: 20px;
     }
     .right-firstd {
-      margin-top: 20px;
+      background-color: #fff;
+      margin-top: 16px;
       height: 110px;
-      padding: 20px;
       div {
         height: 25px;
         display: flex;
+        padding: 0;
         justify-content: space-around;
         span {
           i {
@@ -412,6 +423,7 @@ export default {
     box-shadow: @shade;
     padding: 10px;
     margin-top: 10px;
+    background-color: #fff;
     div:nth-child(1) {
       font-size: 1.2em;
       height: 25px;
@@ -428,13 +440,14 @@ export default {
   .right-fourth {
     box-shadow: @shade;
     margin-top: 10px;
-    height: 400px;
+    height: 380px;
+    background-color: #fff;
     padding: 15px;
     div:nth-child(1) {
       height: 25px;
     }
     div:nth-child(2) {
-      height: 360px;
+      height: 344px;
       display: flex;
       div {
         height: 100%;
@@ -453,6 +466,7 @@ export default {
         border-left: #d9d9d9 1px solid;
         div {
           text-align: right;
+          color: #2f2bff;
         }
       }
     }
@@ -464,12 +478,26 @@ export default {
     width: 100%;
     min-height: 600px;
     box-shadow: @shade;
+    background-color: #fff;
   }
   .m-second {
     margin-top: 10px;
-    min-height: 300px;
+    min-height: 580px;
     box-shadow: @shade;
-    min-width: 100%;
+    background-color: #fff;
+  }
+}
+
+.bottom-second {
+  div {
+    height: 50px;
+    display: flex;
+    padding: 0 10px 0 10px;
+    justify-content: space-between;
+
+    span {
+      color: #8c939d;
+    }
   }
 }
 </style>
