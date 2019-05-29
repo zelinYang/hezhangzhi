@@ -2,15 +2,15 @@
     <div style="display: flex;">
         <!--左边-->
         <div class="left-content1">
-            <div class="left-first">
+            <div class="left-first1">
                 <span style="font-size: 1.2em;">柳州市，未办结事件共计0件</span>
                 <span style="display: block">当前重点问题类型：无</span>
             </div>
 
-            <div class="left-third">
+            <div class="left-third1">
                 <span><i class="el-icon-location"></i><b>选择区域</b></span>
             </div>
-            <div class="left-fourth">
+            <div class="left-fourth1">
                 <el-tree :data="data" :default-expand-all="isOpen" :props="defaultProps"
                          @node-click="handleNodeClick"></el-tree>
             </div>
@@ -18,18 +18,18 @@
 
 
         <!--中间-->
-        <el-col :span="17" class="middle-content">
-            <div class="middle-first">
+        <el-col :span="17" class="middle-content1">
+            <div class="middle-first1">
                 <el-radio-group v-model="radio">
-                    <el-radio :label="3">已办结</el-radio>
-                    <el-radio :label="6">未办结</el-radio>
+                    <el-radio :label="t">已办结</el-radio>
+                    <el-radio :label="q">未办结</el-radio>
                 </el-radio-group>
             </div>
         </el-col>
 
         <!--右边-->
         <div class="left-content1 borderN">
-            <div class="right-fist">
+            <div class="right-fist1">
                 <div>起止时间：</div>
                 <el-date-picker
                         v-model="input123"
@@ -39,34 +39,34 @@
                         default-value="2019-01-01">
                 </el-date-picker>
             </div>
-            <div class="right-second">
+            <div class="right-second1">
                 事件状态
             </div>
 
-            <div class="right-third">
+            <div class="right-third1">
                 <div style="width: 70%;display:flex;justify-content: space-between;">
                     <span>未办结0%(0件)</span>
                     <span>已办结0%(0件)</span>
                 </div>
                 <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
             </div>
-            <div class="right-fourth san">
-                <div class="aqwe">
+            <div class="right-fourth1 san1">
+                <div class="aqwe1">
                     事件来源：
                 </div>
-                <div class="right-third">
+                <div class="right-third1">
                     <div style="width: 70%;display:flex;justify-content: space-between;">
                         <span>河长上报0%(0件)</span>
                     </div>
                     <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
                 </div>
-                <div class="right-third">
+                <div class="right-third1">
                     <div style="width: 70%;display:flex;justify-content: space-between;">
                         <span>河长办上报0%(0件)</span>
                     </div>
                     <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
                 </div>
-                <div class="right-third">
+                <div class="right-third1">
                     <div style="width: 70%;display:flex;justify-content: space-between;">
                         <span>河道专管员上报0%(0件)</span>
                     </div>
@@ -74,8 +74,8 @@
                 </div>
             </div>
 
-            <div class="right-fourth">
-                <div class="aqwe">
+            <div class="right-fourth1">
+                <div class="aqwe1">
                     事件类型：
                     <div id="myEchartsPie" style="width: 20rem;height: 400px;"></div>
                 </div>
@@ -145,6 +145,8 @@
                         proRiver: '0'
                     }
                 ],
+                t:6,
+                q:9,
                 tableData1: [
 
                 ],
@@ -234,32 +236,32 @@
         padding: 10px;
         margin-left: 10px;
 
-        .left-first {
+        .left-first1 {
             padding-top: 20px;
             height: 200px;
 
         }
 
-        .left-second {
+        .left-second1 {
             height: 50px;
         }
         .left-content1{
             margin-top: 30px;
         }
-        .left-third {
+        .left-third1 {
             border: @border;
             padding: 10px;
             height: 30px;
             line-height: 30px;
         }
 
-        .left-fourth {
+        .left-fourth1 {
             height: 500px;
             border: @border;
             overflow: auto;
         }
 
-        .right-fist {
+        .right-fist1 {
             height: 80px;
             padding: 20px;
 
@@ -274,19 +276,19 @@
     }
 
     @padding: 10px 20px 10px 20px;
-    .borderN {
+    .borderN1 {
         width: 370px;
         padding: 0;
         border-top: 0;
 
-        .right-second {
+        .right-second1 {
             width: 100%;
             height: 40px;
             line-height: 40px;
             padding: @padding;
         }
 
-        .right-third {
+        .right-third1 {
             height: 70px;
             justify-content: space-between;
 
@@ -298,16 +300,16 @@
             }
         }
 
-        .san {
+        .san1 {
             height: 250px !important;
         }
 
-        .right-fourth {
+        .right-fourth1 {
             width: 100%;
             height: 400px;
             margin-bottom: 10px;
 
-            .aqwe {
+            .aqwe1 {
                 margin-left: 10px;
                 margin-top: 20px;
                 margin-bottom: 20px;
@@ -316,11 +318,11 @@
 
 
     }
-    .middle-content {
+    .middle-content1 {
         margin-right: 10px;
         position: relative;
 
-        .middle-first{
+        .middle-first1{
             display: flex;
             justify-content: center;
             align-items: center;

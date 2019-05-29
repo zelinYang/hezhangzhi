@@ -13,6 +13,7 @@
                         v-model="input2">
                 </el-input>
             </div>
+            <div class="">
             <el-tabs type="border-card">
                 <el-tab-pane label="选择区域">
                     <div class="left-fourth">
@@ -22,6 +23,7 @@
                 </el-tab-pane>
 
             </el-tabs>
+            </div>
         </div>
 
 
@@ -40,10 +42,8 @@
                     </el-date-picker>
                 </div>
                 <div style="display: flex;justify-content: flex-end;align-items: center" class="cell-col marsa">
-                    <figure>已选级别：</figure>
-                    <span @click="classM" :class="[{tagBlue: iblue}]">市</span>
-                    <span @click="classJ" :class="[{tagBlue1: iblue1}]">县</span>
-                    <span @click="classY" :class="[{tagBlue2: iblue2}]">乡</span>
+                    <figure @click="centerDialogVisible = true">已选级别：</figure>
+                    <span @click="classM" :class="" v-for="item in optionse">{{item}}</span>
                 </div>
             </el-col>
             <router-view></router-view>
@@ -157,10 +157,30 @@
     <el-button type="primary" @click="dialogVisible = false">关闭</el-button>
   </span>
         </el-dialog>
+
+
+        <el-dialog
+                title="请选择"
+                :visible.sync="centerDialogVisible"
+                width="30%"
+                center>
+            <div>
+                <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+                <div style="margin: 15px 0;"></div>
+                <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                    <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                </el-checkbox-group>
+            </div>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="centerDialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="centerDialogVisible1">确 定</el-button>
+  </span>
+        </el-dialog>
     </div>
 </template>
 
 <script>
+    const cityOptions = ['市', '县', '乡', '专管员'];
     export default {
         name: "organize-info",
         data() {
@@ -188,6 +208,12 @@
                         proRiver: '0'
                     }
                 ],
+
+                checkAll: false,
+                checkedCities: [],
+                cities: cityOptions,
+                isIndeterminate: true,
+
                 tableData1: [
 
                 ],
@@ -207,27 +233,44 @@
                 ],
                 value3: '本日',
                 dialogVisible: false,
+                centerDialogVisible: false,
 
                 userData:{},
 
+                optionse:[],
+
+                val: [],
             }
         },
         methods: {
+            centerDialogVisible1(){
+                this.optionse = this.checkedCities;
+                this.centerDialogVisible = false;
+            },
             classM(){
-                this.iblue = true;
-                this.iblue1 = false;
-                this.iblue2 = false
+                this.centerDialogVisible = true;
             },
-            classJ(){
-                this.iblue = false;
-                this.iblue1 = true;
-                this.iblue2 = false
+            handleCheckAllChange(val) {
+                this.checkedCities = val ? cityOptions : [];
+                this.isIndeterminate = false;
+                console.log(val);
             },
-            classY(){
-                this.iblue = false;
-                this.iblue1 = false;
-                this.iblue2 = true
+            handleCheckedCitiesChange(value) {
+                console.log(value);
+                let checkedCount = value.length;
+                this.checkAll = checkedCount === this.cities.length;
+                this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
             },
+            // classJ(){
+            //     this.iblue = false;
+            //     this.iblue1 = true;
+            //     this.iblue2 = false
+            // },
+            // classY(){
+            //     this.iblue = false;
+            //     this.iblue1 = false;
+            //     this.iblue2 = true
+            // },
             firstZ(){
                 this.iblueline = true;
                 this.iblueline1 = false;
@@ -304,7 +347,9 @@
         color: #fff;
         background-color: #5993ee;
     }
-
+    .usermsg>div{
+        height: 32px;
+    }
 
     .isblueline{
         color: #fff;
@@ -332,6 +377,7 @@
         padding: 10px;
         margin-left: 10px;
         margin-right: 10px;
+        box-shadow: #cccccc 1px 1px 5px;
 
         .left-first {
             padding-top: 20px;
@@ -354,7 +400,6 @@
 
         .left-fourth {
             height: 500px;
-            border: @border;
             overflow: auto;
         }
 
@@ -435,4 +480,13 @@
         }
 
     }
-</style>     
+    .marsa>span{
+        margin-right: 10px;
+        border-radius: 5px;text-align: center;
+    }
+    .marsa>span:hover{
+        cursor: pointer;
+        color: #fff;
+        background-color: #5993ee;
+    }
+</style>
