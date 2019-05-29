@@ -175,7 +175,7 @@
                 <span style="color: #00CED1">水量不变</span>
                 <span style="color: #81d14d">水量上升</span>
                 <span style="color: #d1cd59">水量下降</span>
-                <span style="color: #d19f30">黄色预警</span>
+                <span style="color: #d1a332">黄色预警</span>
                 <span style="color: #d13532">红色预警</span>
             </el-tab-pane>
             <el-tab-pane class="yuqing">
