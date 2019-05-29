@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div id="map"></div>
+        <div id="map">
+            <img src="../../../public/img/1.png" style="width: 100%;height: 100%" alt="">
+        </div>
         <div class="left-side">
             <div class="left-side-first">
                 <el-tag
@@ -30,48 +32,48 @@
                         <div style="padding-right: 10px">
                         <el-switch
                                 style="display: block"
-                                v-model="valuesw1"
+                                v-model="valuesw2"
                                 active-text="水利工程">
                         </el-switch>
                         <el-switch
                                 style="display: block"
-                                v-model="valuesw1"
+                                v-model="valuesw3"
                                 active-text="生态流量">
                         </el-switch>
             </div>
             <div style="padding-right: 22px">
                 <el-switch
                         style="display: block"
-                        v-model="valuesw1"
+                        v-model="valuesw4"
                         active-text="排污口">
                 </el-switch>
                 <el-switch
                         style="display: block"
-                        v-model="valuesw1"
+                        v-model="valuesw5"
                         active-text="取水口">
                 </el-switch>
             </div>
             <div style="padding-right: 37px">
                 <el-switch
                         style="display: block"
-                        v-model="valuesw1"
+                        v-model="valuesw6"
                         active-text="水位">
                 </el-switch>
                 <el-switch
                         style="display: block"
-                        v-model="valuesw1"
+                        v-model="valuesw7"
                         active-text="雨情">
                 </el-switch>
             </div>
             <div style="padding-right: 22px">
                 <el-switch
                         style="display: block"
-                        v-model="valuesw1"
+                        v-model="valuesw8"
                         active-text="水量">
                 </el-switch>
                 <el-switch
                         style="display: block"
-                        v-model="valuesw1"
+                        v-model="valuesw9"
                         active-text="公示牌">
                 </el-switch>
             </div>
@@ -132,58 +134,89 @@
         </div>
     </div>
     <div class="right-bottom">
-        <el-tabs type="border-card">
+        <el-tabs type="border-card" style="transition: 1s;" :class="[{hide: ishide}]">
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-water-cup"></i></span>
                 <span class="card-text">水质</span>
-                <span style="color: #00CED1">I类水质</span>
-                <span style="color: #81d14d">II类水质</span>
-                <span style="color: #d1cd59">III类水质</span>
-                <span style="color: #d1b05d">IV类水质</span>
-                <span style="color: #d17f62">V类水质</span>
-                <span style="color: #d13532">劣V类水质</span>
+                <span style="color: #00CED1">I类水</span>
+                <span style="color: #81d14d">II类水</span>
+                <span style="color: #d1cd59">III类水</span>
+                <span style="color: #d1b05d">IV类水</span>
+                <span style="color: #d17f62">V类水</span>
+                <span style="color: #d13354">劣V类水</span>
             </el-tab-pane>
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-help"></i></span>
                 <span class="card-text">污染源</span>
+                <span><i class="el-icon-help"></i>污染源</span>
             </el-tab-pane>
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-guide"></i> </span>
                 <span class="card-text">水利工程</span>
+                <span><i class="el-icon-coin"></i>水库</span>
+                <span><i class="el-icon-set-up"></i>水闸</span>
+                <span><i class="el-icon-connection"></i>橡胶坝</span>
+                <span><i class="el-icon-cpu"></i>水电站</span>
             </el-tab-pane>
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-picture-outline-round"></i></span>
-                <span class="card-text">生态流量</span>
+                <span class="card-text">公示牌</span>
+                <span class=""><i class="el-icon-picture-outline-round"></i>公示牌</span>
             </el-tab-pane>
             <el-tab-pane>
-                <span slot="label"><i class="el-icon-receiving"></i></span>
-                <span class="card-text">排污口</span>
+                <span slot="label"><i class="el-icon-moon-night"></i></span>
+                <span class="card-text">水质</span>
+                <span style="color: #00CED1">水量不变</span>
+                <span style="color: #81d14d">水量上升</span>
+                <span style="color: #d1cd59">水量下降</span>
+                <span style="color: #d1b05d">黄色预警</span>
+                <span style="color: #d13532">红色预警</span>
             </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-wind-power"></i></span>
-                <span class="card-text">取水口</span>
+            <el-tab-pane class="yuqing">
+                <span slot="label"><i class="el-icon-heavy-rain"></i></span>
+                <span class="card-text">雨情</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #00CED1;float: left;"></i>小雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #81d14d;float: left;"></i>中雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1cd59;float: left;"></i>大雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1b05d;float: left;"></i>暴雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d17f62;float: left;"></i>大暴雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1332d;float: left;"></i>特大暴雨</span>
             </el-tab-pane>
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-ship"></i></span>
                 <span class="card-text">水位</span>
+                <span><i class="el-icon-ship"></i>水位</span>
             </el-tab-pane>
             <el-tab-pane>
-                <span slot="label"><i class="el-icon-heavy-rain"></i></span>
-                <span class="card-text">雨情</span>
+                <span slot="label"><i class="el-icon-wind-power"></i></span>
+                <span class="card-text">取水口</span>
+                <span><i class="el-icon-wind-power"></i>水位</span>
             </el-tab-pane>
             <el-tab-pane>
-                <span slot="label"><i class="el-icon-moon-night"></i></span>
-                <span class="card-text">水量</span>
+                <span slot="label"><i class="el-icon-receiving"></i></span>
+                <span class="card-text">排污口</span>
+                <span class=""><i class="el-icon-receiving"></i>排污口</span>
             </el-tab-pane>
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-data-board"></i></span>
-                <span class="card-text">公示牌</span>
+                <span class="card-text">生态流量</span>
+                <span class=""><i class="el-icon-data-board"></i>生态流量</span>
             </el-tab-pane>
         </el-tabs>
-        <div class="end-clos">
-            <i class="el-icon-close"></i>
+        <div class="end-clos" @click="soh">
+            <i class="el-icon-close" ></i>
         </div>
     </div>
+        <div style="position: fixed;right: 50px;top:100px;display: flex;width: 100px;">
+            <el-select v-model="valuese" placeholder="请选择">
+                <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                </el-option>
+            </el-select>
+        </div>
     </div>
 </template>
 
@@ -197,9 +230,33 @@
                 tags: [
                     {name: '关闭预警', type: ''}
                 ],
-                valuesw1: true,
+                ishide: false,
                 valuesw0: true,
+                valuesw1: true,
+                valuesw2: true,
+                valuesw3: true,
+                valuesw4: true,
+                valuesw5: true,
+                valuesw6: true,
+                valuesw7: true,
+                valuesw8: true,
+                valuesw9: true,
+                isbig: true,
                 radio: '1',
+                valuese: '',
+                options: [
+                    {value: 0, label: "摄影图"},{value: 1,label: "卫星图"}
+                    ],
+            }
+        },
+        methods:{
+            soh(){
+                debugger;
+                if(this.ishide === false){
+                    this.ishide = true;
+                }else {
+                    this.ishide = false
+                }
             }
         }
 
@@ -220,6 +277,18 @@
 </style>
 
 <style scoped lang="less">
+    .hide{
+        width: 0;
+        display: none;
+    }
+    .showq{
+        width: 700px;
+
+    }
+    .yuqing{
+        display: flex;
+    }
+    .yuqing>span{}
     .left-side3-item {
         padding-left: 10px !important;
     }
@@ -321,5 +390,8 @@
         cursor: pointer;
         color: #409EFF !important;
     }
-
+    #map{
+        width: 100%;
+        height: 95vh;
+    }
 </style>

@@ -1,5 +1,8 @@
 let data = {
     pieData1: {
+        grid: {
+            top: '40',
+        },
         legend: {
             type: 'plain',
             orient:

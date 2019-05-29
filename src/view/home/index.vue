@@ -60,13 +60,14 @@
               <el-col>
                 <div id="myEcharts" style="width: 30vw;height: 400px;"></div>
               </el-col>
-              <el-col>
+              <el-col style="position: relative">
                 <div id="myEchartsType" style="width: 30vw;height: 400px;"></div>
+
               </el-col>
             </div>
           </el-tab-pane>
           <el-tab-pane label="生猪污染" name="second">
-           
+
           </el-tab-pane>
           <el-tab-pane label="黑臭水体" name="third">角色管理</el-tab-pane>
         </el-tabs>
@@ -112,7 +113,7 @@
           <a href="#">河道有垃圾</a>
         </div>
         <div>
-          <div id="main"></div>
+          <div id="main"style="width: 300px; height: 450px;"></div>
         </div>
       </div>
       <div class="right-fourth">
@@ -151,7 +152,7 @@
 </template>
 
 <script>
-// import BMap from 'BMap'
+import BMap from 'BMap'
 const data = require("../../../public/data/echartsData.js");
 let echarts = require("echarts");
 export default {
@@ -399,7 +400,7 @@ export default {
       .rf-right {
         display: flex;
         flex-direction: column;
-        border-left: #666 1px solid;
+        border-left: #d9d9d9 1px solid;
         div {
           text-align: right;
         }

@@ -227,7 +227,7 @@
     @border: #ccc 1px solid;
     .left-content1 {
         min-width: 270px;
-        min-height: 800px;
+        min-height: 85vh;
         margin-top: 30px;
         background-color: #fff;
         border-top: 3px solid #2f2bff;
