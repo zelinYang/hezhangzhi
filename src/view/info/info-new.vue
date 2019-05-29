@@ -134,7 +134,13 @@
         </div>
     </div>
     <div class="right-bottom">
-        <el-tabs type="border-card" style="transition: 1s;" :class="[{hide: ishide}]">
+        <div style="transition: 1s;display: flex;" :class="[{hide: ishide}]">
+            <div class="end-clos" @click="soh">
+                <i  v-if="ishide" class="el-icon-d-arrow-left" style=""></i>
+                <i  v-if="!ishide" class="el-icon-d-arrow-right" style=""></i>
+            </div>
+
+        <el-tabs type="border-card" >
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-water-cup"></i></span>
                 <span class="card-text">水质</span>
@@ -203,8 +209,6 @@
                 <span class=""><i class="el-icon-data-board"></i>生态流量</span>
             </el-tab-pane>
         </el-tabs>
-        <div class="end-clos" @click="soh">
-            <i class="el-icon-close" ></i>
         </div>
     </div>
         <div style="position: fixed;right: 50px;top:100px;display: flex;width: 100px;">
@@ -251,12 +255,12 @@
         },
         methods:{
             soh(){
-                debugger;
-                if(this.ishide === false){
-                    this.ishide = true;
-                }else {
-                    this.ishide = false
-                }
+                this.ishide = !this.ishide
+                // if(!){
+                //     this.ishide = true;
+                // }else {
+                //     this.ishide = false
+                // }
             }
         }
 
@@ -278,8 +282,7 @@
 
 <style scoped lang="less">
     .hide{
-        width: 0;
-        display: none;
+        transform: translate(552px);
     }
     .showq{
         width: 700px;
@@ -287,8 +290,14 @@
     }
     .yuqing{
         display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .yuqing>span{}
+    .yuqing>span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .left-side3-item {
         padding-left: 10px !important;
     }
@@ -377,9 +386,13 @@
     }
 
     .end-clos {
-        width: 15px;
+        width: 40px;
         height: 100%;
         background-color: #fff;
+        font-size: 3em;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
     }
 
     .end-clos:hover {
