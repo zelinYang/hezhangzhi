@@ -18,7 +18,7 @@
 
 
         <!--中间-->
-        <el-col :span="17" class="middle-content1">
+        <el-col :span="19" class="middle-content1">
             <div class="middle-first1">
                 <el-radio-group v-model="radio">
                     <el-radio :label="t">已办结</el-radio>
@@ -77,7 +77,7 @@
             <div class="right-fourth1">
                 <div class="aqwe1">
                     事件类型：
-                    <div id="myEchartsPie" style="width: 20rem;height: 400px;"></div>
+                    <div id="myEchartsPie" style="width: 280px;height: 400px;"></div>
                 </div>
             </div>
         </div>
@@ -228,17 +228,18 @@
 <style lang="less" scoped>
     @border: #ccc 1px solid;
     .left-content1 {
-        min-width: 270px;
-        min-height: 800px;
-        margin-top: 30px;
+        width: 280px;
+        min-height: 92vh;
+        margin-top: 10px;
         background-color: #fff;
         border-top: 3px solid #2f2bff;
         padding: 10px;
         margin-left: 10px;
+        margin-right: 10px;
 
         .left-first1 {
             padding-top: 20px;
-            height: 200px;
+            height: 100px;
 
         }
 

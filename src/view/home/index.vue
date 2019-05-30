@@ -279,9 +279,6 @@ export default {
 }
 @bgc: #FFF;
 
-.bottom-second>span{
-
-}
 
 @bgc: #fff;
 @shade: 1px 2px 5px rgb(170, 170, 170);

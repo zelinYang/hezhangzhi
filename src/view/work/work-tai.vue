@@ -4,17 +4,17 @@
             <el-col class="left-content-wrap" :span="24">
                 <el-menu default-active="1-1" background-color="#545c64" text-color="#fff" active-text-color="#000" style="width: 100%;" class="el-menu-vertical-demo">
 
-                    <router-link to="/work/areaEvent">
+                    <router-link to="/work/banli">
                         <el-menu-item index="1-1">
-                            <i class="el-icon-coordinate"></i>
-                            <span>辖区事件</span>
+                            <i class="el-icon-folder"></i>
+                            <span>事件办理</span>
                         </el-menu-item>
                     </router-link>
 
-                    <router-link to="/work/banli">
+                    <router-link to="/work/areaEvent">
                         <el-menu-item index="1-2">
-                            <i class="el-icon-folder"></i>
-                            <span>事件办理</span>
+                            <i class="el-icon-coordinate"></i>
+                            <span>辖区事件</span>
                         </el-menu-item>
                     </router-link>
 
@@ -55,7 +55,7 @@
     .left-content1{
         min-width: 200px;
         margin-right: 10px;
-        min-height: 93vh;
+        min-height: 95vh;
         background-color: #1c1c1c;
         .left-content-wrap{
             height: 90%;
