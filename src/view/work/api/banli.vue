@@ -5,7 +5,9 @@
                 <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="标题">
-                            <el-input v-model="form.title" placeholder="请输入内容"></el-input>
+                            <el-select v-model="form.region" placeholder="请选择">
+
+                            </el-select>
                         </el-form-item>
                         <el-form-item label="类型">
                             <el-select v-model="form.region" placeholder="请选择">
@@ -22,7 +24,12 @@
                             </el-date-picker>
                         </el-form-item>
                     </div>
-                    <div  style="display: flex;justify-content: center;width: 100%;">
+                    <div  style="display: flex;justify-content: space-between;width: 700px;padding: 20px;">
+                        <el-form-item label="类型">
+                            <el-select v-model="form.region" placeholder="请选择">
+                                
+                            </el-select>
+                        </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
                             <el-button type="danger" icon="el-icon-delete">删除</el-button>
