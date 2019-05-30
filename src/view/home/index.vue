@@ -1,5 +1,4 @@
 <template>
-  <div style="display:flex;padding-top:10px">
   <div style="display:flex;padding-top:10px;min-width: 1360px">
     <!-- 左边 -->
     <div class="leftContent">
@@ -194,7 +193,6 @@
 </template>
 
 <script>
-import BMap from 'BMap'
 const data = require("../../../public/data/echartsData.js");
 let echarts = require("echarts");
 export default {
@@ -214,24 +212,24 @@ export default {
       // let cate = data.default.pieData1;
       // // this.rander(myech, cate);
       //底部第一个echarts
-      const myec = document.getElementById("myEcharts");
-      console.log(myec);
-      debugger
-      let cate1 = data.default.cateData;
-      let catea = echarts.init(myec);
-      catea.setOption(cate1);
-      // this.rander(myec, cate1);
-      // 底部第二个echarts
-      const myecType = document.getElementById("myEchartsType");
-      let cate2 = data.default.cateData2;
-      let catea2 = echarts.init(myecType);
-      catea2.setOption(cate2);
+      // const myec = document.getElementById("myEcharts");
+      // console.log(myec);
+      // debugger
+      // let cate1 = data.default.cateData;
+      // let catea = echarts.init(myec);
+      // catea.setOption(cate1);
+      // // this.rander(myec, cate1);
+      // // 底部第二个echarts
+      // const myecType = document.getElementById("myEchartsType");
+      // let cate2 = data.default.cateData2;
+      // let catea2 = echarts.init(myecType);
+      // catea2.setOption(cate2);
 
-      // this.rander(myecType, cate2);
+      // // this.rander(myecType, cate2);
 
-      window.onresize = function () {
-        catea.resize();
-        catea2.resize();
+      // window.onresize = function () {
+      //   catea.resize();
+      //   catea2.resize();
         // .resize后加括号哦，这里还可以写其他的事件
       }
     },
@@ -266,7 +264,6 @@ export default {
     //   map.enableScrollWheelZoom(true);
     //   /* eslint-enable */
     // }
-  },
   mounted() {
     // this.createMap();
     this.getEchartData();
