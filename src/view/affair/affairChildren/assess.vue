@@ -78,7 +78,7 @@
             </el-col>
         </el-col>
         <el-col :span="24" style="height: 30px;background-color: #fff;"></el-col>
-        <el-col class="contennt-fourth" :span="24">
+        <el-col class="contennt-fourth1" :span="24">
             <el-col :span="8">
                 <el-col :span="8">
                     <p style="text-align: center">
@@ -209,10 +209,11 @@
         font-size: 1.3em;
         border-bottom: #ccc 1px solid;
         background-color: @bgc;
+        padding-left: 20px;
     }
     .content-second{
         display: flex;
-        padding: 10px;
+        padding: 20px;
         background-color: @bgc;
         .content-second-first{
             display: flex;
@@ -243,7 +244,7 @@
         }
     }
     .content-third{
-        height: 350px;
+        height: 85vh;
         background-color: @bgc;
         padding: 20px;
         text-align: center;
@@ -287,11 +288,11 @@
             }
         }
         div:nth-child(3) {
-            border-top: #66ff71 3px solid;
+            border-top: #ffdb8c 3px solid;
             box-shadow: @shadow;
             div:nth-child(1){
                 height: 100%;
-                border-top: #66ff71 3px solid;
+                border-top: #ffdb8c 3px solid;
                 border-right: @boder;
                 line-height: 150px;
                 display: flex;
@@ -304,16 +305,15 @@
                 display: flex;
                 align-items: center;
                 padding: 0 20px 0 20px;
-                border-top: #66ff71 3px solid;
+                border-top: #ffdb8c 3px solid;
             }
         }
         div:nth-child(5){
-            border-top: #ff7851 3px solid;
+            border-top: #baffda 3px solid;
             box-shadow: @shadow;
             div:nth-child(1){
-                border-top: #ff7851 3px solid;
+                border-top: #baffda 3px solid;
                 height: 100%;
-                border-top: #ff7851 3px solid;
                 border-right: @boder;
                 line-height: 150px;
                 display: flex;
@@ -326,7 +326,84 @@
                 display: flex;
                 align-items: center;
                 padding: 0 20px 0 20px;
-                border-top: #ff7851 3px solid;
+                border-top: #baffda 3px solid;
+            }
+        }
+    }
+    .contennt-fourth1{
+        padding: 0 20px 0 20px;
+        background-color: @bgc;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        border: @boder;
+        div{
+            height: 100%;
+            border-bottom: 1px solid #eeeeee;
+            border-left: @boder;
+            border-right: @boder;
+        }
+        div:nth-child(1){
+            border-top: #ff8689 3px solid;
+            box-shadow: @shadow;
+            display: flex;
+            div:nth-child(1){
+                height: 100%;
+                border-right: @boder;
+                line-height: 150px;
+                display: flex;
+                flex-direction: column;
+                P{
+                    height: 26px;
+                }
+            }
+            div:nth-child(2){
+                display: flex;
+                align-items: center;
+                padding: 0 20px 0 20px;
+                border-top: #ff8689 3px solid;
+            }
+        }
+        div:nth-child(3) {
+            border-top: #ff475b 3px solid;
+            box-shadow: @shadow;
+            div:nth-child(1){
+                height: 100%;
+                border-top: #ff475b 3px solid;
+                border-right: @boder;
+                line-height: 150px;
+                display: flex;
+                flex-direction: column;
+                P{
+                    height: 26px;
+                }
+            }
+            div:nth-child(2){
+                display: flex;
+                align-items: center;
+                padding: 0 20px 0 20px;
+                border-top: #ff475b 3px solid;
+            }
+        }
+        div:nth-child(5){
+            border-top: #0effbb 3px solid;
+            box-shadow: @shadow;
+            div:nth-child(1){
+                border-top: #0effbb 3px solid;
+                height: 100%;
+                border-right: @boder;
+                line-height: 150px;
+                display: flex;
+                flex-direction: column;
+                P{
+                    height: 26px;
+                }
+            }
+            div:nth-child(2){
+                display: flex;
+                align-items: center;
+                padding: 0 20px 0 20px;
+                border-top: #0effbb 3px solid;
             }
         }
     }

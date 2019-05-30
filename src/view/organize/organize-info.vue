@@ -237,7 +237,7 @@
 
                 userData:{},
 
-                optionse:[],
+                optionse:['无'],
 
                 val: [],
             }
@@ -260,6 +260,9 @@
                 let checkedCount = value.length;
                 this.checkAll = checkedCount === this.cities.length;
                 this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+                if(value.length === 0){
+                    this.checkedCities[0] = '无'
+                }
             },
             // classJ(){
             //     this.iblue = false;
@@ -370,8 +373,8 @@
     @border: #ccc 1px solid;
     .left-content2 {
         min-width: 270px;
-        min-height: 800px;
-        margin-top: 30px;
+        min-height: 92.5vh;
+        margin-top: 10px;
         background-color: #fff;
         border-top: 3px solid #2f2bff;
         padding: 10px;
@@ -466,8 +469,9 @@
 
     }
     .middle-content {
-        margin-top: 30px;
+        margin-top: 10px;
         position: relative;
+
 
         .middle-first{
             display: flex;
@@ -477,6 +481,7 @@
             height: 60px;
             background-color: #f4f4f4;
             position: absolute;padding:10px;
+            box-shadow: @shodow;
         }
 
     }

@@ -1,5 +1,5 @@
 <template>
-  <div style="display:flex;padding-top:30px">
+  <div style="display:flex;padding-top:10px;min-width: 1360px">
     <!-- 左边 -->
     <div class="leftContent">
       <div class="weather">
@@ -21,7 +21,7 @@
           <span>
             <b>今日巡河人数：0</b>
           </span>
-          <span>时间:2019-05-27</span>
+          <span v-text="getdate()">时间:2019-05-27</span>
         </div>
       </div>
       <div class="imag">
@@ -46,9 +46,27 @@
     </div>
     <!-- 中间 -->
     <el-col :span="19" class="center">
-      <div class="m-first">
-        <div id="map"></div>
-        此处放水系地图
+      <div class="m-first" style="position: relative;">
+        <div id="map" style="width: 100%;height: 100%;">
+          <img src="../../../public/img/1.png" alt="" v-if="istrue" style="width: 100%;height: 100%;">
+          <img src="../../../public/img/2.png" alt="" v-if="!istrue" style="width: 100%;height: 100%;">
+        </div>
+        <div style="position: absolute;left: 60px;top: 20px;">
+          <el-radio-group @change="mapChange" v-model="radio123">
+            <el-radio-button label="1">摄影图</el-radio-button>
+            <el-radio-button label="2">卫星图</el-radio-button>
+          </el-radio-group>
+        </div>
+        <div style="width: 100px;position: absolute;left: 40px; top: 80px;">
+          <el-select v-model="value" placeholder="请选择">
+            <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+            </el-option>
+          </el-select>
+        </div>
       </div>
       <div class="m-second" style="padding:20px;margin-top: 10px;">
         <div style="height: 50px;line-height:50px;font-size:1.2em;">
@@ -62,7 +80,17 @@
               </el-col>
               <el-col :span="12" style="position: relative">
                 <div id="myEchartsType" style="width: 25vw;height: 400px;"></div>
-
+                <div style="width: 150px;position: absolute;right: 90px; top: 10px;white-space: nowrap;">
+                  清障类型：
+                  <el-select v-model="value2" placeholder="请选择">
+                    <el-option
+                            v-for="item in options1"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                    </el-option>
+                  </el-select>
+                </div>
               </el-col>
             </div>
           </el-tab-pane>
@@ -110,7 +138,28 @@
               </div>
             </el-col>
           </el-tab-pane>
-          <el-tab-pane label="黑臭水体" name="third">角色管理</el-tab-pane>
+          <el-tab-pane label="黑臭水体" name="third" style="width: 100%;">
+            <div style="display: flex; position: relative; margin-top: 30px;">
+            <div style="display: flex;">
+              <el-col :span="10">
+                <div id="myEchartsPie" style="width: 20vw;height: 400px;"></div>
+              </el-col>
+              <el-col :span="14">
+                <div id="myEchartsLine" style="width: 30vw;height: 400px;"></div>
+              </el-col>
+            </div>
+            <div class="echartsSelect">
+              <label >清障类型：</label>
+              <el-select v-model="value5"  style="width: 140px;" placeholder="请选择">
+                <el-option
+                        v-for="item in options5"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                </el-option>
+              </el-select>
+            </div>
+          </div></el-tab-pane>
         </el-tabs>
       </div>
     </el-col>
@@ -154,7 +203,7 @@
           <a href="#">河道有垃圾</a>
         </div>
         <div>
-          <div id="main" style="width: 300px; height: 450px;"></div>
+          <div id="main" style="min-width: 200px; height: 300px;"></div>
         </div>
       </div>
       <div class="right-fourth">
@@ -193,7 +242,7 @@
 </template>
 
 <script>
-import BMap from 'BMap'
+  // import BMap from 'BMap'
 const data = require("../../../public/data/echartsData.js");
 let echarts = require("echarts");
 export default {
@@ -202,20 +251,104 @@ export default {
     return {
       activeName1: "first",
       activeName2: "first",
-      activeName3: "first"
+      activeName3: "first",
+      radio123: '1',
+      istrue: true,
+      value: '',
+      options: [
+        {
+          label: '水质',
+          value: 1
+        },
+        {
+          label: '污染源',
+          value: 2
+        },
+        {
+          label: '水利工程',
+          value: 3
+        },
+        {
+          label: '生态流量',
+          value: 5
+        },
+        {
+          label: '取水口',
+          value: 6
+        },
+        {
+          label: '排污口',
+          value: 7
+        },
+        {
+          label: '水量',
+          value: 8
+        },
+        {
+          label: '雨情',
+          value: 9
+        },
+        {
+          label: '水位',
+          value: 10
+        },
+        {
+          label: '公示牌',
+          value: 11
+        },
+      ],
+      value2: '',
+      options1:[
+        {
+          label: '违章建筑',
+          value: 1
+        },
+        {
+          label: '餐饮、娱乐等',
+          value: 2
+        },
+        {
+          label: '弃土废渣等',
+          value: 3
+        },
+        {
+          label: '违章建筑',
+          value: 4
+        },
+        {
+          label: '洗沙治沙等',
+          value: 5
+        }
+      ],
+      value5: '',
+      options5: [
+        {
+          label: '前期整治',
+          value: 1,
+        },
+        {
+          label: '实施整治',
+          value: 2,
+        },
+        {
+          label: '完工整治',
+          value: 3,
+        },
+      ]
     };
   },
   methods: {
     handleClick() {},
     getEchartData() {
       // 右边第一个
-      // const myech = document.getElementById("main");
-      // let cate = data.default.pieData1;
-      // // this.rander(myech, cate);
+      const myech = document.getElementById("main");
+      let cate = data.default.pieData1;
+      // this.rander(myech, cate);
+      let myecha = echarts.init(myech);
+      myecha.setOption(cate);
       //底部第一个echarts
       const myec = document.getElementById("myEcharts");
       console.log(myec);
-      debugger
       let cate1 = data.default.cateData;
       let catea = echarts.init(myec);
       catea.setOption(cate1);
@@ -226,25 +359,43 @@ export default {
       let catea2 = echarts.init(myecType);
       catea2.setOption(cate2);
 
+
+      const ecpie = document.getElementById('myEchartsPie')
+      let ecData = data.default.pieData2;
+      let ecInit = echarts.init(ecpie);
+      ecInit.setOption(ecData);
+
+
+      const ecline = document.getElementById('myEchartsLine')
+      let ecData1 = data.default.lineData;
+      let ecInit1 = echarts.init(ecline);
+      ecInit1.setOption(ecData1);
       // this.rander(myecType, cate2);
 
       window.onresize = function () {
         catea.resize();
         catea2.resize();
+        myecha.resize();
+        ecInit.resize();
+        ecInit1.resize();
         // .resize后加括号哦，这里还可以写其他的事件
       }
     },
-
+    mapChange(i){
+      console.log(i)
+      if(i === '1'){
+        this.istrue = true;
+      }else {
+        this.istrue = false;
+      }
+      console.log(this.istrue)
+    },
     // 渲染
     // rander(el, option) {
     //   // 初始化
     //   let echart = echarts.init(el);
     //   // 渲染
     //   echart.setOption(option);
-    //   window.onresize = function () {
-    //     echart.resize();
-    //     // .resize后加括号哦，这里还可以写其他的事件
-    //   }
     //
     // },
 
@@ -265,6 +416,14 @@ export default {
     //   map.enableScrollWheelZoom(true);
     //   /* eslint-enable */
     // }
+    getdate(){
+      const date = new Date();
+      let YY = date.getFullYear();
+      let MM = date.getMonth() < 10? `0${date.getMonth() + 1}` :  date.getMonth() + 1;
+      let DD = date.getDate() < 10? `0${date.getDate()}` :  date.getDate()
+
+      return `时间：${YY}-${MM}-${DD}`
+    }
   },
   mounted() {
     // this.createMap();
@@ -297,7 +456,7 @@ export default {
 }
 .center {
   min-height: 85vh;
-  min-width: 400px;
+  min-width: 886px;
 }
 
 .leftContent {
@@ -367,6 +526,7 @@ export default {
         height: 25px;
         display: flex;
         padding: 0;
+        white-space: nowrap;
         justify-content: space-around;
         span {
           i {
@@ -476,7 +636,7 @@ export default {
 .center {
   .m-first {
     width: 100%;
-    min-height: 600px;
+    height: 600px;
     box-shadow: @shade;
     background-color: #fff;
   }

@@ -97,14 +97,14 @@
                 options: [
                     {
                         value: 2018,
-                        label: 2018
+                        label: '2018年'
                     },
                     {
                         value: 2019,
-                        label: 2019
+                        label: '2019年'
                     }, {
                         value: 2020,
-                        label: 2020
+                        label: '2020年'
                     }
                 ],
                 value: 2019,
@@ -112,14 +112,14 @@
                 options2: [
                     {
                         value: 1 - 8,
-                        label: '1-8'
+                        label: '1-8月'
                     },
                     {
                         value: 1 - 9,
-                        label: '1-9'
+                        label: '1-9月'
                     }, {
                         value: 1 - 10,
-                        label: '1-10'
+                        label: '1-10月'
                     }
                 ],
                 value2: 1 - 8,
@@ -162,9 +162,10 @@
             display: flex;
             padding: 0 10px 0 10px;
             justify-content: space-between;
-
+            white-space: nowrap;
             span {
                 color: #8c939d;
+                white-space: nowrap;
             }
         }
     }

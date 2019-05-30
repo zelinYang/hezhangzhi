@@ -3,10 +3,9 @@ module.exports = {
   devServer: {
     proxy: 'https://v2.yingmen.vip/'
   },
-  configureWebpack: {
-    externals: {
-      "BMap": "BMap"
-    }
-  }
-}
+  // externals: {
+  //   "BMap": "BMap"
+  //
+  // }
+};
 
