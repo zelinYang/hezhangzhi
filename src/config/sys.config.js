@@ -4,7 +4,7 @@ export default {
     ver: '1.2',
 
     menu: [
-        {title: '首页', url: '/', icon: 'el-icon-house'},
+        {title: '首页', url: '/index', icon: 'el-icon-house'},
         {title: '实时信息', url: '/info', icon: 'el-icon-timer'},
     ],
     menu2: [

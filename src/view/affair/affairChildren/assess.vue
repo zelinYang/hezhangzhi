@@ -244,7 +244,7 @@
         }
     }
     .content-third{
-        height: 85vh;
+        height: 30vh;
         background-color: @bgc;
         padding: 20px;
         text-align: center;

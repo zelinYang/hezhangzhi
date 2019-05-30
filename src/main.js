@@ -52,8 +52,10 @@ import 'font-awesome/css/font-awesome.min.css';
 require('./mock');
 
 
-// 
+//
 Vue.config.productionTip = false
+
+Vue.$router = router;
 
 
 new Vue({
