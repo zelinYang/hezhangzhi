@@ -13,10 +13,7 @@
 <!--                </el-col>-->
 <!--            </el-col>-->
             <table border="0" class="table-top">
-                <tr v-for="row in tableData">
-                    <td v-for="item in row.col">{{item.title}}</td>
-                    <td v-for="item in row.col">{{item.value}}</td>
-                </tr>
+
             </table>
         </el-col>
         <el-col :span="24" class="content-second">
@@ -47,84 +44,7 @@
                 options1: [],
                 value1: '',
                 input123: '',
-                tableData: [
-                    {
-                        col: [
-                            {
-                                title: '事件编号',
-                                value: '事件流域'
-                            },
-                            {
-                                title: '201905020001',
-                                value: '城中区'
-                            },
-                            {
-                                title: '事发地点',
-                                value: '河段名称'
-                            },
-                            {
-                                title: '广西壮族自治区柳州市柳北区广雅路16柳州市中燃综合服务大厅',
-                                value: ''
-                            },
-                        ]
-                    },
-                    {
-                        col: [
-                            {
-                                title: '所属流域',
-                                value: '事件来源'
-                            },
-                            {
-                                title: '西江',
-                                value: '河长上报'
-                            },
-                            {
-                                title: '事件类型',
-                                value: '上报人'
-                            },
-                            {
-                                title: '水面异常，侵占河道',
-                                value: '管理员'
-                            },
-                        ]
-                    },
-                    {
-                        col: [
-                            {
-                                title: '上报时间',
-                                value: '联系方式'
-                            },
-                            {
-                                title: '2019-05-20 20:25',
-                                value: '10086111'
-                            },
-                        ]
-                    },
-                    {
-                        col: [
-                            {
-                                title: '事件内容',
-                                value: '测试'
-                            }
-                        ]
-                    },
-                    {
-                        col: [
-                            {
-                                title: '事件图片',
-                                value: ''
-                            }
-                        ]
-                    },
-                    {
-                        col: [
-                            {
-                                title: '事件视频',
-                                value: ''
-                            }
-                        ]
-                    },
-                ]
+                tableData: []
 
             }
         },

@@ -147,7 +147,7 @@
                 this.dialogFormVisible = true
 
             },
-            handleDelete(index,row){},
+            handleDelete(index,row){this.tableData.splice(index,1)},
 
 
             handleSizeChange3(){},
