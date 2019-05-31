@@ -584,7 +584,7 @@
 
             },
             handleDelete(index,row){
-                console.log(index,row)
+                console.log(index,row);
                 this.dialogFormVisible = true
             },
 
