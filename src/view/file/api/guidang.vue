@@ -1,7 +1,7 @@
 <template>
     <div style="">
         <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
-            <div  style="display: flex;padding: 20px;;">
+            <div  style="display: flex;padding: 20px;position: relative;">
                 <el-form-item label="标题">
                     <el-input v-model="form.title" placeholder="请输入内容"></el-input>
                 </el-form-item>
@@ -19,13 +19,17 @@
                             default-value="2010-10-01">
                     </el-date-picker>
                 </el-form-item>
-            </div>
-            <div  style="display: flex;justify-content: center;width: 100%;">
-                <el-form-item>
+                <el-form-item style="position: absolute;right: 20px">
                     <el-button type="primary" icon="el-icon-search">搜索</el-button>
                     <el-button type="danger" icon="el-icon-delete">删除</el-button>
                 </el-form-item>
             </div>
+<!--            <div  style="display: flex;justify-content: center;width: 100%;">-->
+<!--                <el-form-item>-->
+<!--                    <el-button type="primary" icon="el-icon-search">搜索</el-button>-->
+<!--                    <el-button type="danger" icon="el-icon-delete">删除</el-button>-->
+<!--                </el-form-item>-->
+<!--            </div>-->
 
         </el-form>
 
@@ -50,10 +54,10 @@
                 </el-table-column>
                 <el-table-column
                         prop="type"
-                        label="类别"
-                        width="250">
+                        label="类别">
                 </el-table-column>
-                <el-table-column label="操作" style="display: flex">
+                <el-table-column
+                        width="250" label="操作" style="display: flex">
                     <template slot-scope="scope">
                         <el-button
                                 size="mini"

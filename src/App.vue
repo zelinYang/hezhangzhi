@@ -68,7 +68,6 @@
 				<!-- 我的 -->
 				<el-submenu index="my" style="float: right;">
 					<template slot="title">{{userName}}</template>
-					<el-menu-item index="/system/myinfo">设置</el-menu-item>
 					<el-menu-item index="/system/passwd">密码修改</el-menu-item>
 					<el-menu-item index="" @click="Logout()">注销登录</el-menu-item>
 				</el-submenu>

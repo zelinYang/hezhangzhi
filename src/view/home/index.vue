@@ -32,7 +32,60 @@
       </div>
       <div class="news" style="display:flex;justify-content: center;">
         <el-tabs style="width:90%" v-model="activeName1" @tab-click="handleClick">
-          <el-tab-pane label="工作动态" name="first">工作动态</el-tab-pane>
+          <el-tab-pane label="工作动态" class="tabFirst" name="first">
+            <div>
+              <i class="el-icon-caret-right"></i>
+              <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
+              <span>03-27</span>
+            </div>
+            <el-tooltip class="item" effect="dark" content="市级河长徐新民巡视如海河" placement="top-end">
+            <div>
+              <i class="el-icon-caret-right"></i>
+              <div>市级河长徐新民巡视如海河</div>
+              <span>03-29</span>
+            </div>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路" placement="top-end">
+            <div>
+              <i class="el-icon-caret-right"></i>
+              <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
+              <span>03-31</span>
+            </div>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展" placement="top-end">
+            <div>
+              <i class="el-icon-caret-right"></i>
+              <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
+              <span>04-02</span>
+            </div>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
+            <div>
+              <i class="el-icon-caret-right"></i>
+              <div>省纪委副书记江里程一行来海安视察清水工程建设</div>
+              <span>04-06</span>
+            </div>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
+            <div>
+              <i class="el-icon-caret-right"></i>
+              <div>三江县八江乡唐水村通过清水工程达标村验收</div>
+              <span>04-10</span>
+            </div>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定" placement="top-end">
+              <div>
+
+                <i class="el-icon-caret-right"></i>
+                <div>关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定</div>
+                <span>04-11</span>
+
+              </div>
+            </el-tooltip>
+            <div>
+              <span style="color: #2f2bff">查看更多>></span>
+            </div>
+          </el-tab-pane>
           <el-tab-pane label="工作简报" name="second">工作简报</el-tab-pane>
           <el-tab-pane label="媒体聚焦" name="third">媒体聚焦</el-tab-pane>
         </el-tabs>
@@ -434,6 +487,28 @@
 </script>
 
 <style scoped lang="less">
+  .tabFirst>div{
+    display: flex;
+    height: 40px;
+    position: relative;
+    align-items: center;
+  }
+  .tabFirst>div:hover{
+    color: #1793e6 !important;
+  }
+  .tabFirst>div:hover>span{
+    color: #1793e6 !important;
+  }
+  .tabFirst>div>span{
+    position: absolute;
+    right: 10px;
+    color: #cccccc;
+  }
+  .tabFirst>div>div{
+    width: 220px;
+    height: 23px;
+    overflow :hidden
+  }
   #main {
     height: 450px;
     width: 300px;
