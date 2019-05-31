@@ -4,15 +4,17 @@
             <el-tab-pane label="上报事件">
                 <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
-                        <el-form-item label="标题">
-                            <el-input v-model="form.title" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                        <el-form-item label="类型">
+                        <el-form-item label="行政区域">
                             <el-select v-model="form.region" placeholder="请选择">
 
                             </el-select>
                         </el-form-item>
-                        <el-form-item label="发布时间">
+                        <el-form-item label="事件来源">
+                            <el-select v-model="form.region" placeholder="请选择">
+
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item label="上报时间">
                             <el-date-picker
                                     v-model="form.date2"
                                     type="daterange"
@@ -22,7 +24,12 @@
                             </el-date-picker>
                         </el-form-item>
                     </div>
-                    <div  style="display: flex;justify-content: center;width: 100%;">
+                    <div  style="display: flex;justify-content: space-between;width: 700px;padding: 20px;">
+                        <el-form-item label="事件类型">
+                            <el-select v-model="form.region" placeholder="请选择">
+
+                            </el-select>
+                        </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
                             <el-button type="danger" icon="el-icon-delete">删除</el-button>
@@ -37,22 +44,16 @@
                             :data="tableData"
                             style="width: 100%">
                         <el-table-column
-                                prop="num"
-                                label="序号"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
-                                prop="title"
-                                label="标题"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
                                 prop="time"
-                                label="发布时间">
+                                label="上报时间">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="地址">
                         </el-table-column>
                         <el-table-column
                                 prop="type"
-                                label="类别"
+                                label="事件类型"
                                 width="250">
                         </el-table-column>
                         <el-table-column label="操作" style="display: flex">
@@ -105,15 +106,17 @@
             <el-tab-pane label="专管员处理事件">
                 <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
-                        <el-form-item label="标题">
-                            <el-input v-model="form.title" placeholder="请输入内容"></el-input>
-                        </el-form-item>
-                        <el-form-item label="类型">
+                        <el-form-item label="行政区域">
                             <el-select v-model="form.region" placeholder="请选择">
 
                             </el-select>
                         </el-form-item>
-                        <el-form-item label="发布时间">
+                        <el-form-item label="事件来源">
+                            <el-select v-model="form.region" placeholder="请选择">
+
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item label="上报时间">
                             <el-date-picker
                                     v-model="form.date2"
                                     type="daterange"
@@ -123,7 +126,12 @@
                             </el-date-picker>
                         </el-form-item>
                     </div>
-                    <div  style="display: flex;justify-content: center;width: 100%;">
+                    <div  style="display: flex;justify-content: space-between;width: 98%;padding: 20px;">
+                        <el-form-item label="事件类型">
+                            <el-select v-model="form.region" placeholder="请选择">
+
+                            </el-select>
+                        </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
                             <el-button type="danger" icon="el-icon-delete">删除</el-button>
@@ -138,22 +146,16 @@
                             :data="tableData"
                             style="width: 100%">
                         <el-table-column
-                                prop="num"
-                                label="序号"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
-                                prop="title"
-                                label="标题"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
                                 prop="time"
-                                label="发布时间">
+                                label="上报时间">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="地址">
                         </el-table-column>
                         <el-table-column
                                 prop="type"
-                                label="类别"
+                                label="事件类型"
                                 width="250">
                         </el-table-column>
                         <el-table-column label="操作" style="display: flex">
@@ -222,7 +224,8 @@
                         num: 0,
                         title: '哈哈哈哈哈',
                         time: '2019-05-17',
-                        type: 'news'
+                        type: 'news',
+                        address: '广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园',
                     }
                 ],
                 form: {
