@@ -43,8 +43,8 @@
                 事件状态
             </div>
 
-            <div class="right-third1">
-                <div style="width: 70%;display:flex;justify-content: space-between;">
+            <div style="height: 100px" class="right-third1">
+                <div style="width: 98%;display:flex;justify-content: space-between;">
                     <span>未办结0%(0件)</span>
                     <span>已办结0%(0件)</span>
                 </div>
@@ -54,13 +54,13 @@
                 <div class="aqwe1">
                     事件来源：
                 </div>
-                <div class="right-third1">
-                    <div style="width: 70%;display:flex;justify-content: space-between;">
+                <div class="" style="">
+                    <div style="width: 98%;display:flex;justify-content: space-between;">
                         <span>河长上报0%(0件)</span>
                     </div>
                     <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
                 </div>
-                <div class="right-third1">
+                <div class="right-third1;">
                     <div style="width: 70%;display:flex;justify-content: space-between;">
                         <span>河长办上报0%(0件)</span>
                     </div>
@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="right-fourth1">
+            <div style="margin-top: 30px;" class="right-fourth1">
                 <div class="aqwe1">
                     事件类型：
                     <div id="myEchartsPie" style="width: 280px;height: 400px;"></div>
@@ -288,11 +288,9 @@
             line-height: 40px;
             padding: @padding;
         }
-
         .right-third1 {
-            height: 70px;
             justify-content: space-between;
-
+            height: 200px;
             div {
                 padding: 0 20px 0 20px;
                 display: flex;

@@ -33,49 +33,36 @@
       <div class="news" style="display:flex;justify-content: center;">
         <el-tabs style="width:90%" v-model="activeName1" @tab-click="handleClick">
           <el-tab-pane label="工作动态" class="tabFirst" name="first">
-              <el-tooltip class="item" effect="dark" content="海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）" placement="top-end">
               <div @click="newclick">
               <i class="el-icon-caret-right"></i>
               <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
               <span>03-27</span>
             </div>
-              </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="市级河长徐新民巡视如海河" placement="top-end">
             <div @click="newclick">
               <i class="el-icon-caret-right"></i>
               <div>市级河长徐新民巡视如海河</div>
               <span>03-29</span>
             </div>
-            </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路" placement="top-end">
             <div @click="newclick">
               <i class="el-icon-caret-right"></i>
               <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
               <span>03-31</span>
             </div>
-            </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展" placement="top-end">
             <div @click="newclick">
               <i class="el-icon-caret-right"></i>
               <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
               <span>04-02</span>
             </div>
-            </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
             <div @click="newclick">
               <i class="el-icon-caret-right"></i>
               <div>省纪委副书记江里程一行来海安视察清水工程建设</div>
               <span>04-06</span>
             </div>
-            </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
             <div @click="newclick">
               <i class="el-icon-caret-right"></i>
               <div>三江县八江乡唐水村通过清水工程达标村验收</div>
               <span>04-10</span>
             </div>
-            </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定" placement="top-end">
               <div @click="newclick">
 
                 <i class="el-icon-caret-right"></i>
@@ -83,119 +70,90 @@
                 <span>04-11</span>
 
               </div>
-            </el-tooltip>
             <div>
               <span style="color: #2f2bff">查看更多>></span>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="工作简报" name="second">
-              <el-tooltip class="item" effect="dark" content="海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
-                      <span>03-27</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="市级河长徐新民巡视如海河" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>市级河长徐新民巡视如海河</div>
-                      <span>03-29</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
-                      <span>03-31</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
-                      <span>04-02</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>省纪委副书记江里程一行来海安视察清水工程建设</div>
-                      <span>04-06</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>三江县八江乡唐水村通过清水工程达标村验收</div>
-                      <span>04-10</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定" placement="top-end">
-                  <div @click="newclick">
+          <el-tab-pane label="工作简报" class="tabFirst" name="second">
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
+                  <span>03-27</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>市级河长徐新民巡视如海河</div>
+                  <span>03-29</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
+                  <span>03-31</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
+                  <span>04-02</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>省纪委副书记江里程一行来海安视察清水工程建设</div>
+                  <span>04-06</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>三江县八江乡唐水村通过清水工程达标村验收</div>
+                  <span>04-10</span>
+              </div>
+              <div @click="newclick">
 
-                      <i class="el-icon-caret-right"></i>
-                      <div>关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定</div>
-                      <span>04-11</span>
+                  <i class="el-icon-caret-right"></i>
+                  <div>关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定</div>
+                  <span>04-11</span>
 
-                  </div>
-              </el-tooltip>
+              </div>
               <div>
                   <span style="color: #2f2bff">查看更多>></span>
               </div>
           </el-tab-pane>
-          <el-tab-pane label="媒体聚焦" name="third">
-              <el-tooltip class="item" effect="dark" content="海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
-                      <span>03-27</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="市级河长徐新民巡视如海河" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>市级河长徐新民巡视如海河</div>
-                      <span>03-29</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
-                      <span>03-31</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
-                      <span>04-02</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>省纪委副书记江里程一行来海安视察清水工程建设</div>
-                      <span>04-06</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="三江县八江乡唐水村通过清水工程达标村验收" placement="top-end">
-                  <div @click="newclick">
-                      <i class="el-icon-caret-right"></i>
-                      <div>三江县八江乡唐水村通过清水工程达标村验收</div>
-                      <span>04-10</span>
-                  </div>
-              </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定" placement="top-end">
-                  <div @click="newclick">
+          <el-tab-pane label="媒体聚焦" class="tabFirst" name="third">
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
+                  <span>03-27</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>市级河长徐新民巡视如海河</div>
+                  <span>03-29</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
+                  <span>03-31</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
+                  <span>04-02</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>省纪委副书记江里程一行来海安视察清水工程建设</div>
+                  <span>04-06</span>
+              </div>
+              <div @click="newclick">
+                  <i class="el-icon-caret-right"></i>
+                  <div>三江县八江乡唐水村通过清水工程达标村验收</div>
+                  <span>04-10</span>
+              </div>
+              <div @click="newclick">
 
-                      <i class="el-icon-caret-right"></i>
-                      <div>关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定</div>
-                      <span>04-11</span>
+                  <i class="el-icon-caret-right"></i>
+                  <div>关于对清水工程长效管理工作不力县实施摘牌和通报批评的决定</div>
+                  <span>04-11</span>
 
-                  </div>
-              </el-tooltip>
+              </div>
               <div>
                   <span style="color: #2f2bff">查看更多>></span>
               </div>
@@ -264,8 +222,8 @@
     <el-col :span="19" class="center">
       <div class="m-first" style="position: relative;">
         <div id="map" style="width: 100%;height: 100%;">
-          <img src="../../../public/img/1.png" alt="" v-if="istrue" style="width: 100%;height: 100%;">
-          <img src="../../../public/img/2.png" alt="" v-if="!istrue" style="width: 100%;height: 100%;">
+<!--          <img src="../../../public/img/1.png" alt="" v-if="istrue" style="width: 100%;height: 100%;">-->
+<!--          <img src="../../../public/img/2.png" alt="" v-if="!istrue" style="width: 100%;height: 100%;">-->
         </div>
         <div style="position: absolute;left: 60px;top: 20px;">
           <el-radio-group @change="mapChange" v-model="radio123">
@@ -273,7 +231,7 @@
             <el-radio-button label="2">卫星图</el-radio-button>
           </el-radio-group>
         </div>
-        <div style="width: 100px;position: absolute;left: 40px; top: 80px;">
+        <div style="width: 100px;position: absolute;left: 60px; top: 80px;">
           <el-select v-model="value" placeholder="请选择">
             <el-option
                     v-for="item in options"
@@ -458,7 +416,8 @@
 </template>
 
 <script>
-  // import BMap from 'BMap'
+    // const BMap = require('BMap');
+    // import BMap from 'BMap'
   const data = require("../../../public/data/echartsData.js");
   let echarts = require("echarts");
   export default {
@@ -628,22 +587,22 @@
       // },
 
 
-      // createMap() {
-      //   /* eslint-disable */
-      //   // 创建Map实例
-      //   var map = new BMap.Map("map");
-      //   // 初始化地图,设置中心点坐标和地图级别
-      //   map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
-      //   //添加地图类型控件
-      //   //   map.addControl(new BMap.MapTypeControl({
-      //   //     mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
-      //   //   }))
-      //   // 设置地图显示的城市 此项是必须设置的
-      //   map.setCurrentCity("北京");
-      //   //开启鼠标滚轮缩放
-      //   map.enableScrollWheelZoom(true);
-      //   /* eslint-enable */
-      // }
+      createMap() {
+        /* eslint-disable */
+        // 创建Map实例
+        var map = new BMap.Map("map");
+        // 初始化地图,设置中心点坐标和地图级别
+        map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
+        //添加地图类型控件
+          map.addControl(new BMap.MapTypeControl({
+              mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+          }));
+        // 设置地图显示的城市 此项是必须设置的
+        map.setCurrentCity("柳州");
+        //开启鼠标滚轮缩放
+        map.enableScrollWheelZoom(true);
+        /* eslint-enable */
+      },
       getdate(){
         const date = new Date();
         let YY = date.getFullYear();
@@ -664,7 +623,7 @@
         }
     },
     mounted() {
-      // this.createMap();
+      this.createMap();
       this.getEchartData();
       console.log(data.default.cateData);
     }
