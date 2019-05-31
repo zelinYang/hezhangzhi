@@ -216,22 +216,16 @@
                             :data="tableData"
                             style="width: 100%">
                         <el-table-column
-                                prop="num"
-                                label="序号"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
-                                prop="title"
-                                label="标题"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
                                 prop="time"
-                                label="发布时间">
+                                label="上报时间">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="地址">
                         </el-table-column>
                         <el-table-column
                                 prop="type"
-                                label="类别"
+                                label="事件类型"
                                 width="250">
                         </el-table-column>
                         <el-table-column label="操作" style="display: flex">
@@ -394,22 +388,16 @@
                             :data="tableData"
                             style="width: 100%">
                         <el-table-column
-                                prop="num"
-                                label="序号"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
-                                prop="title"
-                                label="标题"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
                                 prop="time"
-                                label="发布时间">
+                                label="上报时间">
+                        </el-table-column>
+                        <el-table-column
+                                prop="address"
+                                label="地址">
                         </el-table-column>
                         <el-table-column
                                 prop="type"
-                                label="类别"
+                                label="事件类型"
                                 width="250">
                         </el-table-column>
                         <el-table-column label="操作" style="display: flex">
