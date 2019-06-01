@@ -104,7 +104,6 @@
         padding: 35px;
         box-shadow: @shodow;
         background-color: #fff;
-        margin-top: 30px;
         div{
             .top-left{
                 i{

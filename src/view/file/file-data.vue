@@ -108,7 +108,6 @@
     }
     .left-content-wrap .el-menu-item.is-active { background-color: #fff !important; color: #333 !important; }
     .right-content{
-        margin-top: 30px;
         padding: 30px;
         background-color: #fff;
 

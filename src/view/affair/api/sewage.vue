@@ -181,7 +181,7 @@
 <style scoped lang="less">
     .echartsSelect{
         position: absolute;
-        top: 0px;
+        top: 0;
         right: 10px;
     }
 </style>

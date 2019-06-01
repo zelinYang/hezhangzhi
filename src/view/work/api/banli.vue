@@ -1,7 +1,12 @@
 <template>
     <div style="">
+        <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>工作台</el-breadcrumb-item>
+            <el-breadcrumb-item>事件办理</el-breadcrumb-item>
+        </el-breadcrumb>
         <el-tabs type="border-card">
-            <el-tab-pane label="代办事件">
+            <el-tab-pane label="待办事件">
                 <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
@@ -701,7 +706,11 @@
 
     }
 </script>
-
+<style>
+    .right-content[data-v-4337a3cd]{
+        margin-top: 0;
+    }
+</style>
 <style scoped lang="less">
     @shodow: -1px -1px 5px #ccc;
     @border: 0;
@@ -745,7 +754,6 @@
         }
     }
     .right-content{
-        margin-top: 30px;
         background-color: #fdfdfd;
         border: 0;
         box-shadow: @shodow;

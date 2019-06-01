@@ -1,4 +1,9 @@
 <template>
+    <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>工作台</el-breadcrumb-item>
+        <el-breadcrumb-item>辖区事件</el-breadcrumb-item>
+    </el-breadcrumb>
     <div style="">
         <el-tabs type="border-card">
             <el-tab-pane label="上报事件">
@@ -305,7 +310,6 @@
         }
     }
     .right-content{
-        margin-top: 30px;
         background-color: #fdfdfd;
         border: 0;
         box-shadow: @shodow;

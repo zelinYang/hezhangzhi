@@ -1,5 +1,10 @@
 <template>
     <div style="">
+        <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>资料文件</el-breadcrumb-item>
+            <el-breadcrumb-item>工作方案</el-breadcrumb-item>
+        </el-breadcrumb>
         <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
             <div  style="display: flex;padding: 20px;position: relative;">
                 <el-form-item label="标题">
@@ -199,7 +204,6 @@
         }
     }
     .right-content{
-        margin-top: 30px;
         background-color: #fdfdfd;
         border: 0;
         box-shadow: @shodow;
