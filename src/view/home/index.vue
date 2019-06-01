@@ -231,16 +231,16 @@
 <!--            <el-radio-button label="2">卫星图</el-radio-button>-->
 <!--          </el-radio-group>-->
 <!--        </div>-->
-<!--        <div style="width: 100px;position: absolute;left: 60px; top: 80px;">-->
-<!--          <el-select v-model="value" placeholder="请选择">-->
-<!--            <el-option-->
-<!--                    v-for="item in options"-->
-<!--                    :key="item.value"-->
-<!--                    :label="item.label"-->
-<!--                    :value="item.value">-->
-<!--            </el-option>-->
-<!--          </el-select>-->
-<!--        </div>-->
+        <div style="width: 100px;position: absolute;left: 60px; top: 80px;">
+          <el-select v-model="value" placeholder="请选择">
+            <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+            </el-option>
+          </el-select>
+        </div>
       </div>
       <div class="m-second" style="padding:20px;margin-top: 10px;">
         <div style="height: 50px;line-height:50px;font-size:1.2em;">
