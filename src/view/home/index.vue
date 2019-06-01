@@ -225,22 +225,22 @@
 <!--          <img src="../../../public/img/1.png" alt="" v-if="istrue" style="width: 100%;height: 100%;">-->
 <!--          <img src="../../../public/img/2.png" alt="" v-if="!istrue" style="width: 100%;height: 100%;">-->
         </div>
-        <div style="position: absolute;left: 60px;top: 20px;">
-          <el-radio-group @change="mapChange" v-model="radio123">
-            <el-radio-button label="1">摄影图</el-radio-button>
-            <el-radio-button label="2">卫星图</el-radio-button>
-          </el-radio-group>
-        </div>
-        <div style="width: 100px;position: absolute;left: 60px; top: 80px;">
-          <el-select v-model="value" placeholder="请选择">
-            <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-            </el-option>
-          </el-select>
-        </div>
+<!--        <div style="position: absolute;left: 60px;top: 20px;">-->
+<!--          <el-radio-group @change="mapChange" v-model="radio123">-->
+<!--            <el-radio-button label="1">摄影图</el-radio-button>-->
+<!--            <el-radio-button label="2">卫星图</el-radio-button>-->
+<!--          </el-radio-group>-->
+<!--        </div>-->
+<!--        <div style="width: 100px;position: absolute;left: 60px; top: 80px;">-->
+<!--          <el-select v-model="value" placeholder="请选择">-->
+<!--            <el-option-->
+<!--                    v-for="item in options"-->
+<!--                    :key="item.value"-->
+<!--                    :label="item.label"-->
+<!--                    :value="item.value">-->
+<!--            </el-option>-->
+<!--          </el-select>-->
+<!--        </div>-->
       </div>
       <div class="m-second" style="padding:20px;margin-top: 10px;">
         <div style="height: 50px;line-height:50px;font-size:1.2em;">
@@ -254,7 +254,7 @@
               </el-col>
               <el-col :span="12" style="position: relative">
                 <div id="myEchartsType" style="width: 25vw;height: 400px;"></div>
-                <div style="width: 150px;position: absolute;right: 90px; top: 10px;white-space: nowrap;">
+                <div style="width: 142px;position: absolute;right: 90px; top: 0;white-space: nowrap;">
                   清障类型：
                   <el-select v-model="value2" placeholder="请选择">
                     <el-option
@@ -650,7 +650,7 @@
     color: #cccccc;
   }
   .tabFirst>div>div{
-    width: 220px;
+    width: 72%;
     height: 23px;
     overflow :hidden
   }
