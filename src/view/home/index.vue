@@ -163,53 +163,53 @@
       <div class="news" style="display:flex;justify-content: center;">
         <el-tabs style="width:90%" v-model="activeName2" @tab-click="handleClick">
           <el-tab-pane label="星级河长" class="tabFirst" name="first">
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
           </el-tab-pane>
           <el-tab-pane label="星级专管员" class="tabFirst" name="second">
-              <div @click="dialogVisible=true">
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
-              <div>
+              <div @click="startsClick">
                   <div>管理员</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
@@ -231,7 +231,7 @@
 <!--            <el-radio-button label="2">卫星图</el-radio-button>-->
 <!--          </el-radio-group>-->
 <!--        </div>-->
-        <div style="width: 100px;position: absolute;left: 60px; top: 80px;">
+        <div style="width: 100px;position: absolute;left: 60px; top: 60px;">
           <el-select v-model="value" placeholder="请选择">
             <el-option
                     v-for="item in options"
@@ -345,24 +345,24 @@
         </div>柳州市主要河流水质类型分布情况：（2019年-第0周）
         <div class="right-firstd">
           <div>
-            <span>
+            <span @click="startsClick">
               <i></i>Ⅰ类水质
             </span>
-            <span>
+            <span @click="startsClick">
               <i></i>Ⅱ类水质
             </span>
-            <span>
+            <span @click="startsClick">
               <i></i>Ⅲ类水质
             </span>
           </div>
           <div>
-            <span>
+            <span @click="startsClick">
               <i></i>Ⅳ类水质
             </span>
-            <span>
+            <span @click="startsClick">
               <i></i>Ⅴ类水质
             </span>
-            <span>
+            <span @click="startsClick">
               <i></i>Ⅵ类水质
             </span>
           </div>
@@ -386,16 +386,16 @@
         </div>
         <div style="margin-top: 20px">
           <el-col :span="6" class="rf-left">
-            <div>城中区</div>
-            <div>鱼峰区</div>
-            <div>柳南区</div>
-            <div>柳北区</div>
-            <div>柳江区</div>
-            <div>鹿寨县</div>
-            <div>柳城县</div>
-            <div>融水县</div>
-            <div>融安县</div>
-            <div>三江县</div>
+            <div @click="startsClick">城中区</div>
+            <div @click="startsClick">鱼峰区</div>
+            <div @click="startsClick">柳南区</div>
+            <div @click="startsClick">柳北区</div>
+            <div @click="startsClick">柳江区</div>
+            <div @click="startsClick">鹿寨县</div>
+            <div @click="startsClick">柳城县</div>
+            <div @click="startsClick">融水县</div>
+            <div @click="startsClick">融安县</div>
+            <div @click="startsClick">三江县</div>
           </el-col>
           <el-col :span="18" class="rf-right">
             <div>0.0%</div>
@@ -512,7 +512,8 @@
             label: '完工整治',
             value: 3,
           },
-        ]
+        ],
+        number:0
       };
     },
     methods: {
@@ -522,10 +523,18 @@
                 type: 'warning'
             });
         },
+        startsClick(){
+            this.$message({
+                message: '功能正在开发中',
+                type: 'warning'
+            });
+        },
         handleClose(){
             this.dialogVisible = false
         },
-      handleClick() {},
+      handleClick() {
+          this.getEchartData()
+      },
       getEchartData() {
         // 右边第一个
         const myech = document.getElementById("main");
@@ -537,6 +546,7 @@
         const myec = document.getElementById("myEcharts");
         console.log(myec);
         let cate1 = data.default.cateData;
+
         let catea = echarts.init(myec);
         catea.setOption(cate1);
         // this.rander(myec, cate1);
@@ -559,6 +569,8 @@
         ecInit1.setOption(ecData1);
         // this.rander(myecType, cate2);
 
+
+          // echarts缩放
         window.onresize = function () {
           catea.resize();
           catea2.resize();
@@ -568,15 +580,15 @@
           // .resize后加括号哦，这里还可以写其他的事件
         }
       },
-      mapChange(i){
-        console.log(i)
-        if(i === '1'){
-          this.istrue = true;
-        }else {
-          this.istrue = false;
-        }
-        console.log(this.istrue)
-      },
+      // mapChange(i){
+      //   console.log(i)
+      //   if(i === '1'){
+      //     this.istrue = true;
+      //   }else {
+      //     this.istrue = false;
+      //   }
+      //   console.log(this.istrue)
+      // },
       // 渲染
       // rander(el, option) {
       //   // 初始化
@@ -595,9 +607,17 @@
         map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
         //添加地图类型控件
           map.addControl(new BMap.MapTypeControl({
-              mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+              mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP],
+              offset: new BMap.Size(60, 10),
+              anchor: BMAP_ANCHOR_TOP_LEFT
+
           }));
-        // 设置地图显示的城市 此项是必须设置的
+
+          map.addControl(new BMap.NavigationControl({
+              type: BMAP_NAVIGATION_CONTROL_ZOOM,
+              anchor:BMAP_ANCHOR_TOP_LEFT
+          }));
+          // 设置地图显示的城市 此项是必须设置的
         map.setCurrentCity("柳州");
         //开启鼠标滚轮缩放
         map.enableScrollWheelZoom(true);
@@ -630,6 +650,13 @@
   };
 </script>
 
+<style>
+    .BMap_noprint>div>div{
+        height: 30px;
+        width: 50px;
+        line-height: 30px !important;
+    }
+</style>
 <style scoped lang="less">
   .tabFirst>div{
     display: flex;
@@ -750,8 +777,13 @@
               display: inline-block;
               width: 10px;
               height: 10px;
+                margin-right: 3px;
             }
           }
+            span:hover{
+                cursor: pointer;
+                color: #1793e6 !important; ;
+            }
         }
         div:nth-child(1) {
           span:nth-child(1) {
@@ -836,6 +868,10 @@
           div {
             text-align: left;
           }
+            div:hover{
+                color: #1793e6;
+                cursor: pointer;
+            }
         }
         .rf-right {
           display: flex;
@@ -845,6 +881,10 @@
             text-align: right;
             color: #2f2bff;
           }
+            div:hover{
+                color: #1793e6;
+                cursor: pointer;
+            }
         }
       }
     }

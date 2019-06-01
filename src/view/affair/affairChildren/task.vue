@@ -19,10 +19,11 @@
 
         <!--中间-->
         <el-col :span="19" class="middle-content1">
+            <div id="map" style="width: 100%;height: 100%;position:absolute;"></div>
             <div class="middle-first1">
                 <el-radio-group v-model="radio">
-                    <el-radio :label="t">已办结</el-radio>
-                    <el-radio :label="q">未办结</el-radio>
+                    <el-radio label="已办结">已办结</el-radio>
+                    <el-radio label="未办结">未办结</el-radio>
                 </el-radio-group>
             </div>
         </el-col>
@@ -207,11 +208,29 @@
                 let echart = echarts.init(el);
                 // 渲染
                 echart.setOption(option)
-            }
+            },
+
+            createMap() {
+                /* eslint-disable */
+                // 创建Map实例
+                var map = new BMap.Map("map");
+                // 初始化地图,设置中心点坐标和地图级别
+                map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
+                //添加地图类型控件
+                map.addControl(new BMap.MapTypeControl({
+                    mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+                }));
+                // 设置地图显示的城市 此项是必须设置的
+                map.setCurrentCity("柳州");
+                //开启鼠标滚轮缩放
+                map.enableScrollWheelZoom(true);
+                /* eslint-enable */
+            },
         },
         mounted() {
+            this.createMap();
             this.getTreeData();
-            this.getEchartData()
+            this.getEchartData();
             console.log(data12.default.pieData3)
         }
     }
@@ -318,9 +337,8 @@
 
     }
     .middle-content1 {
-        margin-right: 10px;
         position: relative;
-
+        margin-top: 10px;
         .middle-first1{
             display: flex;
             justify-content: center;

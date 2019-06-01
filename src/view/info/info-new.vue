@@ -210,16 +210,6 @@
         </el-tabs>
         </div>
     </div>
-        <div style="position: fixed;right: 50px;top:100px;display: flex;width: 100px;">
-            <el-select v-model="valuese" placeholder="请选择">
-                <el-option
-                        v-for="item in options"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                </el-option>
-            </el-select>
-        </div>
     </div>
 </template>
 

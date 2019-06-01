@@ -17,7 +17,7 @@
             <el-tabs type="border-card">
                 <el-tab-pane label="选择区域">
                     <div class="left-fourth">
-                        <el-tree :data="data" :default-expand-all="isOpen" :props="defaultProps"
+                        <el-tree :data="data" :props="defaultProps"
                                  @node-click="handleNodeClick"></el-tree>
                     </div>
                 </el-tab-pane>
@@ -46,7 +46,9 @@
                     <span @click="classM" :class="" v-for="item in optionse">{{item}}</span>
                 </div>
             </el-col>
-            <router-view></router-view>
+            <div style="min-height: 89vh;position:relative;top: 70px;">
+                <div id="map" style="width: 100%;height: 100%;position:absolute;"></div>
+            </div>
         </el-col>
 
         <!--右边-->
@@ -89,7 +91,7 @@
                         <div class="aqwe">
                             统计时间：
                         </div>
-                        <el-select v-model="value3" placeholder="请选择">
+                        <el-select style="width: 100px;" v-model="value3" placeholder="请选择">
                             <el-option
                                     v-for="item in options3"
                                     :key="item.value"
@@ -131,7 +133,7 @@
                 </el-col>
                 <el-col :span="19" class="usermsg" style="height: 100%;margin-left: 10px">
                     <div style="color: #409EFF;font-size: 1.1em">
-                        {{userData.label}}
+                        {{userData.name}}
                     </div>
                     <div>职位：{{userData.duty}}</div>
                     <div>
@@ -210,7 +212,7 @@
                 ],
 
                 checkAll: false,
-                checkedCities: [],
+                checkedCities: ['市','县','乡'],
                 cities: cityOptions,
                 isIndeterminate: true,
 
@@ -237,7 +239,7 @@
 
                 userData:{},
 
-                optionse:['无'],
+                optionse:['市','县','乡'],
 
                 val: [],
             }
@@ -326,9 +328,26 @@
                 }).catch(err => {
                     console.log(`错误${err}`)
                 })
-            }
+            },
+            createMap() {
+                /* eslint-disable */
+                // 创建Map实例
+                var map = new BMap.Map("map");
+                // 初始化地图,设置中心点坐标和地图级别
+                map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
+                //添加地图类型控件
+                map.addControl(new BMap.MapTypeControl({
+                    mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+                }));
+                // 设置地图显示的城市 此项是必须设置的
+                map.setCurrentCity("柳州");
+                //开启鼠标滚轮缩放
+                map.enableScrollWheelZoom(true);
+                /* eslint-enable */
+            },
         },
         mounted() {
+            this.createMap();
             this.getTreeData()
         }
     }
@@ -384,7 +403,7 @@
 
         .left-first {
             padding-top: 20px;
-            height: 200px;
+            height: 100px;
 
         }
 
@@ -480,7 +499,8 @@
             width: 100%;
             height: 60px;
             background-color: #f4f4f4;
-            position: absolute;padding:10px;
+            position: absolute;
+            padding:10px;
             box-shadow: @shodow;
         }
 

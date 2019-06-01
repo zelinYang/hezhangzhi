@@ -14,7 +14,7 @@
             </el-select>
         </el-col>
 
-        <el-col class="right-m" style="display: block;">
+        <el-col class="right-m" style="display: block;min-width: 1371px;">
             <div style="display: flex">
                 <div class="mInp">
                     <div style="white-space: nowrap">
@@ -47,10 +47,11 @@
 
             <div style="display: flex; position: relative; margin-top: 70px;">
                 <div style="display: flex;">
-                    <el-col :span="10">
+                    <el-col :span="8">
                         <div id="myEchartsPie" style="width: 20rem;height: 400px;"></div>
                     </el-col>
-                    <el-col :span="14">
+                    <el-col :span="6"></el-col>
+                    <el-col :span="8">
                         <div id="myEchartsLine" style="width: 40rem;height: 400px;"></div>
                     </el-col>
                 </div>

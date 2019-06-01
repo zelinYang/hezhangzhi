@@ -32,7 +32,8 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                            <el-button type="danger" icon="el-icon-delete">删除</el-button>
+                            <el-button @click="uload" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
+                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -62,46 +63,46 @@
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="handleDelete(scope.$index, scope.row)">查看</el-button>
+                                        @click="tankuang">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="事件详情"  :visible.sync="dialogFormVisible" width="1000px">
+                    <el-dialog  title="事件详情"  :visible.sync="dialogFormVisible" width="1000px">
                         <div class="tankuang">
                             <table width="100%" valign="top"  style="text-align: center">
                                 <tr style="height: 50px" class="fl">
-                                    <td valign="top">事件编号：</td>
-                                    <td valign="top">201905031</td>
-                                    <td valign="top">行政区域：</td>
-                                    <td valign="top">城中区</td>
-                                    <td valign="top">事发地点：</td>
-                                    <td valign="top" style="width: 250px; text-align: left;;">广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园</td>
-                                    <td valign="top">河段名称</td>
-                                    <td valign="top">某某某江河湖海</td>
+                                    <td align="left" valign="top">事件编号：</td>
+                                    <td align="left" valign="top">201905031</td>
+                                    <td align="left" valign="top">行政区域：</td>
+                                    <td align="left" valign="top">城中区</td>
+                                    <td align="left" valign="top">事发地点：</td>
+                                    <td align="left" valign="top" style="width: 250px; text-align: left;;">广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园</td>
+                                    <td align="left" valign="top">河段名称</td>
+                                    <td align="left" valign="top">某某某江河湖海</td>
                                 </tr>
                                 <tr class="fl">
-                                    <td>所属流域：</td>
-                                    <td>西江</td>
-                                    <td>事件来源：</td>
-                                    <td>河长上报</td>
-                                    <td>事件类型：</td>
-                                    <td>水面异常，侵占河道</td>
-                                    <td>上报人：</td>
-                                    <td>管理员</td>
+                                    <td align="left">所属流域：</td>
+                                    <td align="left">西江</td>
+                                    <td align="left">事件来源：</td>
+                                    <td align="left">河长上报</td>
+                                    <td align="left">事件类型：</td>
+                                    <td align="left">水面异常，侵占河道</td>
+                                    <td align="left">上报人：</td>
+                                    <td align="left">管理员</td>
                                 </tr>
                                 <tr class="fl">
-                                    <td>上报时间：</td>
-                                    <td>2019-05-31 1：47：36</td>
-                                    <td>联系方式：</td>
-                                    <td>17687576301</td>
+                                    <td align="left">上报时间：</td>
+                                    <td align="left">2019-05-31 1：47：36</td>
+                                    <td align="left">联系方式：</td>
+                                    <td align="left">17687576301</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr class="fl">
-                                    <td>事件内容：</td>
-                                    <td>测试</td>
+                                    <td align="left">事件内容：</td>
+                                    <td align="left">测试</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -110,8 +111,8 @@
                                     <td></td>
                                 </tr>
                                 <tr style="height: 120px">
-                                    <td>事件图片：</td>
-                                    <td><img src="img/4.jpg" style="width: 167px;height: 120px;" alt=""></td>
+                                    <td align="left">事件图片：</td>
+                                    <td align="left"><img src="img/4.jpg" style="width: 167px;height: 120px;" alt=""></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -120,7 +121,7 @@
                                     <td></td>
                                 </tr>
                                 <tr class="fl">
-                                    <td>事件视频：</td>
+                                    <td align="left">事件视频：</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -212,7 +213,8 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                            <el-button type="danger" icon="el-icon-delete">删除</el-button>
+                            <el-button @click="uload1" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
+                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -242,11 +244,11 @@
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="handleDelete(scope.$index, scope.row)">查看</el-button>
+                                        @click="tankuang1">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="事件详情" :visible.sync="dialogFormVisible" width="1000px">
+                    <el-dialog title="事件详情" :visible.sync="dialogFormVisible1" width="1000px">
                         <div class="tankuang">
                             <table width="100%" valign="top"  style="text-align: center">
                                 <tr style="height: 50px" class="fl">
@@ -343,8 +345,8 @@
                             </div>
                         </div>
                         <div slot="footer" class="dialog-footer">
-                            <el-button @click="dialogFormVisible = false">取 消</el-button>
-                            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                            <el-button @click="dialogFormVisible1 = false">取 消</el-button>
+                            <el-button type="primary" @click="dialogFormVisible1 = false">确 定</el-button>
                         </div>
                     </el-dialog>
                     <div style="margin-top: 20px;display:flex;justify-content: space-between">
@@ -392,7 +394,8 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                            <el-button type="danger" icon="el-icon-delete">删除</el-button>
+                            <el-button @click="uload2" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
+                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -422,11 +425,11 @@
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="handleDelete(scope.$index, scope.row)">查看</el-button>
+                                        @click="tankuang2">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="事件详情" :visible.sync="dialogFormVisible" width="1000px">
+                    <el-dialog title="事件详情" :visible.sync="dialogFormVisible2" width="1000px">
                         <div class="tankuang">
                             <table width="100%" valign="top"  style="text-align: center">
                                 <tr style="height: 50px" class="fl">
@@ -523,8 +526,8 @@
                             </div>
                         </div>
                         <div slot="footer" class="dialog-footer">
-                            <el-button @click="dialogFormVisible = false">取 消</el-button>
-                            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                            <el-button @click="dialogFormVisible2 = false">取 消</el-button>
+                            <el-button type="primary" @click="dialogFormVisible2 = false">确 定</el-button>
                         </div>
                     </el-dialog>
                     <div style="margin-top: 20px;display:flex;justify-content: space-between">
@@ -542,7 +545,62 @@
                 </div>
             </el-tab-pane>
         </el-tabs>
+        <el-dialog
+                title="上传文件"
+                :visible.sync="shangchuan"
+                width="30%">
+            <el-upload
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :file-list="fileList"
+                    list-type="picture">
+                <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="shangchuan = false">取 消</el-button>
+    <el-button type="primary" @click="shangchuan = false">确 定</el-button>
+  </span>
+        </el-dialog>
 
+        <el-dialog
+                title="上传文件"
+                :visible.sync="shangchuan1"
+                width="30%">
+            <el-upload
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview1"
+                    :on-remove="handleRemove1"
+                    :file-list="fileList1"
+                    list-type="picture">
+                <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="shangchuan1 = false">取 消</el-button>
+    <el-button type="primary" @click="shangchuan1 = false">确 定</el-button>
+  </span>
+        </el-dialog>
+
+        <el-dialog
+                title="上传文件"
+                :visible.sync="shangchuan2"
+                width="30%">
+            <el-upload
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview2"
+                    :on-remove="handleRemove2"
+                    :file-list="fileList2"
+                    list-type="picture">
+                <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="shangchuan2 = false">取 消</el-button>
+    <el-button type="primary" @click="shangchuan2 = false">确 定</el-button>
+  </span>
+        </el-dialog>
     </div>
 </template>
 
@@ -579,8 +637,16 @@
                     title: '',
                 },
                 dialogFormVisible: false,
+                dialogFormVisible1: false,
+                dialogFormVisible2: false,
                 formLabelWidth: "90px",
                 currentPage3: 1,
+                fileList:[],
+                fileList1:[],
+                fileList2:[],
+                shangchuan: false,
+                shangchuan1: false,
+                shangchuan2: false,
             }
         },
         methods:{
@@ -588,14 +654,49 @@
 
 
             },
-            handleDelete(index,row){
-                console.log(index,row);
+            tankuang(){
                 this.dialogFormVisible = true
+            },
+            tankuang1(){
+                this.dialogFormVisible1 = true
+            },
+
+            tankuang2(){
+                this.dialogFormVisible2 = true
+            },
+            uload(){
+                this.shangchuan = true
+            },
+            uload1(){
+                this.shangchuan1 = true
+            },
+            uload2(){
+                this.shangchuan2 = true
             },
 
 
             handleSizeChange3(){},
             handleCurrentChange3(){},
+
+            handlePreview(file, fileList){
+                console.log(file,fileList)
+            },
+            handlePreview1(file, fileList){
+                console.log(file,fileList)
+            },
+            handlePreview2(file, fileList){
+                console.log(file,fileList)
+            },
+
+            handleRemove(file){
+                console.log(file)
+            },
+            handleRemove1(file){
+                console.log(file)
+            },
+            handleRemove2(file){
+                console.log(file)
+            },
         }
 
     }
