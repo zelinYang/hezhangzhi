@@ -1,72 +1,76 @@
 <template>
     <div>
-        <el-col class="top_title" style="display:flex;justify-content: space-between;border-bottom: 2px solid #cccccc;height: 60px;align-items: center">
-            <div class="top-left">
-                <i></i><span>全面清障进度</span>
-            </div>
-            <el-select v-model="value" style="color: #ffffff;" placeholder="请选择">
-                <el-option
-                        v-for="item in options"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                </el-option>
-            </el-select>
-        </el-col>
-
-        <el-col class="right-m" style="display:block;">
-            <div style="display: flex">
-                <div class="mInp">
-                    <div style="white-space: nowrap">
-                        统计时间
+        <el-tabs type="border-card">
+            <el-tab-pane label="全面清障进度">
+                <el-col class="top_title" style="display:flex;justify-content: space-between;border-bottom: 2px solid #cccccc;height: 60px;align-items: center">
+                    <div class="top-left">
                     </div>
-                    <el-select v-model="value2" placeholder="请选择">
+                    <el-select v-model="value" style="color: #ffffff;" placeholder="请选择">
                         <el-option
-                                v-for="item in options2"
+                                v-for="item in options"
                                 :key="item.value"
                                 :label="item.label"
                                 :value="item.value">
                         </el-option>
                     </el-select>
-                </div>
-
-                <div class="mInp">
-                    <div style="display: flex;white-space: nowrap">
-                        行政区域
-                    </div>
-                    <el-select v-model="value3" placeholder="请选择">
-                        <el-option
-                                v-for="item in options3"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </el-option>
-                    </el-select>
-                </div>
-                <div class="mInp">
-                    <div style="white-space: nowrap">
-                        清障类型
-                    </div>
-                    <el-select v-model="value4" placeholder="请选择">
-                        <el-option
-                                v-for="item in options4"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </el-option>
-                    </el-select>
-                </div>
-            </div>
-
-            <div style="display: flex;position: relative;margin-top: 70px">
-                <el-col>
-                    <div id="myEcharts" style="width: 40rem;height: 400px;"></div>
                 </el-col>
-                <el-col>
-                    <div id="myEchartsType" style="width: 40rem;height: 400px;"></div>
+
+                <el-col class="right-m" style="display:block;">
+                    <div style="display: flex">
+                        <div class="mInp">
+                            <div style="white-space: nowrap">
+                                统计时间
+                            </div>
+                            <el-select v-model="value2" placeholder="请选择">
+                                <el-option
+                                        v-for="item in options2"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+
+                        <div class="mInp">
+                            <div style="display: flex;white-space: nowrap">
+                                行政区域
+                            </div>
+                            <el-select v-model="value3" placeholder="请选择">
+                                <el-option
+                                        v-for="item in options3"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                        <div class="mInp">
+                            <div style="white-space: nowrap">
+                                清障类型
+                            </div>
+                            <el-select v-model="value4" placeholder="请选择">
+                                <el-option
+                                        v-for="item in options4"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+
+                    <div style="display: flex;position: relative;margin-top: 70px">
+                        <el-col>
+                            <div id="myEcharts" style="width: 40rem;height: 400px;"></div>
+                        </el-col>
+                        <el-col>
+                            <div id="myEchartsType" style="width: 40rem;height: 400px;"></div>
+                        </el-col>
+                    </div>
                 </el-col>
-            </div>
-        </el-col>
+            </el-tab-pane>
+        </el-tabs>
+
     </div>
 </template>
 
