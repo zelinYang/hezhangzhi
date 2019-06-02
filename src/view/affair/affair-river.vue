@@ -53,9 +53,7 @@
     @border: 0;
     .left-content1{
         min-width: 200px;
-        margin-right: 10px;
         min-height: 93vh;
-        box-shadow: @shodow;
 
         background-color: #1c1c1c;
         .left-content-wrap{
@@ -100,9 +98,7 @@
     .left-content-wrap .el-menu-item.is-active { background-color: #fff !important; color: #333 !important; }
 
     .right-content{
-        border: @border;
         padding: 35px;
-        box-shadow: @shodow;
         background-color: #fff;
         div{
             .top-left{

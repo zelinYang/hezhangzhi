@@ -1,10 +1,10 @@
 <template>
-    <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>工作台</el-breadcrumb-item>
-        <el-breadcrumb-item>辖区事件</el-breadcrumb-item>
-    </el-breadcrumb>
     <div style="">
+        <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>工作台</el-breadcrumb-item>
+            <el-breadcrumb-item>辖区事件</el-breadcrumb-item>
+        </el-breadcrumb>
         <el-tabs type="border-card">
             <el-tab-pane label="上报事件">
                 <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
@@ -272,7 +272,6 @@
     @border: 0;
     .left-content1{
         min-width: 200px;
-        margin-right: 10px;
         min-height: 100vh;
         background-color: #1c1c1c;
         .left-content-wrap{

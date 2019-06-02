@@ -167,7 +167,6 @@
     @border: 0;
     .left-content1{
         min-width: 200px;
-        margin-right: 10px;
         min-height: 100vh;
         background-color: #1c1c1c;
         .left-content-wrap{
@@ -207,7 +206,6 @@
     .right-content{
         background-color: #fdfdfd;
         border: 0;
-        box-shadow: @shodow;
         min-height: 300px !important;
         .right-first{
             display: flex;

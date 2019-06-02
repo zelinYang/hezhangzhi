@@ -23,7 +23,7 @@
         </div>
 
         <!--右边-->
-        <el-col :span="22" class="right-content">
+        <el-col :span="24" class="right-content">
             <router-view></router-view>
         </el-col>
     </div>

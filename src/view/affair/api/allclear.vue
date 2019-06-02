@@ -2,21 +2,14 @@
     <div>
         <el-tabs type="border-card">
             <el-tab-pane label="全面清障进度">
-                <el-col class="top_title" style="display:flex;justify-content: space-between;border-bottom: 2px solid #cccccc;height: 60px;align-items: center">
+                <el-col class="top_title" style="display:flex;justify-content: space-between;height: 30px;align-items: center">
                     <div class="top-left">
                     </div>
-                    <el-select v-model="value" style="color: #ffffff;" placeholder="请选择">
-                        <el-option
-                                v-for="item in options"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </el-option>
-                    </el-select>
+
                 </el-col>
 
                 <el-col class="right-m" style="display:block;">
-                    <div style="display: flex">
+                    <div style="display: flex; background-color: rgb(244, 244, 249); margin: 0;height: 200px;border-radius: 5px;padding-top: 30px;align-items: center;padding-left: 15px;padding-right: 15px;">
                         <div class="mInp">
                             <div style="white-space: nowrap">
                                 统计时间
@@ -51,6 +44,17 @@
                             <el-select v-model="value4" placeholder="请选择">
                                 <el-option
                                         v-for="item in options4"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+
+                        <div class="mInp">
+                            <el-select v-model="value" style="color: #ffffff;" placeholder="请选择">
+                                <el-option
+                                        v-for="item in options"
                                         :key="item.value"
                                         :label="item.label"
                                         :value="item.value">
@@ -170,9 +174,7 @@
     @border: 0;
     .left-content1{
         min-width: 200px;
-        margin-right: 10px;
         min-height: 93vh;
-        box-shadow: @shodow;
         background-color: #1c1c1c;
         .left-content-wrap{
             height: 90%;
@@ -241,9 +243,7 @@
     .left-content-wrap .el-menu-item.is-active { background-color: #fff !important; color: #333 !important; }
 
     .right-content{
-        border: @border;
         padding: 35px;
-        box-shadow: @shodow;
         background-color: #fff;
         div{
             .top-left{

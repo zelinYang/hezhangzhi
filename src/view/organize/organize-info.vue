@@ -256,14 +256,15 @@
                 this.checkedCities = val ? cityOptions : [];
                 this.isIndeterminate = false;
                 console.log(val);
+                if(val === false) this.checkedCities.push('无');
             },
             handleCheckedCitiesChange(value) {
-                console.log(value);
+                console.log(value.length);
                 let checkedCount = value.length;
                 this.checkAll = checkedCount === this.cities.length;
                 this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
                 if(value.length === 0){
-                    this.checkedCities[0] = '无'
+                    this.checkedCities.push('无')
                 }
             },
             // classJ(){
@@ -302,6 +303,8 @@
             },
 
             handleNodeClick(i) {
+                console.log(i);
+                if(i.children) return;
                 this.userData = i;
                 this.dialogVisible = true
             },

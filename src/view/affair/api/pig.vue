@@ -1,91 +1,96 @@
 <template>
     <div style="min-width: 770px;">
-        <el-col class="top_title"
-                style="display:flex;justify-content: space-between;border-bottom: 2px solid #cccccc;height: 60px;align-items: center">
-            <div class="top-left" >
-                <i></i><span>生猪养殖污染防治</span>
-            </div>
-            <el-select v-model="value" style="color: #ffffff;" placeholder="请选择">
-                <el-option
-                        v-for="item in options"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                </el-option>
-            </el-select>
-        </el-col>
-
-        <el-col class="right-m" style="display: block">
-            <div style="display: flex">
-                <div class="mInp">
-                    <div style="white-space: nowrap">
-                        统计时间
-                    </div>
-                    <el-select v-model="value2" placeholder="请选择">
-                        <el-option
-                                v-for="item in options2"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </el-option>
-                    </el-select>
-                </div>
-
-                <div class="mInp">
-                    <div style="display: flex;white-space: nowrap">
-                        行政区域
-                    </div>
-                    <el-select v-model="value3" placeholder="请选择">
-                        <el-option
-                                v-for="item in options3"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </el-option>
-                    </el-select>
-                </div>
-            </div>
-            <div style="margin-top: 70px">
-                <el-col :span="10" class="bottom-second" style="height: 500px; ">
-                    <el-col style="font-size: 1.2em">禁养区</el-col>
-                    <el-col style="margin-top: 20px"><span>已关闭拆除0.00%</span><span>未关闭拆除0.00%</span></el-col>
-                    <el-col><span>消灭生猪0.00%</span><span>存栏生猪0.00%</span></el-col>
-                    <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(250头以上)</el-col>
-                    <el-progress :text-inside="true"
-                                 :stroke-width="18"
-                                 :show-text="false"
-                                 style="height: 20px"
-                                 :percentage="100"
-                                 status="success">
-                    </el-progress>
-                    <el-col><span>已关闭拆除100.00%</span><span>未关闭拆除0.00%</span></el-col>
-                    <el-progress :text-inside="true"
-                                 :stroke-width="18"
-                                 :show-text="false"
-                                 style="height: 20px"
-                                 :percentage="100"
-                                 status="success">
-                    </el-progress>
-                    <el-col><span>消灭生猪100.00%</span><span>存栏生猪0.00%</span></el-col>
-                    <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(1500-5000头)</el-col>
-                    <el-col style="margin-top: 20px"><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+        <el-tabs type="border-card">
+            <el-tab-pane label="生猪养殖污染防治">
+                <el-col class="top_title"
+                        style="display:flex;justify-content: space-between;height: 30px;align-items: center">
                 </el-col>
-                <el-col :span="2" style="height: 500px;"></el-col>
+
+                <el-col class="right-m" style="display: block">
+                    <div style="display: flex; background-color: rgb(244, 244, 249); margin: 0;height: 200px;border-radius: 5px;padding-top: 30px;align-items: center;padding-left: 15px;padding-right: 15px;">
+                        <div class="mInp">
+                            <div style="white-space: nowrap">
+                                统计时间
+                            </div>
+                            <el-select v-model="value2" placeholder="请选择">
+                                <el-option
+                                        v-for="item in options2"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+
+                        <div class="mInp">
+                            <div style="display: flex;white-space: nowrap">
+                                行政区域
+                            </div>
+                            <el-select v-model="value3" placeholder="请选择">
+                                <el-option
+                                        v-for="item in options3"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+
+                        <div class="mInp">
+                            <el-select v-model="value" style="color: #ffffff;" placeholder="请选择">
+                                <el-option
+                                        v-for="item in options"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+                    <div style="margin-top: 70px">
+                        <el-col :span="10" class="bottom-second" style="height: 500px; ">
+                            <el-col style="font-size: 1.2em">禁养区</el-col>
+                            <el-col style="margin-top: 20px"><span>已关闭拆除0.00%</span><span>未关闭拆除0.00%</span></el-col>
+                            <el-col><span>消灭生猪0.00%</span><span>存栏生猪0.00%</span></el-col>
+                            <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(250头以上)</el-col>
+                            <el-progress :text-inside="true"
+                                         :stroke-width="18"
+                                         :show-text="false"
+                                         style="height: 20px"
+                                         :percentage="100"
+                                         status="success">
+                            </el-progress>
+                            <el-col><span>已关闭拆除100.00%</span><span>未关闭拆除0.00%</span></el-col>
+                            <el-progress :text-inside="true"
+                                         :stroke-width="18"
+                                         :show-text="false"
+                                         style="height: 20px"
+                                         :percentage="100"
+                                         status="success">
+                            </el-progress>
+                            <el-col><span>消灭生猪100.00%</span><span>存栏生猪0.00%</span></el-col>
+                            <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(1500-5000头)</el-col>
+                            <el-col style="margin-top: 20px"><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+                        </el-col>
+                        <el-col :span="2" style="height: 500px;"></el-col>
 
 
-                <el-col :span="10" class="bottom-second" style="height: 500px;">
-                    <el-col style="font-size: 1.2em">可养区(250头以下)</el-col>
-                    <el-col style="margin-top: 20px"><span>已关闭拆除0.00%</span><span>已改造0.00%</span><span>未完成0.00%</span>
-                    </el-col>
-                    <el-col><span>消灭生猪0.00%</span><span>存栏生猪0.00%</span><span>改造0.00%</span></el-col>
-                    <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(250-1500头)</el-col>
-                    <el-col style=""><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
-                    <el-col style="height: 20px"></el-col>
-                    <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(5000头以上)</el-col>
-                    <el-col style="margin-top: 20px"><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+                        <el-col :span="10" class="bottom-second" style="height: 500px;">
+                            <el-col style="font-size: 1.2em">可养区(250头以下)</el-col>
+                            <el-col style="margin-top: 20px">
+                                <span>已关闭拆除0.00%</span><span>已改造0.00%</span><span>未完成0.00%</span>
+                            </el-col>
+                            <el-col><span>消灭生猪0.00%</span><span>存栏生猪0.00%</span><span>改造0.00%</span></el-col>
+                            <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(250-1500头)</el-col>
+                            <el-col style=""><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+                            <el-col style="height: 20px"></el-col>
+                            <el-col style="font-size: 1.2em;margin-bottom: 10px">可养区(5000头以上)</el-col>
+                            <el-col style="margin-top: 20px"><span>已改造0.00%</span><span>未改造0.00%</span></el-col>
+                        </el-col>
+                    </div>
                 </el-col>
-            </div>
-        </el-col>
+            </el-tab-pane>
+        </el-tabs>
     </div>
 </template>
 
@@ -163,6 +168,7 @@
             padding: 0 10px 0 10px;
             justify-content: space-between;
             white-space: nowrap;
+
             span {
                 color: #8c939d;
                 white-space: nowrap;

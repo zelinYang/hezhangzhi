@@ -1,23 +1,12 @@
 <template>
     <div style="display: flex;">
         <!--左边-->
-        <div class="left-content2">
-            <div class="left-first">
-                <b style="font-size: 1.2em;">省级河长</b>
-                <span style="display: block">总河长：<span style="color: #2f2bff">广西壮族自治区副河长</span></span>
-            </div>
-            <div class="left-second">
-                <el-input
-                        placeholder="巡河人员名称搜索"
-                        suffix-icon="el-icon-search"
-                        v-model="input2">
-                </el-input>
-            </div>
+        <div class="left-content2" style="margin: 0;border-top: 0;">
             <div class="">
                 <el-tabs type="border-card">
                     <el-tab-pane label="选择区域">
-                        <div class="left-fourth">
-                            <el-tree :data="data" :default-expand-all="isOpen" :props="defaultProps"
+                        <div class="left-fourth" style="height: 85vh;">
+                            <el-tree :data="data" :props="defaultProps"
                                      @node-click="handleNodeClick"></el-tree>
                         </div>
                     </el-tab-pane>
@@ -26,7 +15,7 @@
             </div>
         </div>
 
-
+        <el-col :span="24" style="background-color: #fff;"></el-col>
         <!--中间-->
 
         <el-dialog
@@ -210,15 +199,21 @@
             },
 
             handleNodeClick(i) {
-                this.userData = i;
-                this.dialogVisible = true
+                if(i.children) return;
+                this.$message({
+                    message: '暂无记录视频',
+                    type: 'warning'
+                });
+
+                // this.userData = i;
+                // this.dialogVisible = true
             },
             handleClose(){
                 this.dialogVisible = false
             },
 
             getTreeData() {
-                this.axios.get('data/treeData.json').then(res => {
+                this.axios.get('data/monitor.json').then(res => {
                     console.log(res);
                     // this.axios.get('/organize/organizeInfo/data').then(resp => {
                     //
@@ -245,6 +240,9 @@
 </script>
 
 <style lang="less">
+    .left-content1{
+        margin-right: 0 !important;
+    }
     @border: #ebebeb 1px solid;
     @shodow: 1px 1px 5px #ccc;
 
@@ -288,8 +286,7 @@
         background-color: #fff;
         border-top: 3px solid #2f2bff;
         padding: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 10px;;
         box-shadow: #cccccc 1px 1px 5px;
 
         .left-first {
