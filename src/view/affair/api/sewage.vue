@@ -1,5 +1,10 @@
 <template>
     <div>
+        <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>涉河事务</el-breadcrumb-item>
+            <el-breadcrumb-item>黑臭水体整治</el-breadcrumb-item>
+        </el-breadcrumb>
         <el-tabs type="border-card">
             <el-tab-pane label="黑臭水体整治">
                 <el-col class="top_title"
@@ -49,7 +54,7 @@
                     </div>
 
                     <div style="display: flex; position: relative; margin-top: 70px;">
-                        <div style="display: flex;">
+                        <div style="display: flex;width: 100%;">
                             <el-col :span="8">
                                 <div id="myEchartsPie" style="width: 20rem;height: 400px;"></div>
                             </el-col>

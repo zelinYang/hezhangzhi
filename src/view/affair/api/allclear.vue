@@ -1,5 +1,10 @@
 <template>
     <div>
+        <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>涉河事务</el-breadcrumb-item>
+            <el-breadcrumb-item>全面清障</el-breadcrumb-item>
+        </el-breadcrumb>
         <el-tabs type="border-card">
             <el-tab-pane label="全面清障进度">
                 <el-col class="top_title" style="display:flex;justify-content: space-between;height: 30px;align-items: center">
