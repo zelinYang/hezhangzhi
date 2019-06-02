@@ -3,7 +3,7 @@
         <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>工作台</el-breadcrumb-item>
-            <el-breadcrumb-item>辖区事件</el-breadcrumb-item>
+            <el-breadcrumb-item>事件办理</el-breadcrumb-item>
         </el-breadcrumb>
         <el-tabs type="border-card">
             <el-tab-pane label="上报事件">
@@ -29,7 +29,7 @@
                             </el-date-picker>
                         </el-form-item>
                     </div>
-                    <div  style="display: flex;justify-content: space-between;width: 700px;padding: 20px;">
+                    <div  style="display: flex;justify-content: space-between;width: 98%;padding: 20px;">
                         <el-form-item label="事件类型">
                             <el-select v-model="form.region" placeholder="请选择">
 
@@ -37,7 +37,8 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                            <el-button type="danger" icon="el-icon-delete">删除</el-button>
+                            <el-button @click="uload" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
+                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -50,45 +51,123 @@
                             style="width: 100%">
                         <el-table-column
                                 prop="time"
-                                label="上报时间">
+                                label="上报时间"
+                                width="250">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="地址">
+                                label="地址"
+                                width="400">
                         </el-table-column>
                         <el-table-column
                                 prop="type"
-                                label="事件类型"
-                                width="250">
+                                label="事件类型">
                         </el-table-column>
-                        <el-table-column label="操作" style="display: flex">
+                        <el-table-column width="250" label="操作" style="display: flex">
                             <template slot-scope="scope">
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="handleDelete(scope.$index, scope.row)">查看</el-button>
+                                        @click="tankuang">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="编辑" :visible.sync="dialogFormVisible" width="400px">
-                        <el-form :model="form1">
-                            <el-form-item label="标题" :label-width="formLabelWidth">
-                                <el-input v-model="form1.title" auto-complete="off" style="width: 220px"></el-input>
-                            </el-form-item>
-                            <el-form-item label="日期" :label-width="formLabelWidth">
-                                <el-date-picker
-                                        v-model="value1"
-                                        type="date"
-                                        placeholder="选择日期">
-                                </el-date-picker>
-                            </el-form-item>
-                            <el-form-item label="类型" :label-width="formLabelWidth">
-                                <el-select v-model="form.region" placeholder="请选择">
-                                    <el-option label="河道有垃圾" value="1"></el-option>
-                                    <el-option label="侵占河道" value="2"></el-option>
-                                </el-select>
-                            </el-form-item>
-                        </el-form>
+                    <el-dialog  title="事件详情"  :visible.sync="dialogFormVisible" width="1000px">
+                        <div class="tankuang">
+                            <table width="100%" valign="top"  style="text-align: center">
+                                <tr style="height: 50px" class="fl">
+                                    <td align="left" valign="top">事件编号：</td>
+                                    <td align="left" valign="top">201905031</td>
+                                    <td align="left" valign="top">行政区域：</td>
+                                    <td align="left" valign="top">城中区</td>
+                                    <td align="left" valign="top">事发地点：</td>
+                                    <td align="left" valign="top" style="width: 250px; text-align: left;;">广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园</td>
+                                    <td align="left" valign="top">河段名称</td>
+                                    <td align="left" valign="top">某某某江河湖海</td>
+                                </tr>
+                                <tr class="fl">
+                                    <td align="left">所属流域：</td>
+                                    <td align="left">西江</td>
+                                    <td align="left">事件来源：</td>
+                                    <td align="left">河长上报</td>
+                                    <td align="left">事件类型：</td>
+                                    <td align="left">水面异常，侵占河道</td>
+                                    <td align="left">上报人：</td>
+                                    <td align="left">管理员</td>
+                                </tr>
+                                <tr class="fl">
+                                    <td align="left">上报时间：</td>
+                                    <td align="left">2019-05-31 1：47：36</td>
+                                    <td align="left">联系方式：</td>
+                                    <td align="left">17687576301</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="fl">
+                                    <td align="left">事件内容：</td>
+                                    <td align="left">测试</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="height: 120px">
+                                    <td align="left">事件图片：</td>
+                                    <td align="left"><img src="img/4.jpg" style="width: 167px;height: 120px;" alt=""></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="fl">
+                                    <td align="left">事件视频：</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="margin-top: 30px">
+                            <div class="top" style="height: 40px;line-height: 40px;border-bottom: #ccc 1px solid;font-size: 1.2em">事件处理记录</div>
+                            <div style="height: 300px;margin-top: 10px;overflow: auto">
+                                <el-timeline>
+                                    <el-timeline-item timestamp="接收时间：2019-05-31 2：37" placement="top">
+                                        <el-card>
+                                            <div class="shijianx">
+                                                <span style="margin-right: 70px;">
+                                                    处理人：--
+                                                </span>
+                                                <span style="margin-right: 70px;">
+                                                    处理时间：--
+                                                </span>
+                                                <span style="margin-right: 70px;">
+                                                    下一处理人：--
+                                                </span><br/>
+                                                <span style="margin-right: 70px;margin-top: 30px;display:block;">
+                                                    下一处理单位：--
+                                                </span><br/>
+                                                <span style="margin-right: 70px;margin-top: 30px;display:block">
+                                                    处理内容：--
+                                                </span><br/>
+                                                <span style="margin-right: 70px;margin-top: 30px;display:block">
+                                                    处理照片：--
+                                                </span>
+                                            </div>
+                                        </el-card>
+                                    </el-timeline-item>
+                                </el-timeline>
+                            </div>
+                        </div>
                         <div slot="footer" class="dialog-footer">
                             <el-button @click="dialogFormVisible = false">取 消</el-button>
                             <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
@@ -139,7 +218,8 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                            <el-button type="danger" icon="el-icon-delete">删除</el-button>
+                            <el-button @click="uload1" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
+                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -152,48 +232,126 @@
                             style="width: 100%">
                         <el-table-column
                                 prop="time"
-                                label="上报时间">
+                                label="上报时间"
+                                width="250">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="地址">
+                                label="地址"
+                                width="400">
                         </el-table-column>
                         <el-table-column
                                 prop="type"
-                                label="事件类型"
-                                width="250">
+                                label="事件类型">
                         </el-table-column>
-                        <el-table-column label="操作" style="display: flex">
+                        <el-table-column width="250" label="操作" style="display: flex">
                             <template slot-scope="scope">
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="handleDelete(scope.$index, scope.row)">查看</el-button>
+                                        @click="tankuang1">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="编辑" :visible.sync="dialogFormVisible" width="400px">
-                        <el-form :model="form1">
-                            <el-form-item label="标题" :label-width="formLabelWidth">
-                                <el-input v-model="form1.title" auto-complete="off" style="width: 220px"></el-input>
-                            </el-form-item>
-                            <el-form-item label="日期" :label-width="formLabelWidth">
-                                <el-date-picker
-                                        v-model="value1"
-                                        type="date"
-                                        placeholder="选择日期">
-                                </el-date-picker>
-                            </el-form-item>
-                            <el-form-item label="类型" :label-width="formLabelWidth">
-                                <el-select v-model="form.region" placeholder="请选择">
-                                    <el-option label="河道有垃圾" value="1"></el-option>
-                                    <el-option label="侵占河道" value="2"></el-option>
-                                </el-select>
-                            </el-form-item>
-                        </el-form>
+                    <el-dialog title="事件详情" :visible.sync="dialogFormVisible1" width="1000px">
+                        <div class="tankuang">
+                            <table width="100%" valign="top"  style="text-align: center">
+                                <tr style="height: 50px" class="fl">
+                                    <td valign="top">事件编号：</td>
+                                    <td valign="top">201905031</td>
+                                    <td valign="top">行政区域：</td>
+                                    <td valign="top">城中区</td>
+                                    <td valign="top">事发地点：</td>
+                                    <td valign="top" style="width: 250px; text-align: left;;">广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园</td>
+                                    <td valign="top">河段名称</td>
+                                    <td valign="top">某某某江河湖海</td>
+                                </tr>
+                                <tr class="fl">
+                                    <td>所属流域：</td>
+                                    <td>西江</td>
+                                    <td>事件来源：</td>
+                                    <td>河长上报</td>
+                                    <td>事件类型：</td>
+                                    <td>水面异常，侵占河道</td>
+                                    <td>上报人：</td>
+                                    <td>管理员</td>
+                                </tr>
+                                <tr class="fl">
+                                    <td>上报时间：</td>
+                                    <td>2019-05-31 1：47：36</td>
+                                    <td>联系方式：</td>
+                                    <td>17687576301</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="fl">
+                                    <td>事件内容：</td>
+                                    <td>测试</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="height: 120px">
+                                    <td>事件图片：</td>
+                                    <td><img src="img/4.jpg" style="width: 167px;height: 120px;" alt=""></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="fl">
+                                    <td>事件视频：</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="margin-top: 30px">
+                            <div class="top" style="height: 40px;line-height: 40px;border-bottom: #ccc 1px solid;font-size: 1.2em">事件处理记录</div>
+                            <div style="height: 300px;margin-top: 10px;overflow: auto">
+                                <el-timeline>
+                                    <el-timeline-item timestamp="接收时间：2019-05-31 2：37" placement="top">
+                                        <el-card>
+                                            <div class="shijianx">
+                                                <span style="margin-right: 70px;">
+                                                    处理人：--
+                                                </span>
+                                                <span style="margin-right: 70px;">
+                                                    处理时间：--
+                                                </span>
+                                                <span style="margin-right: 70px;">
+                                                    下一处理人：--
+                                                </span><br/>
+                                                <span style="margin-right: 70px;margin-top: 30px;display:block;">
+                                                    下一处理单位：--
+                                                </span><br/>
+                                                <span style="margin-right: 70px;margin-top: 30px;display:block">
+                                                    处理内容：--
+                                                </span><br/>
+                                                <span style="margin-right: 70px;margin-top: 30px;display:block">
+                                                    处理照片：--
+                                                </span>
+                                            </div>
+                                        </el-card>
+                                    </el-timeline-item>
+                                </el-timeline>
+                            </div>
+                        </div>
                         <div slot="footer" class="dialog-footer">
-                            <el-button @click="dialogFormVisible = false">取 消</el-button>
-                            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                            <el-button @click="dialogFormVisible1 = false">取 消</el-button>
+                            <el-button type="primary" @click="dialogFormVisible1 = false">确 定</el-button>
                         </div>
                     </el-dialog>
                     <div style="margin-top: 20px;display:flex;justify-content: space-between">
@@ -207,10 +365,66 @@
                                 :total="400">
                         </el-pagination>
                     </div>
+
                 </div>
             </el-tab-pane>
         </el-tabs>
+        <el-dialog
+                title="上传文件"
+                :visible.sync="shangchuan"
+                width="30%">
+            <el-upload
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :file-list="fileList"
+                    list-type="picture">
+                <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="shangchuan = false">取 消</el-button>
+    <el-button type="primary" @click="shangchuan = false">确 定</el-button>
+  </span>
+        </el-dialog>
 
+        <el-dialog
+                title="上传文件"
+                :visible.sync="shangchuan1"
+                width="30%">
+            <el-upload
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview1"
+                    :on-remove="handleRemove1"
+                    :file-list="fileList1"
+                    list-type="picture">
+                <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="shangchuan1 = false">取 消</el-button>
+    <el-button type="primary" @click="shangchuan1 = false">确 定</el-button>
+  </span>
+        </el-dialog>
+
+        <el-dialog
+                title="上传文件"
+                :visible.sync="shangchuan2"
+                width="30%">
+            <el-upload
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview2"
+                    :on-remove="handleRemove2"
+                    :file-list="fileList2"
+                    list-type="picture">
+                <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
+            <span slot="footer" class="dialog-footer">
+    <el-button @click="shangchuan2 = false">取 消</el-button>
+    <el-button type="primary" @click="shangchuan2 = false">确 定</el-button>
+  </span>
+        </el-dialog>
     </div>
 </template>
 
@@ -226,11 +440,11 @@
                 input: '',
                 tableData: [
                     {
+                        address: '广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园',
                         num: 0,
                         title: '哈哈哈哈哈',
                         time: '2019-05-17',
-                        type: 'news',
-                        address: '广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园',
+                        type: '水面异常，侵占河道'
                     }
                 ],
                 form: {
@@ -247,26 +461,78 @@
                     title: '',
                 },
                 dialogFormVisible: false,
+                dialogFormVisible1: false,
+                dialogFormVisible2: false,
                 formLabelWidth: "90px",
                 currentPage3: 1,
+                fileList:[],
+                fileList1:[],
+                fileList2:[],
+                shangchuan: false,
+                shangchuan1: false,
+                shangchuan2: false,
             }
         },
         methods:{
             handleEdit(index,row){
-                console.log(index,row)
-                this.dialogFormVisible = true
+
 
             },
-            handleDelete(index,row){},
+            tankuang(){
+                this.dialogFormVisible = true
+            },
+            tankuang1(){
+                this.dialogFormVisible1 = true
+            },
+
+            tankuang2(){
+                this.dialogFormVisible2 = true
+            },
+            uload(){
+                this.shangchuan = true
+            },
+            uload1(){
+                this.shangchuan1 = true
+            },
+            uload2(){
+                this.shangchuan2 = true
+            },
 
 
             handleSizeChange3(){},
             handleCurrentChange3(){},
+
+            handlePreview(file, fileList){
+                console.log(file,fileList)
+            },
+            handlePreview1(file, fileList){
+                console.log(file,fileList)
+            },
+            handlePreview2(file, fileList){
+                console.log(file,fileList)
+            },
+
+            handleRemove(file){
+                console.log(file)
+            },
+            handleRemove1(file){
+                console.log(file)
+            },
+            handleRemove2(file){
+                console.log(file)
+            },
         }
 
     }
 </script>
-
+<style>
+    .right-content[data-v-4337a3cd]{
+        margin-top: 0;
+    }
+    .left-content1[data-v-4337a3cd]{
+        margin-right: 0;
+    }
+</style>
 <style scoped lang="less">
     @shodow: -1px -1px 5px #ccc;
     @border: 0;
@@ -311,7 +577,6 @@
     .right-content{
         background-color: #fdfdfd;
         border: 0;
-        box-shadow: @shodow;
         min-height: 300px !important;
         .right-first{
             display: flex;
@@ -331,6 +596,22 @@
             padding: 20px;
         }
     }
-
+    .tankuang>div{
+        height: 70px;
+        line-height: 70px;display: flex;
+    }
+    .tankuang>div>span{
+        margin-right: 40px;
+    }
+    .fl{
+        td{
+            height: 70px;
+        }
+    }
+    .shijianx{
+        span{
+            margin-top: 30px;
+        }
+    }
     .left-content-wrap .el-menu-item.is-active { background-color: #fff !important; color: #333 !important; }
 </style>

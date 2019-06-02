@@ -54,7 +54,6 @@
     @border: #ccc 1px solid;
     .left-content1{
         min-width: 200px;
-        margin-right: 10px;
         min-height: 95vh;
         background-color: #1c1c1c;
         .left-content-wrap{
@@ -88,7 +87,6 @@
     }
     .left-content-wrap .el-menu-item.is-active { background-color: #fff !important; color: #333 !important; }
     .right-content{
-        margin-top: 30px;
         padding: 30px;
         background-color: #fff;
 

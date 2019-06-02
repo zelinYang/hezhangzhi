@@ -78,7 +78,7 @@
             <div style="margin-top: 30px;" class="right-fourth1">
                 <div class="aqwe1">
                     事件类型：
-                    <div id="myEchartsPie" style="width: 280px;height: 400px;"></div>
+                    <div id="myEchartsPie" style="width: 260px;height: 400px;"></div>
                 </div>
             </div>
         </div>

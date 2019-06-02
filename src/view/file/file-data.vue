@@ -74,7 +74,6 @@
     @border: #ccc 1px solid;
     .left-content1{
         min-width: 200px;
-        margin-right: 10px;
         min-height: 93vh;
         background-color: #1c1c1c;
         .left-content-wrap{
