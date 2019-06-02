@@ -84,7 +84,7 @@
                     <p style="text-align: center">
                         水源保护指标
                     </p>
-                    <p style="text-align: center;font-size: 2em;color: #3ca51c">20</p>
+                    <p style="text-align: center;font-size: 2em;color: #3ca51c">10</p>
                 </el-col>
                 <el-col :span="16">
                     整体评价区域内水资源消耗总量和强度双控制效果，水功能区限制纳污管理以及上游源水区和水源地保护工作成效
@@ -96,7 +96,7 @@
                     <p style="text-align: center">
                         水源保护指标
                     </p>
-                    <p style="text-align: center;font-size: 2em;color: #3ca51c">20</p>
+                    <p style="text-align: center;font-size: 2em;color: #3ca51c">10</p>
                 </el-col>
                 <el-col :span="16">
                     整体评价区域内水资源消耗总量和强度双控制效果，水功能区限制纳污管理以及上游源水区和水源地保护工作成效

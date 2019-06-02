@@ -179,6 +179,7 @@
             },
             handleNodeClick(i) {
                 console.log(i)
+                if(i.children) return;
                 this.userData = i;
                 this.dialogVisible = true
             },
