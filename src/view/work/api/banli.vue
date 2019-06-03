@@ -60,8 +60,16 @@
                         width="400">
                         </el-table-column>
                         <el-table-column
+                                prop="content"
+                                label="事件内容">
+                        </el-table-column>
+                        <el-table-column
                                 prop="type"
                                 label="事件类型">
+                        </el-table-column>
+                        <el-table-column
+                                prop="eventStart"
+                                label="事件来源">
                         </el-table-column>
                         <el-table-column width="250" label="操作" style="display: flex">
                             <template slot-scope="scope">
@@ -241,15 +249,23 @@
                                 width="400">
                         </el-table-column>
                         <el-table-column
+                                prop="content"
+                                label="事件内容">
+                        </el-table-column>
+                        <el-table-column
                                 prop="type"
                                 label="事件类型">
+                        </el-table-column>
+                        <el-table-column
+                                prop="eventStart"
+                                label="事件来源">
                         </el-table-column>
                         <el-table-column width="250" label="操作" style="display: flex">
                             <template slot-scope="scope">
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="tankuang1">查看</el-button>
+                                        @click="tankuang">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -422,15 +438,23 @@
                                 width="400">
                         </el-table-column>
                         <el-table-column
+                                prop="content"
+                                label="事件内容">
+                        </el-table-column>
+                        <el-table-column
                                 prop="type"
                                 label="事件类型">
+                        </el-table-column>
+                        <el-table-column
+                                prop="eventStart"
+                                label="事件来源">
                         </el-table-column>
                         <el-table-column width="250" label="操作" style="display: flex">
                             <template slot-scope="scope">
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="tankuang2">查看</el-button>
+                                        @click="tankuang">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -625,7 +649,9 @@
                         num: 0,
                         title: '哈哈哈哈哈',
                         time: '2019-05-17',
-                        type: '水面异常，侵占河道'
+                        type: '水面异常，侵占河道',
+                        content: '河道有垃圾',
+                        eventStart: '河长上报'
                     }
                 ],
                 form: {

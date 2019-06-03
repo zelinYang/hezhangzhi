@@ -7,10 +7,6 @@
         </el-breadcrumb>
         <el-tabs type="border-card">
             <el-tab-pane label="黑臭水体整治">
-                <el-col class="top_title"
-                        style="display:flex;justify-content: space-between;height: 30px;align-items: center">
-                </el-col>
-
                 <el-col class="right-m" style="display: block;min-width: 1371px;">
                     <div style="display: flex; background-color: rgb(244, 244, 249); margin: 0;height: 200px;border-radius: 5px;padding-top: 30px;align-items: center;padding-left: 15px;padding-right: 15px;">
                         <div class="mInp">

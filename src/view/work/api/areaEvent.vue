@@ -56,7 +56,7 @@
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="地址"
+                                label="行政地点"
                                 width="400">
                         </el-table-column>
                         <el-table-column
@@ -237,7 +237,7 @@
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="地址"
+                                label="行政地点"
                                 width="400">
                         </el-table-column>
                         <el-table-column

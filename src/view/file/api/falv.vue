@@ -5,31 +5,51 @@
             <el-breadcrumb-item>资料文件</el-breadcrumb-item>
             <el-breadcrumb-item>法律法规</el-breadcrumb-item>
         </el-breadcrumb>
+
+        <div style="margin-bottom: 10px;">
+            <el-button type="primary" icon="el-icon-folder-add">新增文件</el-button>
+            <el-button type="danger" @click="deleteselections(tableData)" icon="el-icon-delete">批量删除</el-button>
+        </div>
         <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
             <div  style="display: flex;padding: 20px;position: relative">
                 <el-form-item label="标题">
                     <el-input v-model="form.title" placeholder="请输入内容"></el-input>
                 </el-form-item>
-                <el-form-item label="类型">
-                    <el-select v-model="form.region" placeholder="请选择">
+                <el-form-item label="行业" style="width: 330px;">
+                    <el-select v-model="form.region" style="width: 200px;margin-left: 30px;" placeholder="请选择">
 
                     </el-select>
                 </el-form-item>
-                <el-form-item label="发布时间">
-                    <el-date-picker
-                            v-model="form.date2"
-                            type="daterange"
-                            start-placeholder="开始日期"
-                            end-placeholder="结束日期"
-                            default-value="2010-10-01">
-                    </el-date-picker>
-                </el-form-item>
-                <el-form-item style="position: absolute;right: 20px">
-                    <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                    <el-button type="danger" icon="el-icon-delete">删除</el-button>
+                <el-form-item label="信息状态" style="margin-left: 30px">
+                    <el-select v-model="form.region" style="width: 200px;" placeholder="请选择">
+
+                    </el-select>
                 </el-form-item>
             </div>
+            <div style="display: flex;justify-content: space-between;padding-left: 20px;">
+                <div style="width: 30%;display: flex;justify-content: space-between;">
+                    <el-form-item label="类型" style="min-width: 280px;">
+                        <el-select v-model="form.region" placeholder="请选择">
 
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="发布时间" style="margin-left: 30px">
+                        <el-date-picker
+                                v-model="form.date2"
+                                type="daterange"
+                                start-placeholder="开始日期"
+                                end-placeholder="结束日期"
+                                default-value="2010-10-01">
+                        </el-date-picker>
+                    </el-form-item>
+                </div>
+                <div style="display: flex;justify-content: flex-end">
+                    <el-form-item>
+                        <el-button type="default" icon="el-icon-search">搜索</el-button>
+                        <el-button type="info" icon="el-icon-circle-close">清除</el-button>
+                    </el-form-item>
+                </div>
+            </div>
         </el-form>
 
         <div  style="padding: 20px;" class="right-third">
