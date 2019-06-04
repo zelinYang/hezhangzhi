@@ -11,7 +11,7 @@
                 <span><i class="el-icon-location"></i><b>选择区域</b></span>
             </div>
             <div class="left-fourth1">
-                <el-tree :data="data" :default-expand-all="isOpen" :props="defaultProps"
+                <el-tree :data="data" :props="defaultProps"
                          @node-click="handleNodeClick"></el-tree>
             </div>
         </div>

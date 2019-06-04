@@ -9,7 +9,7 @@
         <el-tabs type="border-card">
             <el-tab-pane label="工作方案">
                 <div style="margin-bottom: 10px;">
-                    <el-button type="primary" icon="el-icon-folder-add">添加方案</el-button>
+                    <el-button type="primary" @click="addData" icon="el-icon-folder-add">添加方案</el-button>
                     <el-button type="danger" @click="deleteselections(tableData)" icon="el-icon-delete">批量删除</el-button>
                 </div>
                 <el-form ref="form" :model="form"
@@ -106,28 +106,170 @@
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="编辑" :visible.sync="dialogFormVisible" width="400px">
-                        <el-form :model="form1">
-                            <el-form-item label="标题" :label-width="formLabelWidth">
-                                <el-input v-model="form1.title" auto-complete="off" style="width: 220px"></el-input>
-                            </el-form-item>
-                            <el-form-item label="日期" :label-width="formLabelWidth">
-                                <el-date-picker
-                                        v-model="value1"
-                                        type="date"
-                                        placeholder="选择日期">
-                                </el-date-picker>
-                            </el-form-item>
-                            <el-form-item label="类型" :label-width="formLabelWidth">
-                                <el-select v-model="form.region" placeholder="请选择">
-                                    <el-option label="河道有垃圾" value="1"></el-option>
-                                    <el-option label="侵占河道" value="2"></el-option>
-                                </el-select>
-                            </el-form-item>
+                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="900px">
+                        <el-form :model="form" :hide-required-asterisk="true">
+                            <div style="width: 100%;">
+                                <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
+                                    <el-input v-model="form.title" placeholder="请输入" auto-complete="off"></el-input>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="印发文件文号" :required="true" :label-width="formLabelWidth">
+                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                </el-form-item>
+
+                                <el-form-item label="文件类型" :required="true" :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="是否出台" :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+
+                                <el-form-item label="计划出台时间" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="value1"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="本旬进展"  :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+
+                                <el-form-item label="下旬进展"  :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;">
+                                <el-form-item label="记录生效时间" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="value1"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;">
+                                <el-form-item label="备注" :label-width="formLabelWidth">
+                                    <el-input type="textarea" v-model="value1"></el-input>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;">
+                                <el-form-item :required="true" label="上传文件" :label-width="formLabelWidth">
+                                    <el-upload
+                                            class="upload-demo"
+                                            action="https://jsonplaceholder.typicode.com/posts/"
+                                            :on-change="handleChange"
+                                            :file-list="fileList">
+                                        <el-button size="small" icon="el-icon-upload" type="primary">选择文件</el-button>
+                                        <span slot="tip" class="el-upload__tip">（支持文件格式：PDF）</span>
+                                    </el-upload>
+                                </el-form-item>
+                            </div>
                         </el-form>
                         <div slot="footer" class="dialog-footer">
-                            <el-button @click="dialogFormVisible = false">取 消</el-button>
-                            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                            <el-button type="primary" @click="viewAdd">预览</el-button>
+                            <el-button type="primary" @click="saveAdd">保存</el-button>
+                            <el-button type="primary" @click="portAdd">发布</el-button>
+                            <el-button @click="addinfoData = false">取 消</el-button>
+                        </div>
+                    </el-dialog>
+
+
+                    <el-dialog title="添加方案" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="900px">
+                        <el-form :model="form1">
+                            <div style="width: 100%;">
+                                <el-form-item :required="true" label="方案名称" :label-width="formLabelWidth" style="width: 100%;">
+                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="印发文件文号" :required="true" :label-width="formLabelWidth">
+                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                </el-form-item>
+
+                                <el-form-item label="方案类型" :required="true" :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="是否出台" :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+
+                                <el-form-item label="计划出台时间" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="value1"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="本旬进展"  :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+
+                                <el-form-item label="下旬进展"  :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;">
+                                <el-form-item label="记录生效时间" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="valuedate"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;">
+                                <el-form-item label="备注" :label-width="formLabelWidth">
+                                    <el-input type="textarea" v-model="value1"></el-input>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;">
+                                <el-form-item :required="true" label="上传文件" :label-width="formLabelWidth">
+                                    <el-upload
+                                            class="upload-demo"
+                                            action="https://jsonplaceholder.typicode.com/posts/"
+                                            :on-change="handleChange"
+                                            :file-list="fileList">
+                                        <el-button size="small" icon="el-icon-upload" type="primary">选择文件</el-button>
+                                        <span slot="tip" class="el-upload__tip">（支持文件格式：PDF）</span>
+                                    </el-upload>
+                                </el-form-item>
+                            </div>
+                        </el-form>
+                        <div slot="footer" class="dialog-footer">
+                            <el-button type="primary" @click="viewEdit">预览</el-button>
+                            <el-button type="primary" @click="saveEdit">保存</el-button>
+                            <el-button type="primary" @click="portEdit">发布</el-button>
+                            <el-button @click="addinfoData = false">取 消</el-button>
                         </div>
                     </el-dialog>
                     <div style="margin-top: 20px;display:flex;justify-content: space-between">
@@ -157,6 +299,7 @@
                 value1: '',
                 input123: '',
                 input: '',
+                addinfoData: false,
                 tableData: [
                     {
                         // num: 0,
@@ -212,10 +355,26 @@
                     },
                 ],
                 form: {
+                    infoStAt: [
+                        {value: 1, label: '已保存'},
+                        {value: 2, label: '已发布'}
+                    ],
+                    infoStAt_value:"",
                     name: '',
-                    region: '',
+                    fileTypeF: [
+                        {
+                            value: 1,
+                            label: 'news'
+                        },
+                        {
+                            value: 2,
+                            label: 'olds'
+                        }
+                    ],
+                    fileTypeF_value: '',
+                    region: [],
                     title: '',
-                    date2: '',
+                    date: '',
                     delivery: false,
                     type: {},
                     resource: '',
@@ -223,25 +382,95 @@
                 },
                 form1: {
                     title: '',
+                    num: '',
+                    fileType_value: '',
+                    fileType: [{value: 1,label: 'news'},{value: 2,label: 'olds'}],
+                    isPro_value: '',
+                    isPro: [{value: 1,label: '是'},{value: 2,label: '否'}],
+                    valueDate: '',
+                    thisTime_value: '',
+                    nextTime_value: '',
+                    valueRecord: '',
+                    valueArea: '',
+                    thisTime: [
+                        {
+                            value: 1,
+                            label: '已完成'
+                        },
+                        {
+                            value: 2,
+                            label: '未完成'
+                        }
+                    ],
+                    nextTime: [
+                        {
+                            value: 1,
+                            label: '已开始'
+                        },
+                        {
+                            value: 2,
+                            label: '未开始'
+                        }
+                    ]
+
+                },
+                form2: {
+                    title: '',
+                    num: '',
+                    fileType_value: '',
+                    fileType: [{value: 1,label: 'news'},{value: 2,label: 'olds'}],
+                    isPro_value: '',
+                    isPro: [{value: 1,label: '是'},{value: 2,label: '否'}],
+                    valueDate: '',
+                    thisTime_value: '',
+                    nextTime_value: '',
+                    valueRecord: '',
+                    valueArea: '',
+                    thisTime: [
+                        {
+                            value: 1,
+                            label: '已完成'
+                        },
+                        {
+                            value: 2,
+                            label: '未完成'
+                        }
+                    ],
+                    nextTime: [
+                        {
+                            value: 1,
+                            label: '已开始'
+                        },
+                        {
+                            value: 2,
+                            label: '未开始'
+                        }
+                    ]
+
                 },
                 dialogFormVisible: false,
-                formLabelWidth: "90px",
+                formLabelWidth: "120px",
                 currentPage3: 1,
                 deleteselection: [],
+                addinfoData: false,
+                fileList: [],
+                editinfoData: false,
 
             }
         },
         methods: {
             handleEdit(index, row) {
                 console.log(index, row)
-                this.dialogFormVisible = true
+                this.editinfoData = true
 
             },
             handleDelete(index, row) {
                 this.tableData.splice(index, 1)
             },
 
-
+            addData(){
+                this.addinfoData = true
+            },
             handleSizeChange3() {
             },
             handleCurrentChange3() {
@@ -253,7 +482,64 @@
                 console.log("开始删除的索引", this.deleteselection[0].index - 1);
                 // console.log(this.tableData[this.deleteselection[0].index - 1]);
             },
+            viewAdd(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+                this.addinfoData = false
+            },
+            saveAdd(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+                this.addinfoData = false
+            },
+            portAdd(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+                this.addinfoData = false
+            },
 
+            viewEdit(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+                this.addinfoData = false
+            },
+            saveEdit(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+                this.addinfoData = false
+            },
+            portEdit(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+                this.addinfoData = false
+            },
+
+            clean(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+            },
+
+            search(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+            },
+            handleChange(){},
             deleteselections(rows) {
                 // this.tableData.splice()
                 //   console.log(this.$refs.multipleTable)
@@ -278,9 +564,13 @@
 
         },
         created() {
+            console.warn('信息状态：',this.form.infoStAt)
+            console.warn('信息状态：',this.form)
             this.addIndexToData(this.tableData)
+        },
+        mounted() {
+            console.log('信息状态：',this.form)
         }
-
     }
 </script>
 
