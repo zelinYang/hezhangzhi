@@ -60,7 +60,7 @@
                             </el-col>
                         </div>
                         <div class="echartsSelect">
-                            <label>清障类型：</label>
+                            <label>水体整治：</label>
                             <el-select v-model="value5" style="width: 140px;" placeholder="请选择">
                                 <el-option
                                         v-for="item in options5"

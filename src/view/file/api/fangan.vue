@@ -20,13 +20,17 @@
                             <el-input v-model="form.title" placeholder="请输入内容"></el-input>
                         </el-form-item>
                         <el-form-item label="同步状态" style="margin-left: 30px">
-                            <el-select v-model="form.region" style="width: 200px;" placeholder="请选择">
-
+                            <el-select v-model="form.tongbu_value" style="width: 200px;" placeholder="请选择">
+                                <el-option value="同步">同步</el-option>
+                                <el-option value="不同步">不同步</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="信息状态" style="margin-left: 30px">
-                            <el-select v-model="form.region" style="width: 200px;" placeholder="请选择">
-
+                            <el-select v-model="form.infoStAt_value" style="width: 200px;" placeholder="请选择">
+                                <el-option value="待审核">待审核</el-option>
+                                <el-option value="初步审核">初步审核</el-option>
+                                <el-option value="已审核">已审核</el-option>
+                                <el-option value="通过审核">通过审核</el-option>
                             </el-select>
                         </el-form-item>
                     </div>
@@ -34,7 +38,7 @@
                         <div style="width: 40%;display: flex;justify-content: flex-start;">
                             <el-form-item label="发布时间" style="margin-left: 17px">
                             <el-date-picker
-                                    v-model="form.date2"
+                                    v-model="form.date"
                                     type="daterange"
                                     start-placeholder="开始日期"
                                     end-placeholder="结束日期"
@@ -241,7 +245,7 @@
                                 <el-form-item label="记录生效时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="valuedate"
+                                            v-model="form2.valuedate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -392,6 +396,7 @@
                     nextTime_value: '',
                     valueRecord: '',
                     valueArea: '',
+                    tongbu_value: '',
                     thisTime: [
                         {
                             value: 1,
@@ -426,6 +431,7 @@
                     nextTime_value: '',
                     valueRecord: '',
                     valueArea: '',
+                    valuedate: '',
                     thisTime: [
                         {
                             value: 1,
@@ -465,7 +471,22 @@
 
             },
             handleDelete(index, row) {
-                this.tableData.splice(index, 1)
+                this.$confirm('此操作将永久删除该内容, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.tableData.splice(index, 1)
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
             },
 
             addData(){

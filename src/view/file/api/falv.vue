@@ -20,21 +20,29 @@
                             <el-input v-model="form.title" placeholder="请输入内容"></el-input>
                         </el-form-item>
                         <el-form-item label="行业" style="width: 330px;">
-                            <el-select v-model="form.region" style="width: 200px;margin-left: 30px;" placeholder="请选择">
-
+                            <el-select v-model="form.business_value" style="width: 200px;margin-left: 30px;" placeholder="请选择">
+                                <el-option value="环保">环保</el-option>
+                                <el-option value="交通">交通</el-option>
+                                <el-option value="住建">住建</el-option>
+                                <el-option value="水利">水利</el-option>
+                                <el-option value="通用">通用</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="信息状态" style="margin-left: 30px">
-                            <el-select v-model="form.region" style="width: 200px;" placeholder="请选择">
-
+                            <el-select v-model="form.infoStAt_value" style="width: 200px;" placeholder="请选择">
+                                <el-option value="待审核">待审核</el-option>
+                                <el-option value="初步审核">初步审核</el-option>
+                                <el-option value="已审核">已审核</el-option>
+                                <el-option value="通过审核">通过审核</el-option>
                             </el-select>
                         </el-form-item>
                     </div>
                     <div style="display: flex;justify-content: space-between;padding-left: 20px;">
                         <div style="width: 30%;display: flex;justify-content: space-between;">
-                            <el-form-item label="类型" style="min-width: 280px;">
-                                <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-form-item label="类别" style="min-width: 280px;">
+                                <el-select v-model="form.fileTypeF_value" style="width: 200px;" placeholder="请选择">
+                                    <el-option value="标准范文">标准范文</el-option>
+                                    <el-option value="法律条文">法律条文</el-option>
                                 </el-select>
                             </el-form-item>
                             <el-form-item label="发布时间" style="margin-left: 30px">
@@ -364,6 +372,7 @@
                     },
                 ],
                 form: {
+                    business_value: '',
                     infoStAt: [
                         {value: 1, label: '已保存'},
                         {value: 2, label: '已发布'}
@@ -474,7 +483,22 @@
 
             },
             handleDelete(index, row) {
-                this.tableData.splice(index, 1)
+                this.$confirm('此操作将永久删除该内容, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.tableData.splice(index, 1)
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
             },
 
             addData(){

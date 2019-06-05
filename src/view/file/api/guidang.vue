@@ -20,13 +20,11 @@
                         </el-form-item>
 
                         <el-form-item label="信息状态" style="margin-left: 30px;">
-                            <el-select v-model="form.infoStAt_value" placeholder="请选择">
-                                <el-option
-                                        v-for="item in form.infoStAt"
-                                        :key="item.value"
-                                        :label="item.label"
-                                        :value="item.value">
-                                </el-option>
+                            <el-select v-model="form.infoStAt_value" style="width: 200px;" placeholder="请选择">
+                                <el-option value="待审核">待审核</el-option>
+                                <el-option value="初步审核">初步审核</el-option>
+                                <el-option value="已审核">已审核</el-option>
+                                <el-option value="通过审核">通过审核</el-option>
                             </el-select>
                         </el-form-item>
 
@@ -52,8 +50,8 @@
                             </el-select>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="default" icon="el-icon-search">搜索</el-button>
-                            <el-button type="info" icon="el-icon-circle-close">清除</el-button>
+                            <el-button type="default" @click="search" icon="el-icon-search">搜索</el-button>
+                            <el-button type="info" @click="clean" icon="el-icon-circle-close">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -63,7 +61,7 @@
                     <el-table
                             ref="multipleTable"
                             @select="checke1"
-                            @selection-change="tabselect"
+                            @select-all="checkAll"
                             :highlight-current-row="true"
                             :data="tableData"
                             style="width: 100%">
@@ -72,10 +70,8 @@
                         </el-table-column>
                         <el-table-column
                                 label="序号"
-                                width="250">
-                            <template slot-scope="scope">
-                                {{scope.row.index}}
-                            </template>
+                                width="250"
+                                prop="num">
                         </el-table-column>
                         <el-table-column
                                 prop="title"
@@ -113,19 +109,16 @@
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="900px">
+                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="70px">
                         <el-form :model="form1" :hide-required-asterisk="true">
                             <div style="width: 100%;">
-                                <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
+                                <el-form-item :required="true" label="标题" :label-width="formLabelWidth" style="width: 100%;">
                                     <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="印发文件文号" :required="true"  :label-width="formLabelWidth">
-                                    <el-input v-model="form1.num" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
-                                </el-form-item>
 
-                                <el-form-item label="文件类型" :required="true" :label-width="formLabelWidth">
+                                <el-form-item label="类别" :required="true" :label-width="formLabelWidth">
                                     <el-select v-model="form1.fileType_value" placeholder="请选择" style="width: 300px">
                                         <el-option
                                                 v-for="item in form1.fileType"
@@ -134,65 +127,6 @@
                                                 :value="item.value">
                                         </el-option>
                                     </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="是否出台" :label-width="formLabelWidth">
-                                    <el-select v-model="form1.isPro_value" placeholder="请选择" style="width: 300px">
-                                        <el-option
-                                                v-for="item in form1.isPro"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="计划出台时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="form1.valueDate"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="本旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form1.thisTime_value" placeholder="请选择" style="width: 300px">
-                                        <el-option
-                                                v-for="item in form1.thisTime"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="下旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form1.nextTime_value" placeholder="请选择" style="width: 300px">
-                                        <el-option
-                                                v-for="item in form1.nextTime"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;">
-                                <el-form-item label="记录生效时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="form1.valueRecord"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;">
-                                <el-form-item label="备注" :label-width="formLabelWidth">
-                                    <el-input type="textarea" v-model="form1.valueArea"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;">
@@ -217,86 +151,23 @@
                     </el-dialog>
 
 
-                    <el-dialog title="新增文件" :center="true"  :visible.sync="editinfoData" width="900px">
-                        <el-form :model="form2" :hide-required-asterisk="true">
+                    <el-dialog title="添加文件" :center="true"  :visible.sync="addinfoData" width="500px">
+                        <el-form :show-message="true" :rules="rules" ref="form2"  :model="form2" :hide-required-asterisk="true">
                             <div style="width: 100%;">
-                                <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
+                                <el-form-item :required="true" label="标题" :label-width="formLabelWidth" prop="title" style="width: 100%;">
                                     <el-input v-model="form2.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="印发文件文号" :required="true"  :label-width="formLabelWidth">
-                                    <el-input v-model="form2.num" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
-                                </el-form-item>
-
-                                <el-form-item label="文件类型" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form1.fileType_value" placeholder="请选择" style="width: 300px">
+                                <el-form-item label="类别" :required="true" prop="fileType_value" style="width: 100%;" :label-width="formLabelWidth">
+                                    <el-select v-model="form2.fileType_value" style="width: 100%;" placeholder="请选择">
                                         <el-option
-                                                v-for="item in form1.fileType"
+                                                v-for="item in form2.fileType"
                                                 :key="item.value"
                                                 :label="item.label"
                                                 :value="item.value">
                                         </el-option>
                                     </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="是否出台" :label-width="formLabelWidth">
-                                    <el-select v-model="form2.isPro_value" placeholder="请选择" style="width: 300px">
-                                        <el-option
-                                                v-for="item in form1.isPro"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="计划出台时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="form2.valueDate"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="本旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form2.thisTime_value" placeholder="请选择" style="width: 300px">
-                                        <el-option
-                                                v-for="item in form2.thisTime"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="下旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form2.nextTime_value" placeholder="请选择" style="width: 300px">
-                                        <el-option
-                                                v-for="item in form1.nextTime"
-                                                :key="item.value"
-                                                :label="item.label"
-                                                :value="item.value">
-                                        </el-option>
-                                    </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;">
-                                <el-form-item label="记录生效时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="form2.valueRecord"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;">
-                                <el-form-item label="备注" :label-width="formLabelWidth">
-                                    <el-input type="textarea" v-model="form2.valueArea"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;">
@@ -314,7 +185,7 @@
                         </el-form>
                         <div slot="footer" class="dialog-footer">
                             <el-button type="primary" @click="viewAdd">预览</el-button>
-                            <el-button type="primary" @click="saveAdd">保存</el-button>
+                            <el-button type="primary" @click="saveAdd(form2)">保存</el-button>
                             <el-button type="primary" @click="portAdd">发布</el-button>
                             <el-button @click="addinfoData = false">取 消</el-button>
                         </div>
@@ -346,11 +217,10 @@
                 value1: '',
                 input123: '',
                 input: '',
-                addinfoData: false,
                 tableData: [
                     {
-                        // num: 0,
-                        title: '哈哈哈哈哈',
+                        num: 1,
+                        title: '哈1',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -362,8 +232,8 @@
                         isasincy: '是'
                     },
                     {
-                        // num: 1,
-                        title: '哈哈哈哈哈',
+                        num: 2,
+                        title: '哈2',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -375,8 +245,8 @@
                         isasincy: '是'
                     },
                     {
-                        // num: 2,
-                        title: '哈哈哈哈哈',
+                        num: 3,
+                        title: '哈3',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -388,8 +258,8 @@
                         isasincy: '是'
                     },
                     {
-                        // num: 0,
-                        title: '哈哈哈哈哈',
+                        num: 4,
+                        title: '哈4',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -401,20 +271,21 @@
                         isasincy: '是'
                     },
                 ],
+                filter_tableData:[],
                 form: {
                     infoStAt: [
-                        {value: 1, label: '已保存'},
-                        {value: 2, label: '已发布'}
+                        {value: '已保存', label: '已保存'},
+                        {value: '已发布', label: '已发布'}
                     ],
                     infoStAt_value:"",
                     name: '',
                     fileTypeF: [
                         {
-                            value: 1,
+                            value: 'news',
                             label: 'news'
                         },
                         {
-                            value: 2,
+                            value: 'olds',
                             label: 'olds'
                         }
                     ],
@@ -431,7 +302,7 @@
                     title: '',
                     num: '',
                     fileType_value: '',
-                    fileType: [{value: 1,label: 'news'},{value: 2,label: 'olds'}],
+                    fileType: [{value: 'news',label: 'news'},{value: 'olds',label: 'olds'}],
                     isPro_value: '',
                     isPro: [{value: 1,label: '是'},{value: 2,label: '否'}],
                     valueDate: '',
@@ -458,16 +329,17 @@
                             value: 2,
                             label: '未开始'
                         }
-                    ]
+                    ],
+                    addinfoData: false,
 
                 },
                 form2: {
                     title: '',
                     num: '',
                     fileType_value: '',
-                    fileType: [{value: 1,label: 'news'},{value: 2,label: 'olds'}],
+                    fileType: [{value: 'news',label: 'news'},{value: 'olds',label: 'olds'}],
                     isPro_value: '',
-                    isPro: [{value: 1,label: '是'},{value: 2,label: '否'}],
+                    isPro: [{value: '是',label: '是'},{value: '否',label: '否'}],
                     valueDate: '',
                     thisTime_value: '',
                     nextTime_value: '',
@@ -496,12 +368,26 @@
 
                 },
                 dialogFormVisible: false,
-                formLabelWidth: "120px",
+                formLabelWidth: "80px",
                 currentPage3: 1,
                 deleteselection: [],
                 addinfoData: false,
                 fileList: [],
                 editinfoData: false,
+                rules: {
+                    title: [{
+                        required: true,
+                        message: '请输入标题',
+                        trigger: 'blur'
+                    }],
+                    fileType_value: [
+                        {
+                            required: true,
+                            message: '请选择类型',
+                            trigger: 'change'
+                        }
+                    ]
+                }
 
             }
         },
@@ -512,7 +398,22 @@
 
             },
             handleDelete(index, row) {
-                this.tableData.splice(index, 1)
+                this.$confirm('此操作将永久删除该内容, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.tableData.splice(index, 1)
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
             },
 
             addData(){
@@ -522,13 +423,6 @@
             },
             handleCurrentChange3() {
             },
-
-            checke1(selection, row) {
-                this.deleteselection = selection;
-                // console.log(this.deleteselection);
-                console.log("开始删除的索引", this.deleteselection[0].index - 1);
-                // console.log(this.tableData[this.deleteselection[0].index - 1]);
-            },
             viewAdd(){
                 this.$message({
                     message: '功能正在开发中',
@@ -536,12 +430,57 @@
                 });
                 this.addinfoData = false
             },
-            saveAdd(){
-                this.$message({
-                    message: '功能正在开发中',
-                    type: 'warning'
+            // 添加
+            saveAdd(form){
+                this.$refs["form2"].validate((valid) => {
+                    if (valid) {
+                        let obj = {};
+                        obj.title = this.form2.title;
+                        obj.time = this.getTime();
+                        obj.porter = '管理员';
+                        obj.type = this.form2.fileType_value;
+                        obj.stat = '未审核';
+                        obj.num = this.tableData.length + 1;
+                        this.tableData.push(obj);
+                        this.addinfoData = false
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
                 });
-                this.addinfoData = false
+
+                // this.$message({
+                //     message: '功能正在开发中',
+                //     type: 'warning'
+                // });
+            },
+
+            // 搜索
+            search(){
+
+                let title = this.form.title;
+                let stat = this.form.infoStAt_value;
+                let date = this.form.date;
+                let type = this.form.fileTypeF_value
+                let arr = [];
+                this.tableData.forEach(item => {
+                    let obj = {};
+                    if(item.title === title){
+                        obj.title = title
+                    }else if (item.time.indexOf(date) !== -1){
+                        obj.date = date
+                    }else if(item.stat === stat){
+                        obj.stat = stat
+                    }else if(item.type === type){
+                        obj.type = type
+                    }
+                    console.log(obj);
+                    return obj;
+                })
+                // // this.$message({
+                // //     message: '功能正在开发中',
+                // //     type: 'warning'
+                // // });
             },
             portAdd(){
                 this.$message({
@@ -573,21 +512,63 @@
                 this.addinfoData = false
             },
 
+            // 清空筛选
             clean(){
-                this.$message({
+                this.form.title = '';
+                this.form.infoStAt_value = '';
+                this.form.date = '';
+                this.form.fileTypeF = '';
+                /*this.$message({
                     message: '功能正在开发中',
                     type: 'warning'
-                });
+                });*/
+                // let agmt= [this.form.title,this.form.infoStAt_value,this.form.date,this.form.fileTypeF];
+                // agmt.forEach(item => {
+                //     item = null;
+                // });
+                // console.log(agmt)
             },
 
-            search(){
-                this.$message({
-                    message: '功能正在开发中',
-                    type: 'warning'
-                });
+            getTime(){
+                const date = new Date();
+                let YY = date.getFullYear();
+                let MM = date.getMonth() < 10? `0${date.getMonth() + 1}` :  date.getMonth() + 1;
+                let DD = date.getDate() < 10? `0${date.getDate()}` :  date.getDate()
+
+                return `${YY}-${MM}-${DD}`
             },
+
+
+
+
+
             handleChange(){},
+
+
+
+            // 选择
+            checke1(selection, row) {
+                console.log('选中的集合',selection);
+                this.deleteselection = selection;
+                // console.log(this.deleteselection);
+                console.log("开始删除的索引", this.deleteselection[0].index - 1,row);
+                // console.log(this.tableData[this.deleteselection[0].index - 1]);
+            },
+
+            // 全选
+            checkAll(selection){
+                this.deleteselection = selection;
+            },
+
+            // 批量删除
             deleteselections(rows) {
+                if(this.deleteselection.length === 0){
+                    this.$message({
+                        message: '请选择要删除项',
+                        type: 'warning'
+                    });
+                    return;
+                }
                 // this.tableData.splice()
                 //   console.log(this.$refs.multipleTable)
                 //   this.deleteselection.forEach(val => {
@@ -598,25 +579,18 @@
                 this.tableData.splice(this.deleteselection[0].index - 1, this.deleteselection.length)
                 console.log("删除之后剩下的行：", this.tableData);
             },
-            tabselect(val) {
-                //console.log(val);
-            },
             addIndexToData(array) {
                 var newList = array.map((val, index) => {
                     val.index = index + 1;
                     return val
-                })
+                });
                 this.tableData = newList;
             },
-
         },
         created() {
-            console.warn('信息状态：',this.form.infoStAt)
-            console.warn('信息状态：',this.form)
-            this.addIndexToData(this.tableData)
+            this.addIndexToData(this.tableData);
         },
         mounted() {
-            console.log('信息状态：',this.form)
         }
 
     }

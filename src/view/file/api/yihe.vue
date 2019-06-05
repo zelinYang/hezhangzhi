@@ -144,7 +144,8 @@
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="本旬进展"  :label-width="formLabelWidth">
                                     <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                        <el-option value="已完成">已完成</el-option>
+                                        <el-option value="未完成">未完成</el-option>
                                     </el-select>
                                 </el-form-item>
 
@@ -474,7 +475,22 @@
 
             },
             handleDelete(index, row) {
-                this.tableData.splice(index, 1)
+                this.$confirm('此操作将永久删除该内容, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.tableData.splice(index, 1)
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
             },
 
             addData(){

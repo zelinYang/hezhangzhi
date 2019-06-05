@@ -4,13 +4,7 @@
         </div>
         <div class="left-side">
             <div class="left-side-first">
-                <el-tag
-                        v-for="tag in tags"
-                        :key="tag.name"
-                        closable
-                        :type="tag.type">
-                    {{tag.name}}
-                </el-tag>
+                <el-button size="mini" type="primary" icon="el-icon-close-notification" plain>关闭预警</el-button>
             </div>
             <div class="left-side-second">
                 <el-tabs type="border-card">

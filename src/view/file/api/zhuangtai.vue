@@ -16,7 +16,7 @@
                          style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;"
                          label-width="80px">
                     <div style="display: flex;padding: 20px;position: relative">
-                        <el-form-item label="方案名称">
+                        <el-form-item label="制度名称">
                             <el-input v-model="form.title" placeholder="请输入内容"></el-input>
                         </el-form-item>
                         <el-form-item label="同步状态" style="margin-left: 30px">
@@ -38,7 +38,7 @@
                         <div style="width: 40%;display: flex;justify-content: flex-start;">
                             <el-form-item label="发布时间" style="margin-left: 17px">
                                 <el-date-picker
-                                        v-model="form.date2"
+                                        v-model="form.date"
                                         type="daterange"
                                         start-placeholder="开始日期"
                                         end-placeholder="结束日期"
@@ -70,8 +70,8 @@
                             </template>
                         </el-table-column>
                         <el-table-column
-                                prop="name"
-                                label="方案名称"
+                                prop="institution"
+                                label="制度名称"
                                 width="250">
                         </el-table-column>
                         <el-table-column
@@ -317,7 +317,8 @@
                         area: '柳江河流域',
                         name: '柳江河治理总方案',
                         fileNum: 'ljh201906040258',
-                        isasincy: '是'
+                        isasincy: '是',
+                        institution: '柳江河管理制度',
                     },
                     {
                         // num: 1,
@@ -330,7 +331,8 @@
                         area: '柳江河流域',
                         name: '柳江河治理总方案',
                         fileNum: 'ljh201906040258',
-                        isasincy: '是'
+                        isasincy: '是',
+                        institution: '柳江河管理制度',
                     },
                     {
                         // num: 2,
@@ -343,7 +345,8 @@
                         area: '柳江河流域',
                         name: '柳江河治理总方案',
                         fileNum: 'ljh201906040258',
-                        isasincy: '是'
+                        isasincy: '是',
+                        institution: '柳江河管理制度',
                     },
                     {
                         // num: 0,
@@ -356,7 +359,8 @@
                         area: '柳江河流域',
                         name: '柳江河治理总方案',
                         fileNum: 'ljh201906040258',
-                        isasincy: '是'
+                        isasincy: '是',
+                        institution: '柳江河管理制度',
                     },
                 ],
                 form: {
@@ -473,7 +477,22 @@
 
             },
             handleDelete(index, row) {
-                this.tableData.splice(index, 1)
+                this.$confirm('此操作将永久删除该内容, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.tableData.splice(index, 1)
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
             },
 
             addData(){
