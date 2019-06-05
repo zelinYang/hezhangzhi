@@ -118,71 +118,30 @@
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="900px">
+                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="500px">
                         <el-form :model="form1" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
                                     <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="印发文件文号" :required="true" :label-width="formLabelWidth">
-                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                            <div style="width: 100%;">
+                                <el-form-item label="行业"  style="width: 100%" :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 100%">
+                                        <el-option value="环保">环保</el-option>
+                                        <el-option value="交通">交通</el-option>
+                                        <el-option value="住建">住建</el-option>
+                                        <el-option value="水利">水利</el-option>
+                                        <el-option value="通用">通用</el-option>
+                                    </el-select>
                                 </el-form-item>
-
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="文件类型" :required="true" :label-width="formLabelWidth">
                                     <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                        <el-option value="标准范文">标准范文</el-option>
+                                        <el-option value="法律条文">法律条文</el-option>
                                     </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="是否出台" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="计划出台时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="value1"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="本旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="下旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="记录生效时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="value1"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
-                                </el-form-item>
-                                <el-form-item label="行业"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;">
-                                <el-form-item label="备注" :label-width="formLabelWidth">
-                                    <el-input type="textarea" v-model="value1"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;">
@@ -207,66 +166,30 @@
                     </el-dialog>
 
 
-                    <el-dialog title="新增文件" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="900px">
-                        <el-form :model="form1">
+                    <el-dialog title="新增文件" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="500px">
+                        <el-form :model="form1" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
                                     <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="印发文件文号" :required="true" :label-width="formLabelWidth">
-                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
-                                </el-form-item>
-
-                                <el-form-item label="文件类型" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="是否出台" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="计划出台时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="value1"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="本旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-
-                                <el-form-item label="下旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-                            </div>
                             <div style="width: 100%;">
-                                <el-form-item label="记录生效时间" :label-width="formLabelWidth">
-                                    <el-date-picker
-                                            style="width: 300px"
-                                            v-model="value1"
-                                            type="date"
-                                            placeholder="选择日期">
-                                    </el-date-picker>
+                                <el-form-item label="行业"  style="width: 100%" :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 100%">
+                                        <el-option value="环保">环保</el-option>
+                                        <el-option value="交通">交通</el-option>
+                                        <el-option value="住建">住建</el-option>
+                                        <el-option value="水利">水利</el-option>
+                                        <el-option value="通用">通用</el-option>
+                                    </el-select>
                                 </el-form-item>
                             </div>
-                            <div style="width: 100%;">
-                                <el-form-item label="备注" :label-width="formLabelWidth">
-                                    <el-input type="textarea" v-model="value1"></el-input>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="文件类型" style="width: 100%;" :required="true" :label-width="formLabelWidth">
+                                    <el-select v-model="form.region" placeholder="请选择" style="width: 100%;" >
+                                        <el-option value="标准范文">标准范文</el-option>
+                                        <el-option value="法律条文">法律条文</el-option>
+                                    </el-select>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;">
@@ -283,9 +206,9 @@
                             </div>
                         </el-form>
                         <div slot="footer" class="dialog-footer">
-                            <el-button type="primary" @click="viewEdit">预览</el-button>
-                            <el-button type="primary" @click="saveEdit">保存</el-button>
-                            <el-button type="primary" @click="portEdit">发布</el-button>
+                            <el-button type="primary" @click="viewAdd">预览</el-button>
+                            <el-button type="primary" @click="saveAdd">保存</el-button>
+                            <el-button type="primary" @click="portAdd">发布</el-button>
                             <el-button @click="addinfoData = false">取 消</el-button>
                         </div>
                     </el-dialog>
@@ -467,7 +390,7 @@
 
                 },
                 dialogFormVisible: false,
-                formLabelWidth: "120px",
+                formLabelWidth: "70px",
                 currentPage3: 1,
                 deleteselection: [],
                 addinfoData: false,

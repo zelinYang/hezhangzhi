@@ -109,7 +109,7 @@
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="70px">
+                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="500px">
                         <el-form :model="form1" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="标题" :label-width="formLabelWidth" style="width: 100%;">
@@ -118,8 +118,8 @@
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
 
-                                <el-form-item label="类别" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form1.fileType_value" placeholder="请选择" style="width: 300px">
+                                <el-form-item label="类别" :required="true" style="width: 100%" :label-width="formLabelWidth">
+                                    <el-select v-model="form1.fileType_value" placeholder="请选择" style="width: 100%">
                                         <el-option
                                                 v-for="item in form1.fileType"
                                                 :key="item.value"
