@@ -284,7 +284,7 @@
 
         .right-fist1 {
             height: 80px;
-            padding: 20px;
+            padding-top: 20px;
 
             div {
                 width: 100%;

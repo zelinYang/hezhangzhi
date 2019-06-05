@@ -127,7 +127,7 @@
                             </div>
                             <div style="width: 100%;">
                                 <el-form-item label="行业"  style="width: 100%" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 100%">
+                                    <el-select v-model="form1.business_value" placeholder="请选择" style="width: 100%">
                                         <el-option value="环保">环保</el-option>
                                         <el-option value="交通">交通</el-option>
                                         <el-option value="住建">住建</el-option>
@@ -138,7 +138,7 @@
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="文件类型" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
+                                    <el-select v-model="form1.fileTypeF_value" placeholder="请选择" style="width: 300px">
                                         <el-option value="标准范文">标准范文</el-option>
                                         <el-option value="法律条文">法律条文</el-option>
                                     </el-select>
@@ -161,13 +161,13 @@
                             <el-button type="primary" @click="viewAdd">预览</el-button>
                             <el-button type="primary" @click="saveAdd">保存</el-button>
                             <el-button type="primary" @click="portAdd">发布</el-button>
-                            <el-button @click="addinfoData = false">取 消</el-button>
+                            <el-button @click="editinfoData = false">取 消</el-button>
                         </div>
                     </el-dialog>
 
 
                     <el-dialog title="新增文件" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="500px">
-                        <el-form :model="form1" :hide-required-asterisk="true">
+                        <el-form :model="form1" :rules="rules" ref="form2" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
                                     <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
@@ -186,7 +186,7 @@
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="文件类型" style="width: 100%;" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 100%;" >
+                                    <el-select v-model="form.fileTypeF_value" placeholder="请选择" style="width: 100%;" >
                                         <el-option value="标准范文">标准范文</el-option>
                                         <el-option value="法律条文">法律条文</el-option>
                                     </el-select>
@@ -431,13 +431,6 @@
             },
             handleCurrentChange3() {
             },
-
-            checke1(selection, row) {
-                this.deleteselection = selection;
-                // console.log(this.deleteselection);
-                console.log("开始删除的索引", this.deleteselection[0].index - 1);
-                // console.log(this.tableData[this.deleteselection[0].index - 1]);
-            },
             viewAdd(){
                 this.$message({
                     message: '功能正在开发中',
@@ -445,12 +438,57 @@
                 });
                 this.addinfoData = false
             },
-            saveAdd(){
+            // 添加
+            saveAdd(form){
+                this.$refs["form2"].validate((valid) => {
+                    if (valid) {
+                        let obj = {};
+                        obj.title = this.form2.title;
+                        obj.time = this.getTime();
+                        obj.porter = '管理员';
+                        obj.type = this.form2.fileType_value;
+                        obj.stat = '未审核';
+                        obj.num = this.tableData.length + 1;
+                        this.tableData.push(obj);
+                        this.addinfoData = false
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
+                });
+
+                // this.$message({
+                //     message: '功能正在开发中',
+                //     type: 'warning'
+                // });
+            },
+
+            // 搜索
+            search(){
+
+                // let title = this.form.title;
+                // let stat = this.form.infoStAt_value;
+                // let date = this.form.date;
+                // let type = this.form.fileTypeF_value
+                // let arr = [];
+                // this.tableData.forEach(item => {
+                //     let obj = {};
+                //     if(item.title === title){
+                //         obj.title = title
+                //     }else if (item.time.indexOf(date) !== -1){
+                //         obj.date = date
+                //     }else if(item.stat === stat){
+                //         obj.stat = stat
+                //     }else if(item.type === type){
+                //         obj.type = type
+                //     }
+                //     console.log(obj);
+                //     return obj;
+                // })
                 this.$message({
                     message: '功能正在开发中',
                     type: 'warning'
                 });
-                this.addinfoData = false
             },
             portAdd(){
                 this.$message({
@@ -482,21 +520,64 @@
                 this.addinfoData = false
             },
 
+            // 清空筛选
             clean(){
-                this.$message({
+                this.$refs["form"].resetFields();
+                this.form.title = '';
+                this.form.infoStAt_value = '';
+                this.form.date = '';
+                this.form.fileTypeF = '';
+                /*this.$message({
                     message: '功能正在开发中',
                     type: 'warning'
-                });
+                });*/
+                // let agmt= [this.form.title,this.form.infoStAt_value,this.form.date,this.form.fileTypeF];
+                // agmt.forEach(item => {
+                //     item = null;
+                // });
+                // console.log(agmt)
             },
 
-            search(){
-                this.$message({
-                    message: '功能正在开发中',
-                    type: 'warning'
-                });
+            getTime(){
+                const date = new Date();
+                let YY = date.getFullYear();
+                let MM = date.getMonth() < 10? `0${date.getMonth() + 1}` :  date.getMonth() + 1;
+                let DD = date.getDate() < 10? `0${date.getDate()}` :  date.getDate()
+
+                return `${YY}-${MM}-${DD}`
             },
+
+
+
+
+
             handleChange(){},
+
+
+
+            // 选择
+            checke1(selection, row) {
+                console.log('选中的集合',selection);
+                this.deleteselection = selection;
+                // console.log(this.deleteselection);
+                console.log("开始删除的索引", this.deleteselection[0].index - 1,row);
+                // console.log(this.tableData[this.deleteselection[0].index - 1]);
+            },
+
+            // 全选
+            checkAll(selection){
+                this.deleteselection = selection;
+            },
+
+            // 批量删除
             deleteselections(rows) {
+                if(this.deleteselection.length === 0){
+                    this.$message({
+                        message: '请选择要删除项',
+                        type: 'warning'
+                    });
+                    return;
+                }
                 // this.tableData.splice()
                 //   console.log(this.$refs.multipleTable)
                 //   this.deleteselection.forEach(val => {
@@ -507,17 +588,13 @@
                 this.tableData.splice(this.deleteselection[0].index - 1, this.deleteselection.length)
                 console.log("删除之后剩下的行：", this.tableData);
             },
-            tabselect(val) {
-                //console.log(val);
-            },
             addIndexToData(array) {
                 var newList = array.map((val, index) => {
                     val.index = index + 1;
                     return val
-                })
+                });
                 this.tableData = newList;
             },
-
         },
         created() {
             console.warn('信息状态：',this.form.infoStAt)

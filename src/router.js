@@ -21,6 +21,10 @@ export default new Router({
                     path: '/river/sewage',
                     component: () => import('./view/affair/api/sewage.vue')
                 },
+                {
+                    path:'/river/event',
+                    component: () => import('./view/affair/affairChildren/eventAn.vue')
+                }
             ]
         },
         {path: '/river/task',component: () => import('./view/affair/affairChildren/task.vue')},

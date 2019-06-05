@@ -146,7 +146,7 @@
                             <el-button type="primary" @click="viewAdd">预览</el-button>
                             <el-button type="primary" @click="saveAdd">保存</el-button>
                             <el-button type="primary" @click="portAdd">发布</el-button>
-                            <el-button @click="addinfoData = false">取 消</el-button>
+                            <el-button @click="editinfoData = false">取 消</el-button>
                         </div>
                     </el-dialog>
 
@@ -458,29 +458,29 @@
             // 搜索
             search(){
 
-                let title = this.form.title;
-                let stat = this.form.infoStAt_value;
-                let date = this.form.date;
-                let type = this.form.fileTypeF_value
-                let arr = [];
-                this.tableData.forEach(item => {
-                    let obj = {};
-                    if(item.title === title){
-                        obj.title = title
-                    }else if (item.time.indexOf(date) !== -1){
-                        obj.date = date
-                    }else if(item.stat === stat){
-                        obj.stat = stat
-                    }else if(item.type === type){
-                        obj.type = type
-                    }
-                    console.log(obj);
-                    return obj;
-                })
-                // // this.$message({
-                // //     message: '功能正在开发中',
-                // //     type: 'warning'
-                // // });
+                // let title = this.form.title;
+                // let stat = this.form.infoStAt_value;
+                // let date = this.form.date;
+                // let type = this.form.fileTypeF_value
+                // let arr = [];
+                // this.tableData.forEach(item => {
+                //     let obj = {};
+                //     if(item.title === title){
+                //         obj.title = title
+                //     }else if (item.time.indexOf(date) !== -1){
+                //         obj.date = date
+                //     }else if(item.stat === stat){
+                //         obj.stat = stat
+                //     }else if(item.type === type){
+                //         obj.type = type
+                //     }
+                //     console.log(obj);
+                //     return obj;
+                // })
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
             },
             portAdd(){
                 this.$message({
