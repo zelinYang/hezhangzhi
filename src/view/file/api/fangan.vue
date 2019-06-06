@@ -110,7 +110,7 @@
                             </template>
                         </el-table-column>
                     </el-table>
-                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="900px">
+                    <el-dialog title="编辑文件" :center="true"  :visible.sync="editinfoData" width="1000px">
                         <el-form :model="form1" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
@@ -244,10 +244,10 @@
                     </el-dialog>
 
 
-                    <el-dialog title="添加方案" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="900px">
-                        <el-form :model="form1">
+                    <el-dialog title="添加方案" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="1000px">
+                        <el-form :model="form1" :hide-required-asterisk="true">
                             <div style="width: 100%;">
-                                <el-form-item :required="true" label="方案名称" :label-width="formLabelWidth" style="width: 100%;">
+                                <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
                                     <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
@@ -256,23 +256,10 @@
                                     <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
                                 </el-form-item>
 
-                                <el-form-item label="方案类型" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-                            </div>
-                            <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="是否出台" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
-                                    </el-select>
-                                </el-form-item>
-
                                 <el-form-item label="计划出台时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="value1"
+                                            v-model="form1.proDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -291,11 +278,74 @@
                                     </el-select>
                                 </el-form-item>
                             </div>
-                            <div style="width: 100%;">
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="河长制最末层级"  :label-width="formLabelWidth">
+                                    <el-select v-model="form.hezhz" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+
+                                <el-form-item label="湖长制最末层级"  :label-width="formLabelWidth">
+                                    <el-select v-model="form.huzhz" placeholder="请选择" style="width: 300px">
+
+                                    </el-select>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="全面建成河长制时间" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="form1.date_hezhz"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+                                <el-form-item label="全面建成湖长制时间" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="form1.date_huzhz"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="填报单位" :required="true" :label-width="formLabelWidth">
+                                    <el-input v-model="form1.danwei" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                </el-form-item>
+
+                                <el-form-item label="填报人" :required="true" :label-width="formLabelWidth">
+                                    <el-input v-model="form1.writ" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="联系方式" :required="true" :label-width="formLabelWidth">
+                                    <el-input v-model="form1.phon" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                </el-form-item>
+
+                                <el-form-item label="方案起始年份" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="form1.starTime"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+                            </div>
+                            <div style="width: 100%;display:flex;justify-content: space-between;">
+                                <el-form-item label="方案结束年份" :label-width="formLabelWidth">
+                                    <el-date-picker
+                                            style="width: 300px"
+                                            v-model="form1.endTim"
+                                            type="date"
+                                            placeholder="选择日期">
+                                    </el-date-picker>
+                                </el-form-item>
+
                                 <el-form-item label="记录生效时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="form2.valuedate"
+                                            v-model="form1.valueDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>

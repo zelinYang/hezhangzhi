@@ -50,6 +50,8 @@
                             :data="tableData"
                             style="width: 100%">
                         <el-table-column
+                                type="selection"></el-table-column>
+                        <el-table-column
                                 prop="time"
                                 label="上报时间"
                                 width="250">
@@ -230,6 +232,8 @@
                             :highlight-current-row="true"
                             :data="tableData"
                             style="width: 100%">
+                        <el-table-column
+                                type="selection"></el-table-column>
                         <el-table-column
                                 prop="time"
                                 label="上报时间"

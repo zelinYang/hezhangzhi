@@ -47,7 +47,7 @@
                             </el-form-item>
                             <el-form-item label="发布时间" style="margin-left: 30px">
                                 <el-date-picker
-                                        v-model="form.date2"
+                                        v-model="form.date"
                                         type="daterange"
                                         start-placeholder="开始日期"
                                         end-placeholder="结束日期"
@@ -73,10 +73,8 @@
                         </el-table-column>
                         <el-table-column
                                 label="序号"
+                                prop="num"
                                 width="100">
-                            <template slot-scope="scope">
-                                {{scope.row.index}}
-                            </template>
                         </el-table-column>
                         <el-table-column
                                 prop="title"
@@ -167,15 +165,15 @@
 
 
                     <el-dialog title="新增文件" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="500px">
-                        <el-form :model="form1" :rules="rules" ref="form2" :hide-required-asterisk="true">
+                        <el-form :model="form2" :rules="rules" ref="form2" :hide-required-asterisk="true">
                             <div style="width: 100%;">
-                                <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
-                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
+                                <el-form-item :required="true" prop="title" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
+                                    <el-input v-model="form2.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;">
-                                <el-form-item label="行业"  style="width: 100%" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 100%">
+                                <el-form-item label="行业"  style="width: 100%" prop="business_value" required :label-width="formLabelWidth">
+                                    <el-select v-model="form2.business_value" placeholder="请选择" style="width: 100%">
                                         <el-option value="环保">环保</el-option>
                                         <el-option value="交通">交通</el-option>
                                         <el-option value="住建">住建</el-option>
@@ -185,8 +183,8 @@
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
-                                <el-form-item label="文件类型" style="width: 100%;" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form.fileTypeF_value" placeholder="请选择" style="width: 100%;" >
+                                <el-form-item label="文件类型" prop="fileType_value" style="width: 100%;" :required="true" :label-width="formLabelWidth">
+                                    <el-select v-model="form2.fileType_value" placeholder="请选择" style="width: 100%;" >
                                         <el-option value="标准范文">标准范文</el-option>
                                         <el-option value="法律条文">法律条文</el-option>
                                     </el-select>
@@ -207,7 +205,7 @@
                         </el-form>
                         <div slot="footer" class="dialog-footer">
                             <el-button type="primary" @click="viewAdd">预览</el-button>
-                            <el-button type="primary" @click="saveAdd">保存</el-button>
+                            <el-button type="primary" @click="saveAdd('form2')">保存</el-button>
                             <el-button type="primary" @click="portAdd">发布</el-button>
                             <el-button @click="addinfoData = false">取 消</el-button>
                         </div>
@@ -242,7 +240,7 @@
                 addinfoData: false,
                 tableData: [
                     {
-                        // num: 0,
+                        num: 1,
                         title: '哈哈哈哈哈',
                         time: '2019-05-17',
                         type: 'news',
@@ -255,7 +253,7 @@
                         isasincy: '是'
                     },
                     {
-                        // num: 1,
+                        num: 2,
                         title: '哈哈哈哈哈',
                         time: '2019-05-17',
                         type: 'news',
@@ -268,7 +266,7 @@
                         isasincy: '是'
                     },
                     {
-                        // num: 2,
+                        num: 3,
                         title: '哈哈哈哈哈',
                         time: '2019-05-17',
                         type: 'news',
@@ -281,7 +279,7 @@
                         isasincy: '是'
                     },
                     {
-                        // num: 0,
+                        num: 4,
                         title: '哈哈哈哈哈',
                         time: '2019-05-17',
                         type: 'news',
@@ -324,6 +322,7 @@
                 form1: {
                     title: '',
                     num: '',
+                    business_value: '',
                     fileType_value: '',
                     fileType: [{value: 1,label: 'news'},{value: 2,label: 'olds'}],
                     isPro_value: '',
@@ -358,6 +357,7 @@
                 form2: {
                     title: '',
                     num: '',
+                    business_value: '',
                     fileType_value: '',
                     fileType: [{value: 1,label: 'news'},{value: 2,label: 'olds'}],
                     isPro_value: '',
@@ -396,7 +396,27 @@
                 addinfoData: false,
                 fileList: [],
                 editinfoData: false,
-
+                rules: {
+                    title: [{
+                        required: true,
+                        message: '请输入标题',
+                        trigger: 'blur'
+                    }],
+                    fileType_value: [
+                        {
+                            required: true,
+                            message: '请选择类型',
+                            trigger: 'change'
+                        }
+                    ],
+                    business_value: [
+                        {
+                            required: true,
+                            message: '请选择行业',
+                            trigger: 'change'
+                        }
+                    ]
+                }
             }
         },
         methods: {
@@ -447,7 +467,8 @@
                         obj.time = this.getTime();
                         obj.porter = '管理员';
                         obj.type = this.form2.fileType_value;
-                        obj.stat = '未审核';
+                        obj.stat = '待审核';
+                        obj.business = form2.business_value;
                         obj.num = this.tableData.length + 1;
                         this.tableData.push(obj);
                         this.addinfoData = false

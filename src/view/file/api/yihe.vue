@@ -147,15 +147,15 @@
 
 
                     <el-dialog title="新增文件" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="500px">
-                        <el-form :model="form1" :hide-required-asterisk="true">
+                        <el-form :model="form1" :rules="rules" ref="form2" :hide-required-asterisk="true">
                             <div style="width: 100%;">
-                                <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
+                                <el-form-item :required="true" prop="title" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
                                     <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
 
                             <div style="width: 100%;">
-                                <el-form-item label="流域" :required="true" :label-width="formLabelWidth" style="width: 100%;">
+                                <el-form-item label="流域" prop="areaL" :required="true" :label-width="formLabelWidth" style="width: 100%;">
                                     <el-select v-model="form.areaL" style="min-width: 100%;" placeholder="请选择">
                                         <el-option value="柳江河流域"></el-option>
                                     </el-select>
@@ -366,6 +366,20 @@
                 addinfoData: false,
                 fileList: [],
                 editinfoData: false,
+                rules: {
+                    title: [{
+                        required: true,
+                        message: '请输入标题',
+                        trigger: 'blur'
+                    }],
+                    areaL: [
+                        {
+                            required: true,
+                            message: '请选择流域',
+                            trigger: 'change'
+                        }
+                    ],
+                }
 
             }
         },
