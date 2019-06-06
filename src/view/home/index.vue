@@ -765,7 +765,7 @@
     .right-first {
       height: 230px;
       background-color: #fff;
-      padding: 20px;
+      padding: 10px;
       box-shadow: @shade;
       .title-top {
         height: 20px;

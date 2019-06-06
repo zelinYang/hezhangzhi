@@ -115,7 +115,7 @@
                 </el-col>
             </el-col>
         </el-col>
-        <el-col :span="24" style="height: 80px; background-color: #fff;"></el-col>
+        <el-col :span="24" style="height: 30vh; background-color: #fff;"></el-col>
     </div>
 </template>
 

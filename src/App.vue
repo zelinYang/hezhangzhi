@@ -50,7 +50,7 @@
 				<!--涉河事务-->
 				<el-submenu index="2"  class="menu-river">
 					<template slot="title">涉河事务</template>
-					<el-menu-item index="/river">涉河事务首页</el-menu-item>
+					<el-menu-item index="/river/allclear">涉河事务首页</el-menu-item>
 					<el-menu-item index="/river/task">专项任务</el-menu-item>
 					<el-menu-item index="/river/eventAn">事件分析</el-menu-item>
 					<el-menu-item index="/river/assess">考核评估</el-menu-item>
@@ -67,7 +67,7 @@
 					<span>组织信息</span>
 				</el-menu-item>
 
-				<el-menu-item index="/organize">
+				<el-menu-item index="/monitor">
 					<i class="el-icon-monitor"></i>
 					<span>视频监控</span>
 				</el-menu-item>
