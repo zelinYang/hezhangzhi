@@ -48,8 +48,8 @@
                         </div>
                         <div style="display: flex;justify-content: flex-end">
                             <el-form-item>
-                                <el-button type="default" icon="el-icon-search">搜索</el-button>
-                                <el-button type="info" icon="el-icon-circle-close">清除</el-button>
+                                <el-button type="default" @click="search" icon="el-icon-search">搜索</el-button>
+                                <el-button type="info" @click="clean" icon="el-icon-circle-close">清除</el-button>
                             </el-form-item>
                         </div>
                     </div>
@@ -57,6 +57,7 @@
 
                 <div style="padding: 20px;" class="right-third">
                     <el-table
+                            @select-all="checkAll"
                             :highlight-current-row="true"
                             :data="tableData"
                             style="width: 100%">
@@ -479,8 +480,18 @@
                     type: 'warning'
                 });
             },
+            checkAll(selection){
+                this.deleteselection = selection;
+            },
             handleChange(){},
             deleteselections(rows) {
+                if(this.deleteselection.length === 0){
+                    this.$message({
+                        message: '请选择要删除项',
+                        type: 'warning'
+                    });
+                    return;
+                }
                 // this.tableData.splice()
                 //   console.log(this.$refs.multipleTable)
                 //   this.deleteselection.forEach(val => {

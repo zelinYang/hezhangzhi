@@ -25,10 +25,11 @@
         </div>
       </div>
       <div class="imag">
-        <img
-                src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1558961087&di=0d47c994ed295bd779f83a89fac282a3&src=http://img0.ph.126.net/NFlgs9HTW4OB6847sge4UQ==/6630914933584550001.jpg"
-                alt
-        >
+          <el-carousel height="200px">
+              <el-carousel-item v-for="item in imgData" :key="item">
+                  <img :src="item" style="width: 100%;height: 100%;" alt="">
+              </el-carousel-item>
+          </el-carousel>
       </div>
       <div class="news" style="display:flex;justify-content: center;">
         <el-tabs style="width:90%" v-model="activeName1" @tab-click="handleClick">
@@ -323,7 +324,7 @@
                 </el-col>
               </div>
               <div class="echartsSelect">
-                <label >清障类型：</label>
+                <label >水体整治：</label>
                 <el-select v-model="value5"  style="width: 140px;" placeholder="请选择">
                   <el-option
                           v-for="item in options5"
@@ -424,6 +425,7 @@
     name: "index",
     data() {
       return {
+        imgData:[],
         activeName1: "first",
         activeName2: "first",
         activeName3: "first",
@@ -640,11 +642,20 @@
             }).catch(err => {
                 console.log(`错误${err}`)
             })
+        },
+        getImgData(){
+            this.axios.get('data/imgData.json').then(res => {
+                this.imgData = res.data
+                console.log(res.data);
+            }).catch(err => {
+                console.log(`错误:${err}`);
+            })
         }
     },
     mounted() {
       this.createMap();
       this.getEchartData();
+      this.getImgData();
       console.log(data.default.cateData);
     }
   };

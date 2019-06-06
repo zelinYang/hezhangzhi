@@ -3,7 +3,7 @@
     <div
       style="padding: 8em; box-sizing: border-box; text-align: center; background-color: #409EFF;"
     >
-      <h1 style="font-weight: 200; color: #fff;">{{sys.title}}</h1>
+      <h1 style="font-weight: 200; color: #fff;">登录</h1>
     </div>
 
     <div style="background-color: #fff; box-sizing: border-box; padding: 3em; text-align: center; ">
@@ -89,8 +89,6 @@ export default {
       //     this.$message("网络错误");
       //     this.loading = false;
       //   });
-      console.log(this)
-      this.$router.push('/index')
 
     }
   }

@@ -57,8 +57,8 @@
                         </div>
                         <div style="display: flex;justify-content: flex-end">
                             <el-form-item>
-                                <el-button type="default" icon="el-icon-search">搜索</el-button>
-                                <el-button type="info" icon="el-icon-circle-close">清除</el-button>
+                                <el-button type="default" @click="search" icon="el-icon-search">搜索</el-button>
+                                <el-button type="info" @click="clean" icon="el-icon-circle-close">清除</el-button>
                             </el-form-item>
                         </div>
                     </div>
@@ -66,6 +66,7 @@
 
                 <div style="padding: 20px;" class="right-third">
                     <el-table
+                            @select-all="checkAll"
                             :highlight-current-row="true"
                             :data="tableData"
                             style="width: 100%">
@@ -460,28 +461,28 @@
             },
             // 添加
             saveAdd(form){
-                this.$refs["form2"].validate((valid) => {
-                    if (valid) {
-                        let obj = {};
-                        obj.title = this.form2.title;
-                        obj.time = this.getTime();
-                        obj.porter = '管理员';
-                        obj.type = this.form2.fileType_value;
-                        obj.stat = '待审核';
-                        obj.business = form2.business_value;
-                        obj.num = this.tableData.length + 1;
-                        this.tableData.push(obj);
-                        this.addinfoData = false
-                    } else {
-                        console.log('error submit!!');
-                        return false;
-                    }
-                });
-
-                // this.$message({
-                //     message: '功能正在开发中',
-                //     type: 'warning'
+                // this.$refs["form2"].validate((valid) => {
+                //     if (valid) {
+                //         let obj = {};
+                //         obj.title = this.form2.title;
+                //         obj.time = this.getTime();
+                //         obj.porter = '管理员';
+                //         obj.type = this.form2.fileType_value;
+                //         obj.stat = '待审核';
+                //         obj.business = form2.business_value;
+                //         obj.num = this.tableData.length + 1;
+                //         this.tableData.push(obj);
+                //         this.addinfoData = false
+                //     } else {
+                //         console.log('error submit!!');
+                //         return false;
+                //     }
                 // });
+
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
             },
 
             // 搜索

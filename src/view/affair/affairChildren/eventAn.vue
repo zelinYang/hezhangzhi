@@ -208,6 +208,7 @@
     .right-content{
         padding: 35px;
         background-color: #fff;
+        min-height: 95vh;
         div{
             .top-left{
                 i{

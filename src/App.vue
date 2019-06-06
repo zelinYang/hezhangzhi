@@ -4,20 +4,21 @@
 
 
 		<!-- 顶部 -->
-		<div class="el-aside" style="width: 100%; height: 58px; position: absolute; top: 0; left: 0; overflow: hidden; z-index: 9;" v-show="this.$store.state.logined">
+		<div class="el-aside" style="width: 100%; height: 58px; position: absolute; top: 0; left: 0; overflow: hidden; z-index: 9;">
 			<el-menu
 			  mode="horizontal"
 			  background-color="rgb(84, 92, 100)"
 			  text-color="#fff"
 			  active-text-color="rgb(255, 208, 85)"
 			  :router="true"
+			  :default-active="$route.path"
 			  >
 
 
 			  <!-- LOGO -->
 			  <el-menu-item index="" disabled class="logo" style="background-color: rgb(84, 92, 100); color: #fff; min-width: 200px; font-size: 18px; text-align: center; padding: 0;" v-show="!isCollapse">
 			  		<div style="background-color: #2785e5; width: 100%; color: #fff;">
-			  			{{title}}
+			  			河长制管理平台
 			  		</div>
 			  </el-menu-item>
 
@@ -34,42 +35,67 @@
 
 
 				<!--菜单-->
-				<template v-for="(item, index) in $store.state.sys.menu">
-					<el-menu-item :index="item.url">
-						<i :class="item.icon"></i>
-						<span>{{item.title}}</span>
-					</el-menu-item>
-				</template>
+<!--				<template v-for="(item, index) in $store.state.sys.menu">-->
+<!--					<el-menu-item :index="item.url">-->
+<!--						<i :class="item.icon"></i>-->
+<!--						<span>{{item.title}}</span>-->
+<!--					</el-menu-item>-->
+<!--				</template>-->
+
+				<el-menu-item index="/index">
+					<i class="el-icon-house"></i>
+					<span>首页</span>
+				</el-menu-item>
 
 				<!--涉河事务-->
 				<el-submenu index="2"  class="menu-river">
-					<template slot="title" >涉河事务</template>
-					<router-link to="/river/allclear">
-						<el-menu-item index="2-0">涉河事务首页</el-menu-item>
-					</router-link>
-					<router-link to="/river/task">
-						<el-menu-item index="2-1">专项任务</el-menu-item>
-					</router-link>
-					<router-link to="/river/eventAn">
-						<el-menu-item index="2-2">事件分析</el-menu-item>
-					</router-link>
-					<router-link to="/river/assess">
-						<el-menu-item index="2-3">考核评估</el-menu-item>
-					</router-link>
+					<template slot="title">涉河事务</template>
+					<el-menu-item index="/river">涉河事务首页</el-menu-item>
+					<el-menu-item index="/river/task">专项任务</el-menu-item>
+					<el-menu-item index="/river/eventAn">事件分析</el-menu-item>
+					<el-menu-item index="/river/assess">考核评估</el-menu-item>
 				</el-submenu>
 
 
-				<template v-for="(item, index) in $store.state.sys.menu2">
-					<el-menu-item :index="item.url">
-						<i :class="item.icon"></i>
-						<span>{{item.title}}</span>
-					</el-menu-item>
-				</template>
+				<el-menu-item index="/info">
+					<i class="el-icon-timer"></i>
+					<span>实时信息</span>
+				</el-menu-item>
+
+				<el-menu-item index="/organize">
+					<i class="el-icon-printer"></i>
+					<span>组织信息</span>
+				</el-menu-item>
+
+				<el-menu-item index="/organize">
+					<i class="el-icon-monitor"></i>
+					<span>视频监控</span>
+				</el-menu-item>
+
+				<el-menu-item index="/file/guidang">
+					<i class="el-icon-document"></i>
+					<span>资料文件</span>
+				</el-menu-item>
+
+				<el-menu-item index="/work/banli">
+					<i class="el-icon-setting"></i>
+					<span>工作台</span>
+				</el-menu-item>
+<!--				<template v-for="(item, index) in $store.state.sys.menu2">-->
+<!--					<el-menu-item :index="item.url">-->
+<!--						<i :class="item.icon"></i>-->
+<!--						<span>{{item.title}}</span>-->
+<!--					</el-menu-item>-->
+<!--				</template>-->
+
+
+
+
 				<!-- 我的 -->
 				<el-submenu index="my" style="float: right;">
 					<template slot="title">{{userName}}</template>
 					<el-menu-item index="/system/passwd">密码修改</el-menu-item>
-					<el-menu-item index="" @click="Logout()">注销登录</el-menu-item>
+					<el-menu-item index="/login">注销登录</el-menu-item>
 				</el-submenu>
 
 
@@ -80,7 +106,7 @@
 		</div>
 
 
-		<div style="height: 100%; box-sizing: border-box; padding-top: 58px;" v-show="this.$store.state.logined">
+		<div style="height: 100%; box-sizing: border-box; padding-top: 58px;">
 			  <el-container style="height: 100%;">
 				  	<!-- 左边菜单 -->
 <!--				    <el-aside width="auto" style="padding-top: 1em; ">-->
@@ -99,7 +125,6 @@
 			  </el-container>
 		</div>
 
-		<LoginView :sys="sys_config" v-show="this.$store.state.logined==false"></LoginView>
 
 
 	</div>
@@ -109,7 +134,6 @@
 
 <script>
 	import sys_config from '@/config/sys.config.js'
-	import LoginView from '@/views/Login.vue'
 
   export default {
     data() {
@@ -135,7 +159,7 @@
             });
     	},
     	Load(){
-    		if (this.$route.query.name == '') return;
+    		//if (this.$route.query.name == '') return;
 
     		this.axios.post('/admineditor/api/get_sys', {name: this.$route.query.name}).then((res) => {
     		    //this.sys = res.data.data;
@@ -156,7 +180,7 @@
     	},
     },
     computed: {},
-    components: { LoginView },
+    components: {  },
 	  created() {
     	console.log("initMap",this.$baiduMap)
 	  }

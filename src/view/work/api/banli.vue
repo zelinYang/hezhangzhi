@@ -10,13 +10,23 @@
                 <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region2" placeholder="请选择">
+                                <el-option value="城中区">城中区</el-option>
+                                <el-option value="鱼峰区">鱼峰区</el-option>
+                                <el-option value="柳北区">柳北区</el-option>
+                                <el-option value="柳南区">柳南区</el-option>
+                                <el-option value="柳江区">柳江区</el-option>
+                                <el-option value="鹿寨县">鹿寨县</el-option>
+                                <el-option value="柳城县">柳城县</el-option>
+                                <el-option value="融水苗族自治县">融水苗族自治县</el-option>
+                                <el-option value="融安县">融安县</el-option>
+                                <el-option value="三江侗族自治县">三江侗族自治县</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="事件来源">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region1" placeholder="请选择">
+                                <el-option value="河长上报">河长上报</el-option>
+                                <el-option value="专管员巡河">专管员巡河</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="上报时间">
@@ -31,14 +41,17 @@
                     </div>
                     <div  style="display: flex;justify-content: space-between;width: 98%;padding: 20px;">
                         <el-form-item label="事件类型">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region3" placeholder="请选择">
+                                <el-option value="娱乐、餐饮等">娱乐、餐饮等</el-option>
+                                <el-option value="违章建筑">违章建筑</el-option>
+                                <el-option value="弃土废渣等">弃土废渣等</el-option>
+                                <el-option value="洗沙治沙等">洗沙治沙等</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" icon="el-icon-search">搜索</el-button>
+                            <el-button type="primary" @click="search" icon="el-icon-search">搜索</el-button>
                             <el-button @click="uload" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
-                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
+                            <el-button type="danger" @click="clean" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -202,17 +215,27 @@
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
                             <el-select v-model="form.region" placeholder="请选择">
-
+                                <el-option value="城中区">城中区</el-option>
+                                <el-option value="鱼峰区">鱼峰区</el-option>
+                                <el-option value="柳北区">柳北区</el-option>
+                                <el-option value="柳南区">柳南区</el-option>
+                                <el-option value="柳江区">柳江区</el-option>
+                                <el-option value="鹿寨县">鹿寨县</el-option>
+                                <el-option value="柳城县">柳城县</el-option>
+                                <el-option value="融水苗族自治县">融水苗族自治县</el-option>
+                                <el-option value="融安县">融安县</el-option>
+                                <el-option value="三江侗族自治县">三江侗族自治县</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="事件来源">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region4" placeholder="请选择">
+                                <el-option value="河长上报">河长上报</el-option>
+                                <el-option value="专管员巡河">专管员巡河</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="上报时间">
                             <el-date-picker
-                                    v-model="form.date2"
+                                    v-model="form.date3"
                                     type="daterange"
                                     start-placeholder="开始日期"
                                     end-placeholder="结束日期"
@@ -222,14 +245,17 @@
                     </div>
                     <div  style="display: flex;justify-content: space-between;width: 98%;padding: 20px;">
                         <el-form-item label="事件类型">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region5" placeholder="请选择">
+                                <el-option value="娱乐、餐饮等">娱乐、餐饮等</el-option>
+                                <el-option value="违章建筑">违章建筑</el-option>
+                                <el-option value="弃土废渣等">弃土废渣等</el-option>
+                                <el-option value="洗沙治沙等">洗沙治沙等</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" icon="el-icon-search">搜索</el-button>
+                            <el-button type="primary" @click="search" icon="el-icon-search">搜索</el-button>
                             <el-button @click="uload1" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
-                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
+                            <el-button type="danger" @click="clean" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -269,7 +295,7 @@
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="tankuang">查看</el-button>
+                                        @click="tankuang1">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -392,18 +418,28 @@
                 <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region6" placeholder="请选择">
+                                <el-option value="城中区">城中区</el-option>
+                                <el-option value="鱼峰区">鱼峰区</el-option>
+                                <el-option value="柳北区">柳北区</el-option>
+                                <el-option value="柳南区">柳南区</el-option>
+                                <el-option value="柳江区">柳江区</el-option>
+                                <el-option value="鹿寨县">鹿寨县</el-option>
+                                <el-option value="柳城县">柳城县</el-option>
+                                <el-option value="融水苗族自治县">融水苗族自治县</el-option>
+                                <el-option value="融安县">融安县</el-option>
+                                <el-option value="三江侗族自治县">三江侗族自治县</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="事件来源">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region7" placeholder="请选择">
+                                <el-option value="河长上报">河长上报</el-option>
+                                <el-option value="专管员巡河">专管员巡河</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="上报时间">
                             <el-date-picker
-                                    v-model="form.date2"
+                                    v-model="form.date4"
                                     type="daterange"
                                     start-placeholder="开始日期"
                                     end-placeholder="结束日期"
@@ -413,14 +449,17 @@
                     </div>
                     <div  style="display: flex;justify-content: space-between;width: 98%;padding: 20px;">
                         <el-form-item label="事件类型">
-                            <el-select v-model="form.region" placeholder="请选择">
-
+                            <el-select v-model="form.region8" placeholder="请选择">
+                                <el-option value="娱乐、餐饮等">娱乐、餐饮等</el-option>
+                                <el-option value="违章建筑">违章建筑</el-option>
+                                <el-option value="弃土废渣等">弃土废渣等</el-option>
+                                <el-option value="洗沙治沙等">洗沙治沙等</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" icon="el-icon-search">搜索</el-button>
-                            <el-button @click="uload2" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
-                            <el-button type="danger" icon="el-icon-delete">清除</el-button>
+                            <el-button type="primary" @click="search" icon="el-icon-search">搜索</el-button>
+                            <el-button @click="uload1" type="info" icon="el-icon-circle-plus-outline">批量添加</el-button>
+                            <el-button type="danger" @click="clean" icon="el-icon-delete">清除</el-button>
                         </el-form-item>
                     </div>
 
@@ -460,7 +499,7 @@
                                 <el-button
                                         size="mini"
                                         type="success"
-                                        @click="tankuang">查看</el-button>
+                                        @click="tankuang2">查看</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -584,15 +623,25 @@
                 title="上传文件"
                 :visible.sync="shangchuan"
                 width="30%">
-            <el-upload
-                    class="upload-demo"
-                    action="https://jsonplaceholder.typicode.com/posts/"
-                    :on-preview="handlePreview"
-                    :on-remove="handleRemove"
-                    :file-list="fileList"
-                    list-type="picture">
-                <el-button size="small" type="primary">点击上传</el-button>
-            </el-upload>
+            <el-form :model="form1">
+                <div style="width: 100%;">
+                    <el-form-item :required="true" prop="title" label="文件名称" :label-width="formLabelWidth"
+                                  style="width: 100%;">
+                        <el-input v-model="form1.title1" placeholder="请输入" auto-complete="off"></el-input>
+                    </el-form-item>
+                </div>
+                <div style="width: 100%; display: flex;padding-left: 90px">
+                    <el-upload
+                            class="upload-demo"
+                            action="https://jsonplaceholder.typicode.com/posts/"
+                            :on-preview="handlePreview"
+                            :on-remove="handleRemove"
+                            :file-list="fileList"
+                            list-type="picture">
+                        <el-button size="small" type="primary">点击上传</el-button>
+                    </el-upload>
+                </div>
+            </el-form>
             <span slot="footer" class="dialog-footer">
     <el-button @click="shangchuan = false">取 消</el-button>
     <el-button type="primary" @click="shangchuan = false">确 定</el-button>
@@ -603,15 +652,25 @@
                 title="上传文件"
                 :visible.sync="shangchuan1"
                 width="30%">
-            <el-upload
-                    class="upload-demo"
-                    action="https://jsonplaceholder.typicode.com/posts/"
-                    :on-preview="handlePreview1"
-                    :on-remove="handleRemove1"
-                    :file-list="fileList1"
-                    list-type="picture">
-                <el-button size="small" type="primary">点击上传</el-button>
-            </el-upload>
+            <el-form :model="form1">
+                <div style="width: 100%;">
+                    <el-form-item :required="true" prop="title" label="文件名称" :label-width="formLabelWidth"
+                                  style="width: 100%;">
+                        <el-input v-model="form1.title2" placeholder="请输入" auto-complete="off"></el-input>
+                    </el-form-item>
+                </div>
+                <div style="width: 100%; display: flex;padding-left: 90px">
+                    <el-upload
+                            class="upload-demo"
+                            action="https://jsonplaceholder.typicode.com/posts/"
+                            :on-preview="handlePreview1"
+                            :on-remove="handleRemove1"
+                            :file-list="fileList1"
+                            list-type="picture">
+                        <el-button size="small" type="primary">点击上传</el-button>
+                    </el-upload>
+                </div>
+            </el-form>
             <span slot="footer" class="dialog-footer">
     <el-button @click="shangchuan1 = false">取 消</el-button>
     <el-button type="primary" @click="shangchuan1 = false">确 定</el-button>
@@ -622,15 +681,25 @@
                 title="上传文件"
                 :visible.sync="shangchuan2"
                 width="30%">
-            <el-upload
-                    class="upload-demo"
-                    action="https://jsonplaceholder.typicode.com/posts/"
-                    :on-preview="handlePreview2"
-                    :on-remove="handleRemove2"
-                    :file-list="fileList2"
-                    list-type="picture">
-                <el-button size="small" type="primary">点击上传</el-button>
-            </el-upload>
+            <el-form :model="form1">
+                <div style="width: 100%;">
+                    <el-form-item :required="true" prop="title" label="文件名称" :label-width="formLabelWidth"
+                                  style="width: 100%;">
+                        <el-input v-model="form1.title3" placeholder="请输入" auto-complete="off"></el-input>
+                    </el-form-item>
+                </div>
+                <div style="width: 100%; display: flex;padding-left: 90px">
+                    <el-upload
+                            class="upload-demo"
+                            action="https://jsonplaceholder.typicode.com/posts/"
+                            :on-preview="handlePreview2"
+                            :on-remove="handleRemove2"
+                            :file-list="fileList2"
+                            list-type="picture">
+                        <el-button size="small" type="primary">点击上传</el-button>
+                    </el-upload>
+                </div>
+            </el-form>
             <span slot="footer" class="dialog-footer">
     <el-button @click="shangchuan2 = false">取 消</el-button>
     <el-button type="primary" @click="shangchuan2 = false">确 定</el-button>
@@ -664,14 +733,31 @@
                     name: '',
                     region: '',
                     title: '',
+                    date1: '',
                     date2: '',
+                    date3: '',
+                    date4: '',
+                    date5: '',
+                    date6: '',
                     delivery: false,
                     type: {},
                     resource: '',
-                    desc: ''
+                    desc: '',
+                    region1: '',
+                    region2: '',
+                    region3: '',
+                    region4: '',
+                    region5: '',
+                    region6: '',
+                    region7: '',
+                    region8: '',
                 },
                 form1:{
                     title: '',
+                    title1: '',
+                    title2: '',
+                    title3: '',
+                    title4: '',
                 },
                 dialogFormVisible: false,
                 dialogFormVisible1: false,
@@ -691,6 +777,39 @@
 
 
             },
+            clean(){
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+            },
+            search(){
+
+                // let title = this.form.title;
+                // let stat = this.form.infoStAt_value;
+                // let date = this.form.date;
+                // let type = this.form.fileTypeF_value
+                // let arr = [];
+                // this.tableData.forEach(item => {
+                //     let obj = {};
+                //     if(item.title === title){
+                //         obj.title = title
+                //     }else if (item.time.indexOf(date) !== -1){
+                //         obj.date = date
+                //     }else if(item.stat === stat){
+                //         obj.stat = stat
+                //     }else if(item.type === type){
+                //         obj.type = type
+                //     }
+                //     console.log(obj);
+                //     return obj;
+                // })
+                this.$message({
+                    message: '功能正在开发中',
+                    type: 'warning'
+                });
+            },
+
             tankuang(){
                 this.dialogFormVisible = true
             },
@@ -710,7 +829,6 @@
             uload2(){
                 this.shangchuan2 = true
             },
-
 
             handleSizeChange3(){},
             handleCurrentChange3(){},

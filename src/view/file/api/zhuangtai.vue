@@ -57,6 +57,7 @@
 
                 <div style="padding: 20px;" class="right-third">
                     <el-table
+                            @select-all="checkAll"
                             :highlight-current-row="true"
                             :data="tableData"
                             style="width: 100%">
@@ -120,26 +121,33 @@
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="印发文件文号" :required="true" :label-width="formLabelWidth">
-                                    <el-input v-model="form1.num" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
                                 </el-form-item>
 
                                 <el-form-item label="制度类型" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form.typeR" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form1.typeR" placeholder="请选择" style="width: 300px">
+                                        <el-option value="河长会议制度">河长会议制度</el-option>
+                                        <el-option value="信息报送制度">信息报送制度</el-option>
+                                        <el-option value="工作督查制度">工作督查制度</el-option>
+                                        <el-option value="考核问责与激励制度">考核问责与激励制度</el-option>
+                                        <el-option value="验收制度">验收制度</el-option>
+                                        <el-option value="信息共享制度">信息共享制度</el-option>
+                                        <el-option value="河长巡河制度">河长巡河制度</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="是否出台" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form1.isPro_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="是">是</el-option>
+                                        <el-option value="否">否</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="计划出台时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="value1"
+                                            v-model="form1.proDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -147,14 +155,22 @@
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="本旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form1.thisTime_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="研讨">研讨</el-option>
+                                        <el-option value="起草">起草</el-option>
+                                        <el-option value="征求意见">征求意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="印发">印发</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="下旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form1.nextTime_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="研讨">研讨</el-option>
+                                        <el-option value="起草">起草</el-option>
+                                        <el-option value="征求意见">征求意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="印发">印发</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
@@ -162,7 +178,7 @@
                                 <el-form-item label="记录生效时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="value1"
+                                            v-model="form1.valueDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -170,7 +186,7 @@
                             </div>
                             <div style="width: 100%;">
                                 <el-form-item label="备注" :label-width="formLabelWidth">
-                                    <el-input type="textarea" v-model="value1"></el-input>
+                                    <el-input type="textarea" v-model="form1.valueArea"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;">
@@ -196,34 +212,41 @@
 
 
                     <el-dialog title="添加制度" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="900px">
-                        <el-form :model="form1">
+                        <el-form :model="form2">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="制度名称" :label-width="formLabelWidth" style="width: 100%;">
-                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
+                                    <el-input v-model="form2.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="印发文件文号" :required="true" :label-width="formLabelWidth">
-                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                    <el-input v-model="form2.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
                                 </el-form-item>
 
                                 <el-form-item label="制度类型" :required="true" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form2.typeR" placeholder="请选择" style="width: 300px">
+                                        <el-option value="河长会议制度">河长会议制度</el-option>
+                                        <el-option value="信息报送制度">信息报送制度</el-option>
+                                        <el-option value="工作督查制度">工作督查制度</el-option>
+                                        <el-option value="考核问责与激励制度">考核问责与激励制度</el-option>
+                                        <el-option value="验收制度">验收制度</el-option>
+                                        <el-option value="信息共享制度">信息共享制度</el-option>
+                                        <el-option value="河长巡河制度">河长巡河制度</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="是否出台" :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form2.isPro_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="是">是</el-option>
+                                        <el-option value="否">否</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="计划出台时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="value1"
+                                            v-model="form2.proDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -231,14 +254,22 @@
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="本旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form2.thisTime_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="研讨">研讨</el-option>
+                                        <el-option value="起草">起草</el-option>
+                                        <el-option value="征求意见">征求意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="印发">印发</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="下旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form2.nextTime_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="研讨">研讨</el-option>
+                                        <el-option value="起草">起草</el-option>
+                                        <el-option value="征求意见">征求意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="印发">印发</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
@@ -246,7 +277,7 @@
                                 <el-form-item label="记录生效时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="value1"
+                                            v-model="form2.valueDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -254,7 +285,7 @@
                             </div>
                             <div style="width: 100%;">
                                 <el-form-item label="备注" :label-width="formLabelWidth">
-                                    <el-input type="textarea" v-model="value1"></el-input>
+                                    <el-input type="textarea" v-model="form2.valueArea"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;">
@@ -403,6 +434,7 @@
                     nextTime_value: '',
                     valueRecord: '',
                     valueArea: '',
+                    typeR: '',
                     thisTime: [
                         {
                             value: 1,
@@ -437,6 +469,8 @@
                     nextTime_value: '',
                     valueRecord: '',
                     valueArea: '',
+                    typeR: '',
+                    proDate: '',
 
                     thisTime: [
                         {
@@ -567,7 +601,17 @@
                 });
             },
             handleChange(){},
+            checkAll(selection){
+                this.deleteselection = selection;
+            },
             deleteselections(rows) {
+                if(this.deleteselection.length === 0){
+                    this.$message({
+                        message: '请选择要删除项',
+                        type: 'warning'
+                    });
+                    return;
+                }
                 // this.tableData.splice()
                 //   console.log(this.$refs.multipleTable)
                 //   this.deleteselection.forEach(val => {

@@ -49,8 +49,8 @@
                         </div>
                         <div style="display: flex;justify-content: flex-end">
                             <el-form-item>
-                                <el-button type="default" icon="el-icon-search">搜索</el-button>
-                                <el-button type="info" icon="el-icon-circle-close">清除</el-button>
+                                <el-button type="default" @click="search" icon="el-icon-search">搜索</el-button>
+                                <el-button type="info" @click="clean" icon="el-icon-circle-close">清除</el-button>
                             </el-form-item>
                         </div>
                     </div>
@@ -58,6 +58,7 @@
 
                 <div style="padding: 20px;" class="right-third">
                     <el-table
+                            @select-all="checkAll"
                             :highlight-current-row="true"
                             :data="tableData"
                             style="width: 100%">
@@ -134,26 +135,40 @@
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="本旬进展"  :label-width="formLabelWidth">
                                     <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                        <el-option value="正在编制">正在编制</el-option>
+                                        <el-option value="提出草案">提出草案</el-option>
+                                        <el-option value="征求其他部门意见">征求其他部门意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="政府审议">政府审议通过</el-option>
+                                        <el-option value="党委审议">党委审议通过</el-option>
+                                        <el-option value="印发">已印发</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="下旬进展"  :label-width="formLabelWidth">
                                     <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                        <el-option value="提出草案">提出草案</el-option>
+                                        <el-option value="本单位审议">本单位审议</el-option>
+                                        <el-option value="征求其他部门意见">征求其他部门意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="政府审议">政府审议</el-option>
+                                        <el-option value="党委审议">党委审议</el-option>
+                                        <el-option value="印发">印发</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="河长制最末层级"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.hezhz" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form1.hezhz" placeholder="请选择" style="width: 300px">
+                                        <el-option value="乡级">乡级</el-option>
+                                        <el-option value="村级">村级</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="湖长制最末层级"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.huzhz" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form1.huzhz" placeholder="请选择" style="width: 300px">
+                                        <el-option value="乡级">乡级</el-option>
+                                        <el-option value="村级">村级</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
@@ -245,21 +260,21 @@
 
 
                     <el-dialog title="添加方案" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="1000px">
-                        <el-form :model="form1" :hide-required-asterisk="true">
+                        <el-form :model="form2" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">
-                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off"></el-input>
+                                    <el-input v-model="form2.title" placeholder="请输入" auto-complete="off"></el-input>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="印发文件文号" :required="true" :label-width="formLabelWidth">
-                                    <el-input v-model="form1.title" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
+                                    <el-input v-model="form2.num" placeholder="请输入" auto-complete="off" style="width: 300px"></el-input>
                                 </el-form-item>
 
                                 <el-form-item label="计划出台时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="form1.proDate"
+                                            v-model="form2.proDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -267,27 +282,41 @@
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="本旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form2.thisTime_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="正在编制">正在编制</el-option>
+                                        <el-option value="提出草案">提出草案</el-option>
+                                        <el-option value="征求其他部门意见">征求其他部门意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="政府审议">政府审议通过</el-option>
+                                        <el-option value="党委审议">党委审议通过</el-option>
+                                        <el-option value="印发">已印发</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="下旬进展"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.region" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form2.nextTime_value" placeholder="请选择" style="width: 300px">
+                                        <el-option value="提出草案">提出草案</el-option>
+                                        <el-option value="本单位审议">本单位审议</el-option>
+                                        <el-option value="征求其他部门意见">征求其他部门意见</el-option>
+                                        <el-option value="报批">报批</el-option>
+                                        <el-option value="政府审议">政府审议</el-option>
+                                        <el-option value="党委审议">党委审议</el-option>
+                                        <el-option value="印发">印发</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
                             <div style="width: 100%;display:flex;justify-content: space-between;">
                                 <el-form-item label="河长制最末层级"  :label-width="formLabelWidth">
-                                    <el-select v-model="form.hezhz" placeholder="请选择" style="width: 300px">
-
+                                    <el-select v-model="form2.hezhz" placeholder="请选择" style="width: 300px">
+                                        <el-option value="乡级">乡级</el-option>
+                                        <el-option value="村级">村级</el-option>
                                     </el-select>
                                 </el-form-item>
 
                                 <el-form-item label="湖长制最末层级"  :label-width="formLabelWidth">
                                     <el-select v-model="form.huzhz" placeholder="请选择" style="width: 300px">
-
+                                        <el-option value="乡级">乡级</el-option>
+                                        <el-option value="村级">村级</el-option>
                                     </el-select>
                                 </el-form-item>
                             </div>
@@ -295,7 +324,7 @@
                                 <el-form-item label="全面建成河长制时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="form1.date_hezhz"
+                                            v-model="form2.date_hezhz"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -303,7 +332,7 @@
                                 <el-form-item label="全面建成湖长制时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="form1.date_huzhz"
+                                            v-model="form2.date_huzhz"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -336,7 +365,7 @@
                                 <el-form-item label="方案结束年份" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="form1.endTim"
+                                            v-model="form2.endTim"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -345,7 +374,7 @@
                                 <el-form-item label="记录生效时间" :label-width="formLabelWidth">
                                     <el-date-picker
                                             style="width: 300px"
-                                            v-model="form1.valueDate"
+                                            v-model="form2.valueDate"
                                             type="date"
                                             placeholder="选择日期">
                                     </el-date-picker>
@@ -495,8 +524,18 @@
                     thisTime_value: '',
                     nextTime_value: '',
                     valueRecord: '',
+                    hezhz: '',
+                    huzhz: '',
+                    danwei: '',
+                    writ: '',
+
+                    date_hezhz: '',
+                    date_huzhz: '',
+                    phon: '',
                     valueArea: '',
                     tongbu_value: '',
+                    starTime: '',
+                    endTim: '',
                     thisTime: [
                         {
                             value: 1,
@@ -530,8 +569,16 @@
                     thisTime_value: '',
                     nextTime_value: '',
                     valueRecord: '',
+                    hezhz: '',
+                    huzhz: '',
+                    danwei: '',
+                    date_hezhz: '',
+                    date_huzhz: '',
+                    phon: '',
                     valueArea: '',
-                    valuedate: '',
+                    tongbu_value: '',
+                    starTime: '',
+                    endTim: '',
                     thisTime: [
                         {
                             value: 1,
@@ -661,7 +708,19 @@
                 });
             },
             handleChange(){},
+            checkAll(selection){
+                this.deleteselection = selection;
+            },
+
+            // 批量删除
             deleteselections(rows) {
+                if(this.deleteselection.length === 0){
+                    this.$message({
+                        message: '请选择要删除项',
+                        type: 'warning'
+                    });
+                    return;
+                }
                 // this.tableData.splice()
                 //   console.log(this.$refs.multipleTable)
                 //   this.deleteselection.forEach(val => {

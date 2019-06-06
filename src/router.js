@@ -6,6 +6,7 @@ Vue.use(Router)
 export default new Router({
     routes: [
         { path: '/',    component: () => import('./view/home/index.vue') },
+        {path: '/login', component: () => import('./views/Login.vue')},
         {path: '/index', component: () => import('./view/home/index.vue')},
         {
             path: '/river', component: () => import('./view/affair/affair-river.vue'), children: [

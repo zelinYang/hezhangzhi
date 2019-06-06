@@ -55,7 +55,7 @@ require('./mock');
 //
 Vue.config.productionTip = false
 
-Vue.$router = router;
+//Vue.$router = router;
 
 
 new Vue({

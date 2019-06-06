@@ -40,7 +40,7 @@
                         default-value="2019-01-01">
                 </el-date-picker>
             </div>
-            <div class="right-second1">
+            <div style="margin-top: 20px; " class="right-second1">
                 事件状态
             </div>
 
