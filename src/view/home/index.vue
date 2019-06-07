@@ -165,53 +165,53 @@
         <el-tabs style="width:90%" v-model="activeName2" @tab-click="handleClick">
           <el-tab-pane label="星级河长" class="tabFirst" name="first">
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>陈高立</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>张佳琪</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>王鑫</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>董君妍</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>李秦风</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>武宽</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
           </el-tab-pane>
           <el-tab-pane label="星级专管员" class="tabFirst" name="second">
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>王理香</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>孙年</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>杨迪</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>钱诗诗</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>张楚岚</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
               <div @click="startsClick">
-                  <div>管理员</div>
+                  <div>王也</div>
                   <el-rate v-model="value1231"></el-rate>
               </div>
           </el-tab-pane>
@@ -399,16 +399,16 @@
             <div @click="startsClick">三江县</div>
           </el-col>
           <el-col :span="18" class="rf-right">
-            <div>0.0%</div>
-            <div style="display: flex;justify-content:flex-end">0.0%</div>
-            <div>0.0%</div>
-            <div>0.0%</div>
-            <div>0.0%</div>
-            <div>0.0%</div>
-            <div>0.0%</div>
-            <div>0.0%</div>
-            <div>0.0%</div>
-            <div>0.0%</div>
+            <div>7.26%</div>
+            <div style="display: flex;justify-content:flex-end">10.3%</div>
+            <div>12.40%</div>
+            <div>12.70%</div>
+            <div>8.39%</div>
+            <div>14.82%</div>
+            <div>20.0%</div>
+            <div>23.96.0%</div>
+            <div>12.59%</div>
+            <div>17.33%</div>
           </el-col>
         </div>
       </div>
