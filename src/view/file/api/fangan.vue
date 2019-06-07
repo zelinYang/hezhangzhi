@@ -13,7 +13,7 @@
                     <el-button type="danger" @click="deleteselections(tableData)" icon="el-icon-delete">批量删除</el-button>
                 </div>
                 <el-form ref="form" :model="form"
-                         style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;"
+                         style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 20px 10px 10px;"
                          label-width="80px">
                     <div style="display: flex;padding: 20px;position: relative">
                         <el-form-item label="方案名称">

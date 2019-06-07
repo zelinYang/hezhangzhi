@@ -11,11 +11,11 @@
         </div>
         <div>
           <span>河长：6</span>
-          <span>小雨</span>
+          <span>晴</span>
         </div>
         <div>
           <span>河道专员：8</span>
-          <span>20℃~30℃</span>
+          <span>23℃~36℃</span>
         </div>
         <div>
           <span>
