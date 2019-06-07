@@ -3,11 +3,11 @@
         <el-breadcrumb style="margin-bottom: 20px;" separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>工作台</el-breadcrumb-item>
-            <el-breadcrumb-item>事件办理</el-breadcrumb-item>
+            <el-breadcrumb-item>辖区事件</el-breadcrumb-item>
         </el-breadcrumb>
         <el-tabs type="border-card">
             <el-tab-pane label="上报事件">
-                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
+                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 20px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
                             <el-select v-model="form.region1" placeholder="请选择">
@@ -64,15 +64,15 @@
                         <el-table-column
                                 prop="time"
                                 label="上报时间"
-                                width="250">
-                        </el-table-column>
-                        <el-table-column
-                                prop="address"
-                                label="行政地点"
                                 width="400">
                         </el-table-column>
                         <el-table-column
+                                prop="address"
+                                label="行政地点">
+                        </el-table-column>
+                        <el-table-column
                                 prop="type"
+                                width="400"
                                 label="事件类型">
                         </el-table-column>
                         <el-table-column width="250" label="操作" style="display: flex">
@@ -200,7 +200,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="专管员处理事件">
-                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
+                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 20px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
                             <el-select v-model="form.region4" placeholder="请选择">
@@ -254,15 +254,15 @@
                         <el-table-column
                                 prop="time"
                                 label="上报时间"
-                                width="250">
+                                width="350">
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="行政地点"
-                                width="400">
+                                label="行政地点">
                         </el-table-column>
                         <el-table-column
                                 prop="type"
+                                width="350"
                                 label="事件类型">
                         </el-table-column>
                         <el-table-column width="250" label="操作" style="display: flex">
@@ -493,7 +493,7 @@
                     {
                         address: '广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园',
                         num: 0,
-                        title: '哈哈哈哈哈',
+                        title: '事件1',
                         time: '2019-05-17',
                         type: '水面异常，侵占河道'
                     }

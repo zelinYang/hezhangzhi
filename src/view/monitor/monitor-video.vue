@@ -7,6 +7,8 @@
                     <el-tab-pane label="选择区域">
                         <div class="left-fourth" style="height: 85vh;">
                             <el-tree :data="data" :props="defaultProps"
+                                     node-key="id"
+                                     :default-expanded-keys="[0]"
                                      @node-click="handleNodeClick"></el-tree>
                         </div>
                     </el-tab-pane>
@@ -15,7 +17,9 @@
             </div>
         </div>
 
-        <el-col :span="24" style="background-color: #fff;"></el-col>
+        <el-col :span="24" style="background-color: #fff; color: #d2d2d2;display: flex;justify-content: center;align-items: center;font-size: 1.2em;">
+            未接入任何视频信号
+        </el-col>
         <!--中间-->
 
         <el-dialog

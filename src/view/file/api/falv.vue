@@ -79,26 +79,30 @@
                         </el-table-column>
                         <el-table-column
                                 prop="title"
-                                label="标题"
-                                width="250">
+                                label="标题">
                         </el-table-column>
                         <el-table-column
+                                width="280"
                                 prop="time"
                                 label="发布时间">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="porter"
                                 label="发布人">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="business"
                                 label="行业">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="type"
                                 label="类型">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="stat"
                                 label="信息状态">
                         </el-table-column>
@@ -242,7 +246,7 @@
                 tableData: [
                     {
                         num: 1,
-                        title: '哈哈哈哈哈',
+                        title: '文件1',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -255,7 +259,7 @@
                     },
                     {
                         num: 2,
-                        title: '哈哈哈哈哈',
+                        title: '文件2',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -268,7 +272,7 @@
                     },
                     {
                         num: 3,
-                        title: '哈哈哈哈哈',
+                        title: '文件3',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -281,7 +285,7 @@
                     },
                     {
                         num: 4,
-                        title: '哈哈哈哈哈',
+                        title: '文件4',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',

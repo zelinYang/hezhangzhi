@@ -70,32 +70,35 @@
                         </el-table-column>
                         <el-table-column
                                 label="序号"
-                                width="250"
+                                width="100"
                                 prop="num">
                         </el-table-column>
                         <el-table-column
                                 prop="title"
-                                label="标题"
-                                width="250">
+                                label="标题">
                         </el-table-column>
                         <el-table-column
                                 prop="time"
+                                width="300"
                                 label="发布时间">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="porter"
                                 label="发布人">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="type"
                                 label="类别">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="stat"
                                 label="信息状态">
                         </el-table-column>
                         <el-table-column
-                                width="250" label="操作" style="display: flex">
+                                width="300" label="操作" style="display: flex">
                             <template slot-scope="scope">
                                 <el-button
                                         size="mini"
@@ -220,7 +223,7 @@
                 tableData: [
                     {
                         num: 1,
-                        title: '哈1',
+                        title: '文件1',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -233,7 +236,7 @@
                     },
                     {
                         num: 2,
-                        title: '哈2',
+                        title: '文件2',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -246,7 +249,7 @@
                     },
                     {
                         num: 3,
-                        title: '哈3',
+                        title: '文件3',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -259,7 +262,7 @@
                     },
                     {
                         num: 4,
-                        title: '哈4',
+                        title: '文件4',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',

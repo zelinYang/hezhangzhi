@@ -7,7 +7,7 @@
         </el-breadcrumb>
         <el-tabs type="border-card">
             <el-tab-pane label="待办事件">
-                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
+                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 20px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
                             <el-select v-model="form.region2" placeholder="请选择">
@@ -71,18 +71,19 @@
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="地址"
-                        width="400">
+                                label="地址">
                         </el-table-column>
                         <el-table-column
                                 prop="content"
                                 label="事件内容">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="type"
                                 label="事件类型">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="eventStart"
                                 label="事件来源">
                         </el-table-column>
@@ -211,7 +212,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="在办事件">
-                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
+                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 20px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
                             <el-select v-model="form.region" placeholder="请选择">
@@ -275,8 +276,7 @@
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="地址"
-                                width="400">
+                                label="地址">
                         </el-table-column>
                         <el-table-column
                                 prop="content"
@@ -284,9 +284,11 @@
                         </el-table-column>
                         <el-table-column
                                 prop="type"
+                                width="250"
                                 label="事件类型">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="eventStart"
                                 label="事件来源">
                         </el-table-column>
@@ -415,7 +417,7 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="办结事件">
-                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 42px 10px 10px;" label-width="80px">
+                <el-form ref="form"  :model="form" style="background-color: rgb(244, 244, 249);border-radius: 5px;padding: 20px 10px 10px;" label-width="80px">
                     <div  style="display: flex;padding: 20px;;">
                         <el-form-item label="行政区域">
                             <el-select v-model="form.region6" placeholder="请选择">
@@ -479,8 +481,7 @@
                         </el-table-column>
                         <el-table-column
                                 prop="address"
-                                label="地址"
-                                width="400">
+                                label="地址">
                         </el-table-column>
                         <el-table-column
                                 prop="content"
@@ -488,9 +489,11 @@
                         </el-table-column>
                         <el-table-column
                                 prop="type"
+                                width="250"
                                 label="事件类型">
                         </el-table-column>
                         <el-table-column
+                                width="250"
                                 prop="eventStart"
                                 label="事件来源">
                         </el-table-column>
@@ -722,7 +725,7 @@
                     {
                         address: '广西壮族自治区南宁市青秀区东盟商务区桂花路9号香港园',
                         num: 0,
-                        title: '哈哈哈哈哈',
+                        title: '事件1',
                         time: '2019-05-17',
                         type: '水面异常，侵占河道',
                         content: '河道有垃圾',

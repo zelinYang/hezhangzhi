@@ -8,7 +8,7 @@
         <el-tabs type="border-card">
             <el-tab-pane label="全面清障进度">
                 <el-col class="right-m" style="display:block;">
-                    <div style="display: flex; background-color: rgb(244, 244, 249); margin: 0;height: 200px;border-radius: 5px;padding-top: 30px;align-items: center;padding-left: 15px;padding-right: 15px;">
+                    <div style="display: flex; background-color: rgb(244, 244, 249); margin: 0;height: 100px;border-radius: 5px;padding: 20px;align-items: center;">
                         <div class="mInp">
                             <div style="white-space: nowrap">
                                 统计时间
@@ -51,6 +51,9 @@
                         </div>
 
                         <div class="mInp">
+                            <div style="display: flex;white-space: nowrap">
+                                年度
+                            </div>
                             <el-select v-model="value" style="color: #ffffff;" placeholder="请选择">
                                 <el-option
                                         v-for="item in options"

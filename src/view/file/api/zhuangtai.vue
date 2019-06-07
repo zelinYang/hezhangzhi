@@ -72,31 +72,35 @@
                         </el-table-column>
                         <el-table-column
                                 prop="institution"
-                                label="制度名称"
-                                width="250">
+                                label="制度名称">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="fileNum"
                                 label="印发文件号">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="time"
                                 label="发布时间">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="porter"
                                 label="发布人">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="stat"
                                 label="信息状态">
                         </el-table-column>
                         <el-table-column
+                                width="100"
                                 prop="isasincy"
                                 label="是否同步">
                         </el-table-column>
                         <el-table-column
-                                width="250" label="操作" style="display: flex">
+                                width="280" label="操作" style="display: flex">
                             <template slot-scope="scope">
                                 <el-button
                                         size="mini"

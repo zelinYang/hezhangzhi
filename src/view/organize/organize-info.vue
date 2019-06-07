@@ -18,6 +18,8 @@
                 <el-tab-pane label="选择区域">
                     <div class="left-fourth">
                         <el-tree :data="data" :props="defaultProps"
+                                 node-key="id"
+                                 :default-expanded-keys="[0]"
                                  @node-click="handleNodeClick"></el-tree>
                     </div>
                 </el-tab-pane>
@@ -204,10 +206,10 @@
                 iblueline3: false,
                 tableData: [
                     {
-                        city: '0',
-                        county: '0',
-                        village: '0',
-                        proRiver: '0'
+                        city: '21',
+                        county: '30',
+                        village: '55',
+                        proRiver: '94'
                     }
                 ],
 
@@ -452,7 +454,6 @@
             width: 100%;
             height: 40px;
             line-height: 40px;
-            padding: @padding;
         }
 
         .right-third {

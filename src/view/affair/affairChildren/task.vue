@@ -12,6 +12,8 @@
             </div>
             <div class="left-fourth1">
                 <el-tree :data="data" :props="defaultProps"
+                         node-key="id"
+                         :default-expanded-keys="[0]"
                          @node-click="handleNodeClick"></el-tree>
             </div>
         </div>
@@ -46,10 +48,10 @@
 
             <div style="height: 100px" class="right-third1">
                 <div style="width: 98%;display:flex;justify-content: space-between;">
-                    <span>未办结0%(0件)</span>
-                    <span>已办结0%(0件)</span>
+                    <span>未办结3%(6件)</span>
+                    <span>已办结97%(194件)</span>
                 </div>
-                <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
+                <el-progress :text-inside="true" :stroke-width="18" :percentage="97"></el-progress>
             </div>
             <div class="right-fourth1 san1">
                 <div class="aqwe1">
@@ -57,21 +59,21 @@
                 </div>
                 <div class="" style="">
                     <div style="width: 98%;display:flex;justify-content: space-between;">
-                        <span>河长上报0%(0件)</span>
+                        <span>河长上报36%(72件)</span>
                     </div>
-                    <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="36"></el-progress>
                 </div>
                 <div class="right-third1;">
                     <div style="width: 70%;display:flex;justify-content: space-between;">
-                        <span>河长办上报0%(0件)</span>
+                        <span>河长办上报44%(88件)</span>
                     </div>
-                    <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="44"></el-progress>
                 </div>
                 <div class="right-third1">
                     <div style="width: 70%;display:flex;justify-content: space-between;">
-                        <span>河道专管员上报0%(0件)</span>
+                        <span>河道专管员上报20%(40件)</span>
                     </div>
-                    <el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="20"></el-progress>
                 </div>
             </div>
 
@@ -94,7 +96,7 @@
                 </el-col>
                 <el-col :span="19" class="usermsg" style="height: 100%;margin-left: 10px">
                     <div style="color: #409EFF;font-size: 1.1em">
-                        {{userData.label}}
+                        {{userData.name}}
                     </div>
                     <div>职位：{{userData.duty}}</div>
                     <div>
@@ -184,7 +186,7 @@
                 this.dialogVisible = true
             },
             getTreeData() {
-                this.axios.get('data/treeData.json').then(res => {
+                this.axios.get('data/monitor.json').then(res => {
                     console.log(res);
                     // this.axios.get('/organize/organizeInfo/data').then(resp => {
                     //

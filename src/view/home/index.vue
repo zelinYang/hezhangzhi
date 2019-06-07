@@ -10,11 +10,11 @@
           <span>[柳州市]</span>
         </div>
         <div>
-          <span>河长：0</span>
+          <span>河长：6</span>
           <span>小雨</span>
         </div>
         <div>
-          <span>河道专员：0</span>
+          <span>河道专员：8</span>
           <span>20℃~30℃</span>
         </div>
         <div>
@@ -372,7 +372,7 @@
       </div>
 
       <div class="right-secondd">
-        <b>柳州市事件类型分布情况</b>
+        <b style="font-size: 1.2em">柳州市事件类型分布情况</b>
         <div>
           本月柳州市上报事件共1件，事件类型分布情况如下图所示，其中重点问题类型为
           <a href="#">河道有垃圾</a>
@@ -383,7 +383,7 @@
       </div>
       <div class="right-fourth">
         <div>
-          <b>河道专员巡河完成率</b>
+          <b style="font-size: 1.2em">河道专员巡河完成率</b>
         </div>
         <div style="margin-top: 20px">
           <el-col :span="6" class="rf-left">
@@ -718,18 +718,21 @@
     .weather {
       min-height: 200px;
       box-shadow: @shade;
-      background-color: #8ba5ee;
+      background-color: #fff;
       text-align: center;
       div {
         display: flex;
         justify-content: space-between;
         height: 30px;
         line-height: 30px;
-        color: #fff;
         padding-left: 10px;
         padding-top: 10px;
         padding-right: 10px;
       }
+        div:hover{
+            color: #409EFF;
+            cursor: pointer;
+        }
       div:nth-child(1) {
         height: 40px;
         span:nth-child(1) {

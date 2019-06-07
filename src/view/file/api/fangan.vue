@@ -73,26 +73,30 @@
                         </el-table-column>
                         <el-table-column
                                 prop="name"
-                                label="方案名称"
-                                width="250">
+                                label="方案名称">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="fileNum"
                                 label="印发文件号">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="time"
                                 label="发布时间">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="porter"
                                 label="发布人">
                         </el-table-column>
                         <el-table-column
+                                width="300"
                                 prop="stat"
                                 label="信息状态">
                         </el-table-column>
                         <el-table-column
+                                width="100"
                                 prop="isasincy"
                                 label="是否同步">
                         </el-table-column>
@@ -436,7 +440,7 @@
                 tableData: [
                     {
                         // num: 0,
-                        title: '哈哈哈哈哈',
+                        title: '方案1',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -449,7 +453,7 @@
                     },
                     {
                         // num: 1,
-                        title: '哈哈哈哈哈',
+                        title: '方案2',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -462,7 +466,7 @@
                     },
                     {
                         // num: 2,
-                        title: '哈哈哈哈哈',
+                        title: '方案3',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
@@ -475,7 +479,7 @@
                     },
                     {
                         // num: 0,
-                        title: '哈哈哈哈哈',
+                        title: '方案4',
                         time: '2019-05-17',
                         type: 'news',
                         porter: '管理员',
