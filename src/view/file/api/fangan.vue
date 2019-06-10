@@ -9,7 +9,7 @@
         <el-tabs type="border-card">
             <el-tab-pane label="工作方案">
                 <div style="margin-bottom: 10px;">
-                    <el-button type="primary" @click="addData" icon="el-icon-folder-add">添加方案</el-button>
+                    <el-button type="primary" @click="addData" icon="el-icon-folder-add">新增方案</el-button>
                     <el-button type="danger" @click="deleteselections(tableData)" icon="el-icon-delete">批量删除</el-button>
                 </div>
                 <el-form ref="form" :model="form"
@@ -263,7 +263,7 @@
                     </el-dialog>
 
 
-                    <el-dialog title="添加方案" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="1000px">
+                    <el-dialog title="新增方案" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="1000px">
                         <el-form :model="form2" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="文件名称" :label-width="formLabelWidth" style="width: 100%;">

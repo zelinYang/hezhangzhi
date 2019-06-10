@@ -154,7 +154,7 @@
 
                 ],
                 userData:{},
-                radio: 3,
+                radio: '已办结',
                 options3: [
                     {
                         label: '本日',
@@ -254,7 +254,6 @@
         min-height: 92vh;
         margin-top: 10px;
         background-color: #fff;
-        border-top: 3px solid #2f2bff;
         padding: 10px;
         margin-left: 10px;
         margin-right: 10px;
@@ -348,7 +347,7 @@
             align-items: center;
             width: 200px;
             height: 40px;
-            box-shadow: -3px -3px 3px #1d1d1d;
+            box-shadow: -3px -3px 20px #8e8e8e;
             background-color: #fff;
             position: absolute;
             right: 0;

@@ -103,6 +103,7 @@
                         </el-select>
                     </div>
                     <el-table
+                            v-if="xunhe"
                             :data="tableData1"
                             :header-cell-style="{backgroundColor: '#f8f8f8'}"
                             border
@@ -118,6 +119,88 @@
                         <el-table-column
                                 prop="unfinish"
                                 label="未完成巡河人数">
+                        </el-table-column>
+                    </el-table>
+
+
+                    <el-table
+                            v-if="eventP"
+                            :data="tableData2"
+                            :header-cell-style="{backgroundColor: '#f8f8f8'}"
+                            border
+                            style="width: 100%">
+                        <el-table-column
+                                prop="area"
+                                label="行政区域">
+                        </el-table-column>
+                        <el-table-column
+                                prop="eventNum"
+                                label="上报事件数">
+                        </el-table-column>
+                        <el-table-column
+                                prop="eventAn"
+                                label="事件处理率">
+                        </el-table-column>
+                    </el-table>
+
+                    <el-table
+                            v-if="hez"
+                            :data="tableData3"
+                            :header-cell-style="{backgroundColor: '#f8f8f8'}"
+                            border
+                            style="width: 100%">
+                        <el-table-column
+                                width="40"
+                                prop="num"
+                                label="排名">
+                        </el-table-column>
+                        <el-table-column
+                                width="50"
+                                prop="name"
+                                label="姓名">
+                        </el-table-column>
+                        <el-table-column
+                                prop="area"
+                                label="负责河段">
+                        </el-table-column>
+                        <el-table-column
+                                prop="wday"
+                                label="巡河天数">
+                        </el-table-column>
+                        <el-table-column
+                                prop="long"
+                                label="巡河里程">
+                        </el-table-column>
+                    </el-table>
+
+
+                    <el-table
+                            v-if="xhy"
+                            :data="tableData4"
+                            :header-cell-style="{backgroundColor: '#f8f8f8'}"
+                            border
+                            style="width: 100%">
+                        <el-table-column
+                                width="40"
+                                prop="num"
+                                label="排名">
+                        </el-table-column>
+                        <el-table-column
+                                width="50"
+                                prop="name"
+                                label="姓名">
+                        </el-table-column>
+                        <el-table-column
+                                prop="area"
+                                label="负责河段">
+                        </el-table-column>
+                        <el-table-column
+                                prop="wday"
+                                label="巡河天数">
+                        </el-table-column>
+                        <el-table-column
+                                prop="long"
+                                label="巡河里程">
                         </el-table-column>
                     </el-table>
                 </el-tab-pane>
@@ -221,6 +304,19 @@
                 tableData1: [
 
                 ],
+                tableData2: [
+
+                ],
+
+                tableData3: [
+
+                ],
+
+                tableData4: [
+
+                ],
+
+
                 options3: [
                     {
                         label: '本日',
@@ -235,7 +331,7 @@
                         value: 3,
                     }
                 ],
-                value3: '本日',
+                value3: '本月',
                 dialogVisible: false,
                 centerDialogVisible: false,
 
@@ -244,6 +340,10 @@
                 optionse:['市','县','乡'],
 
                 val: [],
+                xunhe: true,
+                eventP: false,
+                hez: false,
+                xhy: false,
             }
         },
         methods: {
@@ -284,24 +384,40 @@
                 this.iblueline1 = false;
                 this.iblueline2 = false;
                 this.iblueline3 = false;
+                this.xunhe = true;
+                this.eventP = false;
+                this.hez = false;
+                this.xhy = false;
             },
             secondZ(){
                 this.iblueline = false;
                 this.iblueline1 = true;
                 this.iblueline2 = false;
                 this.iblueline3 = false;
+                this.xunhe = false;
+                this.eventP = true;
+                this.hez = false;
+                this.xhy = false;
             },
             thirdZ(){
                 this.iblueline = false;
                 this.iblueline1 = false;
                 this.iblueline2 = true;
                 this.iblueline3 = false;
+                this.xunhe = false;
+                this.eventP = false;
+                this.hez = true;
+                this.xhy = false;
             },
             fourthZ(){
                 this.iblueline = false;
                 this.iblueline1 = false;
                 this.iblueline2 = false;
                 this.iblueline3 = true;
+                this.xunhe = false;
+                this.eventP = false;
+                this.hez = false;
+                this.xhy = true;
             },
 
             handleNodeClick(i) {
@@ -325,14 +441,33 @@
                     this.data = res.data
                 }).catch(err => {
                     console.log(`错误${err}`)
-                })
+                });
 
                 this.axios.get('data/tableData.json').then(res => {
                     this.tableData1 = res.data
                     console.log(res.data)
                 }).catch(err => {
                     console.log(`错误${err}`)
+                });
+
+                this.axios.get('data/tableData2.json').then(res => {
+                    this.tableData2 = res.data
+                }).catch(err => {
+                    console.log(`错误${err}`)
+                });
+
+                this.axios.get('data/tableData3.json').then(res => {
+                    this.tableData3 = res.data
+                }).catch(err => {
+                    console.log(`错误${err}`)
                 })
+
+                this.axios.get('data/tableData4.json').then(res => {
+                    this.tableData4 = res.data
+                }).catch(err => {
+                    console.log(`错误${err}`)
+                })
+
             },
             createMap() {
                 /* eslint-disable */
@@ -400,7 +535,6 @@
         min-height: 92.5vh;
         margin-top: 10px;
         background-color: #fff;
-        border-top: 3px solid #2f2bff;
         padding: 10px;
         margin-left: 10px;
         margin-right: 10px;
@@ -446,7 +580,7 @@
 
     @padding: 10px 20px 10px 20px;
     .borderN {
-        width: 370px;
+        width: 420px;
         padding: 0;
         border-top: 0;
 

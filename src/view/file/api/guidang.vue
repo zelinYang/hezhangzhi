@@ -154,7 +154,7 @@
                     </el-dialog>
 
 
-                    <el-dialog title="添加文件" :center="true"  :visible.sync="addinfoData" width="500px">
+                    <el-dialog title="新增文件" :center="true"  :visible.sync="addinfoData" width="500px">
                         <el-form :show-message="true" :rules="rules" ref="form2"  :model="form2" :hide-required-asterisk="true">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="标题" :label-width="formLabelWidth" prop="title" style="width: 100%;">

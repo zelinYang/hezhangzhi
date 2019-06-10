@@ -176,7 +176,7 @@
     @border: 0;
     .left-content1{
         min-width: 200px;
-        min-height: 93vh;
+        min-height: 95.5vh;
         background-color: #1c1c1c;
         .left-content-wrap{
             height: 90%;

@@ -34,7 +34,7 @@
 
 
         <!--右边-->
-        <el-col :span="22" class="right-content">
+        <el-col :span="24" class="right-content">
             <router-view></router-view>
         </el-col>
     </div>
@@ -53,7 +53,7 @@
     @border: 0;
     .left-content1{
         min-width: 200px;
-        min-height: 93vh;
+        min-height: 97vh;
 
         background-color: #1c1c1c;
         .left-content-wrap{

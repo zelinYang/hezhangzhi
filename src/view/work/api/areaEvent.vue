@@ -42,7 +42,10 @@
                     <div  style="display: flex;justify-content: space-between;width: 98%;padding: 20px;">
                         <el-form-item label="事件类型">
                             <el-select v-model="form.region3" placeholder="请选择">
-
+                                <el-option value="娱乐、餐饮等">娱乐、餐饮等</el-option>
+                                <el-option value="违章建筑">违章建筑</el-option>
+                                <el-option value="弃土废渣等">弃土废渣等</el-option>
+                                <el-option value="洗沙治沙等">洗沙治沙等</el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item>

@@ -137,12 +137,12 @@
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-water-cup"></i></span>
                 <span class="card-text">水质</span>
-                <span style="color: #00CED1">I类水</span>
-                <span style="color: #81d14d">II类水</span>
-                <span style="color: #d1cd59">III类水</span>
-                <span style="color: #d1b05d">IV类水</span>
-                <span style="color: #d17f62">V类水</span>
-                <span style="color: #d13354">劣V类水</span>
+                <span style="color: #87ced1">I类水</span>
+                <span style="color: #a6d19c">II类水</span>
+                <span style="color: #d1cca4">III类水</span>
+                <span style="color: #d1b1ae">IV类水</span>
+                <span style="color: #d196c0">V类水</span>
+                <span style="color: #bfa1d1">劣V类水</span>
             </el-tab-pane>
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-help"></i></span>
@@ -165,18 +165,18 @@
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-moon-night"></i></span>
                 <span class="card-text">水质</span>
-                <span style="color: #00CED1">水量不变</span>
-                <span style="color: #81d14d">水量上升</span>
-                <span style="color: #d1cd59">水量下降</span>
-                <span style="color: #d1a034">黄色预警</span>
-                <span style="color: #d13532">红色预警</span>
+                <span style="color: #9cd1d0">水量不变</span>
+                <span style="color: #a9d19a">水量上升</span>
+                <span style="color: #d1cd96">水量下降</span>
+                <span style="color: #d1ad93">黄色预警</span>
+                <span style="color: #d18694">红色预警</span>
             </el-tab-pane>
             <el-tab-pane class="yuqing">
                 <span slot="label"><i class="el-icon-heavy-rain"></i></span>
                 <span class="card-text">雨情</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #00CED1;float: left;"></i>小雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #81d14d;float: left;"></i>中雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1cd59;float: left;"></i>大雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #a1cbd1;float: left;"></i>小雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #aad19c;float: left;"></i>中雨</span>
+                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1c09c;float: left;"></i>大雨</span>
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1a362;float: left;"></i>暴雨</span>
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d17f62;float: left;"></i>大暴雨</span>
                 <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1332d;float: left;"></i>特大暴雨</span>
@@ -189,7 +189,7 @@
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-wind-power"></i></span>
                 <span class="card-text">取水口</span>
-                <span><i class="el-icon-wind-power"></i>水位</span>
+                <span><i class="el-icon-wind-power"></i>取水口</span>
             </el-tab-pane>
             <el-tab-pane>
                 <span slot="label"><i class="el-icon-receiving"></i></span>
@@ -307,7 +307,7 @@
         padding-left: 10px !important;
     }
 
-    @border: 3px #4169E1 solid;
+    @border: 0px #FFF solid;
     @shadow: 1px 1px 10px #909399;
     .werr > div {
         display: flex;

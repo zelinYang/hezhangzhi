@@ -1,5 +1,5 @@
 <template>
-  <div style="display:flex;padding-top:10px;min-width: 1360px">
+  <div style="display:flex;padding-top:10px;min-width: 1360px" id="aa">
     <!-- 左边 -->
     <div class="leftContent">
       <div class="weather">
@@ -19,7 +19,7 @@
         </div>
         <div>
           <span>
-            <b>今日巡河人数：0</b>
+            <b>今日巡河人数：10</b>
           </span>
           <span v-text="getdate()">时间:2019-05-27</span>
         </div>
@@ -78,23 +78,23 @@
           <el-tab-pane label="工作简报" class="tabFirst" name="second">
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
-                  <span>03-27</span>
+                  <div>南方持续强降雨 局地受灾</div>
+                  <span>06-10</span>
               </div>
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>市级河长徐新民巡视如海河</div>
-                  <span>03-29</span>
+                  <div>柳州管径最大、跨度最长过江管成功横跨柳江</div>
+                  <span>06-10</span>
               </div>
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
-                  <span>03-31</span>
+                  <div>未来几天柳州持续强降雨 广西发布暴雨黄色预警</div>
+                  <span>06-10</span>
               </div>
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
-                  <span>04-02</span>
+                  <div>柳江音乐喷泉只有喷泉没有音乐？这两个时间段它将调成“静音”</div>
+                  <span>06-10</span>
               </div>
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
@@ -120,22 +120,22 @@
           <el-tab-pane label="媒体聚焦" class="tabFirst" name="third">
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>海安县清水工程达标村推磨拉网式第三次摘牌督查结果公示（顺序从差到好）</div>
+                  <div>痛心，柳江河浮起一名少年的遗体，为四天前溺水失踪的中学生</div>
                   <span>03-27</span>
               </div>
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>市级河长徐新民巡视如海河</div>
+                  <div>1号直播|保护柳州生态环境，我是行动者！坚决打好污染防治攻坚战</div>
                   <span>03-29</span>
               </div>
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>柳州日报：《人民日报》刊发长篇通讯报道我市清水工程探索之路</div>
+                  <div>对标创建，查缺补漏！柳州创城将迎自治区测评</div>
                   <span>03-31</span>
               </div>
               <div @click="newclick">
                   <i class="el-icon-caret-right"></i>
-                  <div>全市畜禽养殖污染治理工作推磨拉网式督查活动顺利开展</div>
+                  <div>我市鱼峰区与广西农业科学院签订战略合作协议</div>
                   <span>04-02</span>
               </div>
               <div @click="newclick">
@@ -440,26 +440,7 @@
             label: '水质',
             value: 1
           },
-          {
-            label: '污染源',
-            value: 2
-          },
-          {
-            label: '水利工程',
-            value: 3
-          },
-          {
-            label: '生态流量',
-            value: 5
-          },
-          {
-            label: '取水口',
-            value: 6
-          },
-          {
-            label: '排污口',
-            value: 7
-          },
+
           {
             label: '水量',
             value: 8
@@ -471,10 +452,6 @@
           {
             label: '水位',
             value: 10
-          },
-          {
-            label: '公示牌',
-            value: 11
           },
         ],
         value2: '',
@@ -629,7 +606,7 @@
         const date = new Date();
         let YY = date.getFullYear();
         let MM = date.getMonth() < 10? `0${date.getMonth() + 1}` :  date.getMonth() + 1;
-        let DD = date.getDate() < 10? `0${date.getDate()}` :  date.getDate()
+        let DD = date.getDate() < 10? `0${date.getDate()}` :  date.getDate();
 
         return `时间：${YY}-${MM}-${DD}`
       },
@@ -637,7 +614,7 @@
         getTreeData() {
 
             this.axios.get('data/tableData.json').then(res => {
-                this.tableData1 = res.data
+                this.tableData1 = res.data;
                 console.log(res.data)
             }).catch(err => {
                 console.log(`错误${err}`)
@@ -645,7 +622,7 @@
         },
         getImgData(){
             this.axios.get('data/imgData.json').then(res => {
-                this.imgData = res.data
+                this.imgData = res.data;
                 console.log(res.data);
             }).catch(err => {
                 console.log(`错误:${err}`);
@@ -666,6 +643,10 @@
         height: 30px;
         width: 50px;
         line-height: 30px !important;
+    }
+
+    #aa .el-tabs__item{
+        font-weight: 900;
     }
 </style>
 <style scoped lang="less">
@@ -704,7 +685,7 @@
   .leftContent,
   .rightContent {
     max-width: 350px;
-    min-width: 300px;
+    min-width: 305px;
     min-height: 85vh;
     margin-left: 10px;
     margin-right: 10px;
@@ -757,7 +738,7 @@
     }
     .news {
       width: 100%;
-      min-height: 400px;
+      min-height: 393px;
       box-shadow: @shade;
       margin-top: 10px;
       background-color: @bgc;
@@ -905,7 +886,9 @@
   }
 
 
-
+  .el-tabs__item{
+      font-weight: 900;
+  }
   .center {
     .m-first {
       width: 100%;
@@ -915,7 +898,7 @@
     }
     .m-second {
       margin-top: 10px;
-      min-height: 580px;
+      min-height: 565px;
       box-shadow: @shade;
       background-color: #fff;
     }

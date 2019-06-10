@@ -9,7 +9,7 @@
         <el-tabs type="border-card">
             <el-tab-pane label="工作制度">
                 <div style="margin-bottom: 10px;">
-                    <el-button type="primary" @click="addData" icon="el-icon-folder-add">添加方案</el-button>
+                    <el-button type="primary" @click="addData" icon="el-icon-folder-add">新增制度</el-button>
                     <el-button type="danger" @click="deleteselections(tableData)" icon="el-icon-delete">批量删除</el-button>
                 </div>
                 <el-form ref="form" :model="form"
@@ -215,7 +215,7 @@
                     </el-dialog>
 
 
-                    <el-dialog title="添加制度" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="900px">
+                    <el-dialog title="新增制度" :center="true" :hide-required-asterisk="true" :visible.sync="addinfoData" width="900px">
                         <el-form :model="form2">
                             <div style="width: 100%;">
                                 <el-form-item :required="true" label="制度名称" :label-width="formLabelWidth" style="width: 100%;">

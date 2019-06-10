@@ -866,6 +866,9 @@
     .left-content1[data-v-4337a3cd]{
         margin-right: 0;
     }
+    .left-content1[data-v-28f041e9]{
+        min-height: 95.5vh;
+    }
 </style>
 <style scoped lang="less">
     @shodow: -1px -1px 5px #ccc;
