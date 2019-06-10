@@ -639,6 +639,21 @@
 </script>
 
 <style>
+    body::-webkit-scrollbar{
+        width: 5px;
+        height: 1px;
+    }
+    body::-webkit-scrollbar-thumb{
+        border-radius: 5px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background: #535353;
+    }
+
+    body::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        background: #EDEDED;
+    }
     .BMap_noprint>div>div{
         height: 30px;
         width: 50px;
