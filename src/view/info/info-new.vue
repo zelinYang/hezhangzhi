@@ -23,193 +23,202 @@
                             </el-switch>
                         </div>
                         <div style="padding-right: 10px">
-                        <el-switch
-                                style="display: block"
-                                v-model="valuesw2"
-                                active-text="水利工程">
-                        </el-switch>
-                        <el-switch
-                                style="display: block"
-                                v-model="valuesw3"
-                                active-text="生态流量">
-                        </el-switch>
-            </div>
-            <div style="padding-right: 22px">
-                <el-switch
-                        style="display: block"
-                        v-model="valuesw4"
-                        active-text="排污口">
-                </el-switch>
-                <el-switch
-                        style="display: block"
-                        v-model="valuesw5"
-                        active-text="取水口">
-                </el-switch>
-            </div>
-            <div style="padding-right: 37px">
-                <el-switch
-                        style="display: block"
-                        v-model="valuesw6"
-                        active-text="水位">
-                </el-switch>
-                <el-switch
-                        style="display: block"
-                        v-model="valuesw7"
-                        active-text="雨情">
-                </el-switch>
-            </div>
-            <div style="padding-right: 22px">
-                <el-switch
-                        style="display: block"
-                        v-model="valuesw8"
-                        active-text="水量">
-                </el-switch>
-                <el-switch
-                        style="display: block"
-                        v-model="valuesw9"
-                        active-text="公示牌">
-                </el-switch>
-            </div>
-            </el-tab-pane>
-            </el-tabs>
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw2"
+                                    active-text="水利工程">
+                            </el-switch>
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw3"
+                                    active-text="生态流量">
+                            </el-switch>
+                        </div>
+                        <div style="padding-right: 22px">
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw4"
+                                    active-text="排污口">
+                            </el-switch>
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw5"
+                                    active-text="取水口">
+                            </el-switch>
+                        </div>
+                        <div style="padding-right: 37px">
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw6"
+                                    active-text="水位">
+                            </el-switch>
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw7"
+                                    active-text="雨情">
+                            </el-switch>
+                        </div>
+                        <div style="padding-right: 22px">
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw8"
+                                    active-text="水量">
+                            </el-switch>
+                            <el-switch
+                                    style="display: block"
+                                    v-model="valuesw9"
+                                    active-text="公示牌">
+                            </el-switch>
+                        </div>
+                    </el-tab-pane>
+                </el-tabs>
 
-        </div>
-        <div class="left-side-third">
-            <el-tabs type="border-card" style="height: 100%">
-                <el-tab-pane label="" class="werty">
-                    <span slot="label"><i class="el-icon-s-unfold"></i> 选择区域</span>
-                    <div class="left-side3-item">
-                        <span>柳州市</span>
-                        <el-radio v-model="radio" label="1"></el-radio>
-                    </div>
-                    <div>
-                        <span>城中区</span>
-                        <el-radio v-model="radio" label="2"></el-radio>
-                    </div>
-                    <div>
-                        <span>鱼峰区</span>
-                        <el-radio v-model="radio" label="3"></el-radio>
-                    </div>
-                    <div>
-                        <span>柳南区</span>
-                        <el-radio v-model="radio" label="4"></el-radio>
-                    </div>
-                    <div>
-                        <span>柳北区</span>
-                        <el-radio v-model="radio" label="5"></el-radio>
-                    </div>
-                    <div>
-                        <span>柳江区</span>
-                        <el-radio v-model="radio" label="6"></el-radio>
-                    </div>
-                    <div>
-                        <span>鹿寨县</span>
-                        <el-radio v-model="radio" label="7"></el-radio>
-                    </div>
-                    <div>
-                        <span>柳城县</span>
-                        <el-radio v-model="radio" label="8"></el-radio>
-                    </div>
-                    <div>
-                        <span>融安县</span>
-                        <el-radio v-model="radio" label="9"></el-radio>
-                    </div>
-                    <div>
-                        <span>三江侗族自治县</span>
-                        <el-radio v-model="radio" label="10"></el-radio>
-                    </div>
-                    <div>
-                        <span>融水苗族自治县</span>
-                        <el-radio v-model="radio" label="11"></el-radio>
-                    </div>
-                </el-tab-pane>
-            </el-tabs>
-        </div>
-    </div>
-    <div class="right-bottom">
-        <div style="transition: 1s;display: flex;" :class="[{hide: ishide}]">
-            <div class="end-clos" @click="soh">
-                <i  v-if="ishide" class="el-icon-d-arrow-left" style=""></i>
-                <i  v-if="!ishide" class="el-icon-d-arrow-right" style=""></i>
             </div>
-
-        <el-tabs type="border-card" >
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-water-cup"></i></span>
-                <span class="card-text">水质</span>
-                <span style="color: #87ced1">I类水</span>
-                <span style="color: #a6d19c">II类水</span>
-                <span style="color: #d1cca4">III类水</span>
-                <span style="color: #d1b1ae">IV类水</span>
-                <span style="color: #d196c0">V类水</span>
-                <span style="color: #bfa1d1">劣V类水</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-help"></i></span>
-                <span class="card-text">污染源</span>
-                <span><i class="el-icon-help"></i>污染源</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-guide"></i> </span>
-                <span class="card-text">水利工程</span>
-                <span><i class="el-icon-coin"></i>水库</span>
-                <span><i class="el-icon-set-up"></i>水闸</span>
-                <span><i class="el-icon-connection"></i>橡胶坝</span>
-                <span><i class="el-icon-cpu"></i>水电站</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-picture-outline-round"></i></span>
-                <span class="card-text">公示牌</span>
-                <span class=""><i class="el-icon-picture-outline-round"></i>公示牌</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-moon-night"></i></span>
-                <span class="card-text">水质</span>
-                <span style="color: #9cd1d0">水量不变</span>
-                <span style="color: #a9d19a">水量上升</span>
-                <span style="color: #d1cd96">水量下降</span>
-                <span style="color: #d1ad93">黄色预警</span>
-                <span style="color: #d18694">红色预警</span>
-            </el-tab-pane>
-            <el-tab-pane class="yuqing">
-                <span slot="label"><i class="el-icon-heavy-rain"></i></span>
-                <span class="card-text">雨情</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #a1cbd1;float: left;"></i>小雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #aad19c;float: left;"></i>中雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1c09c;float: left;"></i>大雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1a362;float: left;"></i>暴雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d17f62;float: left;"></i>大暴雨</span>
-                <span style="display: inline-block"><i style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1332d;float: left;"></i>特大暴雨</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-ship"></i></span>
-                <span class="card-text">水位</span>
-                <span><i class="el-icon-ship"></i>水位</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-wind-power"></i></span>
-                <span class="card-text">取水口</span>
-                <span><i class="el-icon-wind-power"></i>取水口</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-receiving"></i></span>
-                <span class="card-text">排污口</span>
-                <span class=""><i class="el-icon-receiving"></i>排污口</span>
-            </el-tab-pane>
-            <el-tab-pane>
-                <span slot="label"><i class="el-icon-data-board"></i></span>
-                <span class="card-text">生态流量</span>
-                <span class=""><i class="el-icon-data-board"></i>生态流量</span>
-            </el-tab-pane>
-        </el-tabs>
+            <div class="left-side-third">
+                <el-tabs type="border-card" style="height: 100%">
+                    <el-tab-pane label="" class="werty">
+                        <span slot="label"><i class="el-icon-s-unfold"></i> 选择区域</span>
+                        <div class="left-side3-item">
+                            <span>柳州市</span>
+                            <el-radio v-model="radio" label="1"></el-radio>
+                        </div>
+                        <div>
+                            <span>城中区</span>
+                            <el-radio v-model="radio" label="2"></el-radio>
+                        </div>
+                        <div>
+                            <span>鱼峰区</span>
+                            <el-radio v-model="radio" label="3"></el-radio>
+                        </div>
+                        <div>
+                            <span>柳南区</span>
+                            <el-radio v-model="radio" label="4"></el-radio>
+                        </div>
+                        <div>
+                            <span>柳北区</span>
+                            <el-radio v-model="radio" label="5"></el-radio>
+                        </div>
+                        <div>
+                            <span>柳江区</span>
+                            <el-radio v-model="radio" label="6"></el-radio>
+                        </div>
+                        <div>
+                            <span>鹿寨县</span>
+                            <el-radio v-model="radio" label="7"></el-radio>
+                        </div>
+                        <div>
+                            <span>柳城县</span>
+                            <el-radio v-model="radio" label="8"></el-radio>
+                        </div>
+                        <div>
+                            <span>融安县</span>
+                            <el-radio v-model="radio" label="9"></el-radio>
+                        </div>
+                        <div>
+                            <span>三江侗族自治县</span>
+                            <el-radio v-model="radio" label="10"></el-radio>
+                        </div>
+                        <div>
+                            <span>融水苗族自治县</span>
+                            <el-radio v-model="radio" label="11"></el-radio>
+                        </div>
+                    </el-tab-pane>
+                </el-tabs>
+            </div>
         </div>
-    </div>
+        <div class="right-bottom">
+            <div style="transition: 1s;display: flex;" :class="[{hide: ishide}]">
+                <div class="end-clos" @click="soh">
+                    <i v-if="ishide" class="el-icon-d-arrow-left" style=""></i>
+                    <i v-if="!ishide" class="el-icon-d-arrow-right" style=""></i>
+                </div>
+
+                <el-tabs type="border-card">
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-water-cup"></i></span>
+                        <span class="card-text">水质</span>
+                        <span style="color: #87ced1">I类水</span>
+                        <span style="color: #a6d19c">II类水</span>
+                        <span style="color: #d1cca4">III类水</span>
+                        <span style="color: #d1b1ae">IV类水</span>
+                        <span style="color: #d196c0">V类水</span>
+                        <span style="color: #bfa1d1">劣V类水</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-help"></i></span>
+                        <span class="card-text">污染源</span>
+                        <span><i class="el-icon-help"></i>污染源</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-guide"></i> </span>
+                        <span class="card-text">水利工程</span>
+                        <span><i class="el-icon-coin"></i>水库</span>
+                        <span><i class="el-icon-set-up"></i>水闸</span>
+                        <span><i class="el-icon-connection"></i>橡胶坝</span>
+                        <span><i class="el-icon-cpu"></i>水电站</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-picture-outline-round"></i></span>
+                        <span class="card-text">公示牌</span>
+                        <span class=""><i class="el-icon-picture-outline-round"></i>公示牌</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-moon-night"></i></span>
+                        <span class="card-text">水质</span>
+                        <span style="color: #9cd1d0">水量不变</span>
+                        <span style="color: #a9d19a">水量上升</span>
+                        <span style="color: #d1cd96">水量下降</span>
+                        <span style="color: #d1ad93">黄色预警</span>
+                        <span style="color: #d18694">红色预警</span>
+                    </el-tab-pane>
+                    <el-tab-pane class="yuqing">
+                        <span slot="label"><i class="el-icon-heavy-rain"></i></span>
+                        <span class="card-text">雨情</span>
+                        <span style="display: inline-block"><i
+                                style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #a1cbd1;float: left;"></i>小雨</span>
+                        <span style="display: inline-block"><i
+                                style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #aad19c;float: left;"></i>中雨</span>
+                        <span style="display: inline-block"><i
+                                style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1c09c;float: left;"></i>大雨</span>
+                        <span style="display: inline-block"><i
+                                style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1a362;float: left;"></i>暴雨</span>
+                        <span style="display: inline-block"><i
+                                style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d17f62;float: left;"></i>大暴雨</span>
+                        <span style="display: inline-block"><i
+                                style="display:block;width: 15px;height: 15px;border-radius: 50%;background-color: #d1332d;float: left;"></i>特大暴雨</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-ship"></i></span>
+                        <span class="card-text">水位</span>
+                        <span><i class="el-icon-ship"></i>水位</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-wind-power"></i></span>
+                        <span class="card-text">取水口</span>
+                        <span><i class="el-icon-wind-power"></i>取水口</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-receiving"></i></span>
+                        <span class="card-text">排污口</span>
+                        <span class=""><i class="el-icon-receiving"></i>排污口</span>
+                    </el-tab-pane>
+                    <el-tab-pane>
+                        <span slot="label"><i class="el-icon-data-board"></i></span>
+                        <span class="card-text">生态流量</span>
+                        <span class=""><i class="el-icon-data-board"></i>生态流量</span>
+                    </el-tab-pane>
+                </el-tabs>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    const opt = { version: '3.28' };
     import Vue from 'vue'
+    import {loadModules} from "esri-loader";
 
+    import("../../assets/shp.min.js");
     export default Vue.extend({
         name: 'info-new',
         data() {
@@ -217,6 +226,8 @@
                 tags: [
                     {name: '关闭预警', type: ''}
                 ],
+
+                map:null,
                 ishide: false,
                 valuesw0: true,
                 valuesw1: true,
@@ -232,12 +243,12 @@
                 radio: '1',
                 valuese: '',
                 options: [
-                    {value: 0, label: "摄影图"},{value: 1,label: "卫星图"}
-                    ],
+                    {value: 0, label: "摄影图"}, {value: 1, label: "卫星图"}
+                ],
             }
         },
-        methods:{
-            soh(){
+        methods: {
+            soh() {
                 this.ishide = !this.ishide
                 // if(!){
                 //     this.ishide = true;
@@ -246,29 +257,81 @@
                 // }
             },
 
-
-
+            // 绘制地图
             createMap() {
-                /* eslint-disable */
-                // 创建Map实例
-                var map = new BMap.Map("map");
-                // 初始化地图,设置中心点坐标和地图级别
-                map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
-                //添加地图类型控件
-                map.addControl(new BMap.MapTypeControl({
-                    mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
-                }));
-                // 设置地图显示的城市 此项是必须设置的
-                map.setCurrentCity("柳州");
-                //开启鼠标滚轮缩放
-                map.enableScrollWheelZoom(true);
-                /* eslint-enable */
-            },
+                loadModules(['esri/map',
+                    'esri/layers/GraphicsLayer',],opt).then(([Map]) => {
+
+                    // 创建地图对象
+                    this.map = new Map('map', {logo: false, zoom: 8});
+
+                    // 底图（基础）部分
+                    let graphicsSHPlayer = new esri.layers.GraphicsLayer();
+                    this.map.addLayer(graphicsSHPlayer);
+
+                    // 加载底图
+                    // 模块化代码
+                    let wkid = this.map.spatialReference.wkid;
+                    shp("/static/demo-hunanguanqu/shp.zip").then(data => {
+                        console.log(data);
+                        if(data && data.length > 0){
+                            graphicsSHPlayer.clear();
+
+                            for(let i = 0;i < data.length;i ++){
+                                let features = data[i].features;
+                                for(let j = 0;j < features.length;i ++){
+                                    let feature = features[j];
+                                    let graphic = null;
+
+                                    switch (feature.geometry.type) {
+                                        case "point":   // 点要素
+                                            var symbol = new esri.symbol.PictureMarkerSymbol(getRootPath() + "imgages/plot/point1.png",22,27);
+                                            let mapPoint = new esri.geometry.Point(feature.geometry.coordinates[0],feature.geometry.coordinates[1],new esri.spatialReference(wkid));
+                                            graphic = new esri.Graphic(mapPoint,symbol);
+                                            break;
+                                        case "lineString":// 线要素
+                                            var symbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255, 0, 0]), 6);
+                                            var polyline = new esri.geometry.Polyline(feature.geometry.coordinates);
+                                            graphic = new esri.Graphic(polyline, symbol);
+                                            break;
+                                        case "Polygon":// 面要素
+                                            if (feature.properties && feature.properties.ADMATYPE) {//县界图层不同颜色
+                                                var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new esri.Color([211, 211, 211]), 2), new esri.Color([125, 125, 125, 0]));
+                                            }
+                                            else {// 水库图层不同颜色
+                                                var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new esri.Color([0, 191, 255]), 1), new esri.Color([0, 191, 255, 0.8]));
+                                            }
+                                            var polygon = new esri.geometry.Polygon(feature.geometry.coordinates);
+                                            graphic = new esri.Graphic(polygon, symbol);
+                                            break;
+                                    }
+
+                                    graphicsSHPlayer.add(graphic);
+                                }
+                            }
+                        }
+                    })
+
+                    /*/!* eslint-disable *!/
+                    // 创建Map实例
+                    let map = new BMap.Map("map");
+                    // 初始化地图,设置中心点坐标和地图级别
+                    map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
+                    //添加地图类型控件
+                    map.addControl(new BMap.MapTypeControl({
+                        mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+                    }));
+                    // 设置地图显示的城市 此项是必须设置的
+                    map.setCurrentCity("柳州");
+                    //开启鼠标滚轮缩放
+                    map.enableScrollWheelZoom(true);
+                    /!* eslint-enable *!/*/
+                })
+            }
         },
         mounted() {
             this.createMap()
         }
-
     })
 </script>
 <style>
@@ -280,29 +343,34 @@
     .el-switch__label {
         vertical-align: baseline;
     }
+
     .el-tabs--border-card {
         height: 100%;
     }
 </style>
 
 <style scoped lang="less">
-    .hide{
+    .hide {
         transform: translate(552px);
     }
-    .showq{
+
+    .showq {
         width: 700px;
 
     }
-    .yuqing{
+
+    .yuqing {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .yuqing>span{
+
+    .yuqing > span {
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     .left-side3-item {
         padding-left: 10px !important;
     }
@@ -408,7 +476,8 @@
         cursor: pointer;
         color: #409EFF !important;
     }
-    #map{
+
+    #map {
         width: 100%;
         height: 95vh;
     }
