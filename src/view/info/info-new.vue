@@ -263,11 +263,11 @@
                     'esri/layers/GraphicsLayer',],opt).then(([Map]) => {
 
                     // 创建地图对象
-                    this.map = new Map('map', {logo: false, zoom: 8});
+                    this.map = new Map('map', {logo: false,center:[109.44626,24.33941], zoom: 13});
 
                     // 底图（基础）部分
-                    let graphicsSHPlayer = new esri.layers.GraphicsLayer();
-                    this.map.addLayer(graphicsSHPlayer);
+                    // let graphicsSHPlayer = new esri.layers.GraphicsLayer();
+                    // this.map.addLayer(graphicsSHPlayer);
 
                     // 加载底图
                     // 模块化代码
