@@ -263,7 +263,7 @@
                     'esri/layers/GraphicsLayer',],opt).then(([Map]) => {
 
                     // 创建地图对象
-                    this.map = new Map('map', {logo: false,center:[109.44626,24.33941], zoom: 13});
+                    this.map = new Map('map', {logo: false,basemap: 'streets',center:[109.44626,24.33941], zoom: 13});
 
                     // 底图（基础）部分
                     // let graphicsSHPlayer = new esri.layers.GraphicsLayer();
