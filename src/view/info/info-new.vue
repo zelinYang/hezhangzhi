@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="shishi">
         <div id="map">
         </div>
         <div class="left-side">
@@ -226,8 +226,7 @@
                 tags: [
                     {name: '关闭预警', type: ''}
                 ],
-
-                map:null,
+                map: null,
                 ishide: false,
                 valuesw0: true,
                 valuesw1: true,
@@ -242,7 +241,9 @@
                 isbig: true,
                 radio: '1',
                 valuese: '',
-                options: [
+                FeatrueLayers: [],
+
+            options: [
                     {value: 0, label: "摄影图"}, {value: 1, label: "卫星图"}
                 ],
             }
@@ -260,10 +261,19 @@
             // 绘制地图
             createMap() {
                 loadModules(['esri/map',
-                    'esri/layers/GraphicsLayer',],opt).then(([Map]) => {
+                    'esri/layers/GraphicsLayer',
+                    ],opt).then(([Map,MapView]) => {
 
                     // 创建地图对象
-                    this.map = new Map('map', {logo: false,basemap: 'streets',center:[109.44626,24.33941], zoom: 13});
+                    this.map = new Map('map',
+                        {
+                            logo: false,
+                            basemap: 'topo',
+                            center:[109.44626,24.33941],
+                            zoom: 13
+                        }
+                    );
+            //         console.log(1);
 
                     // 底图（基础）部分
                     // let graphicsSHPlayer = new esri.layers.GraphicsLayer();
@@ -271,17 +281,22 @@
 
                     // 加载底图
                     // 模块化代码
-                    let wkid = this.map.spatialReference.wkid;
+                    // let wkid = this.map.spatialReference.wkid;
+                    // debugger;
+
                     shp("/static/demo-hunanguanqu/shp.zip").then(data => {
                         console.log(data);
                         if(data && data.length > 0){
-                            graphicsSHPlayer.clear();
-
+                            // debugger;
+                            // console.log(graphicsSHPlayer);
+                            // graphicsSHPlayer.clear();
                             for(let i = 0;i < data.length;i ++){
+                                console.log(1);
                                 let features = data[i].features;
                                 for(let j = 0;j < features.length;i ++){
                                     let feature = features[j];
                                     let graphic = null;
+
 
                                     switch (feature.geometry.type) {
                                         case "point":   // 点要素
@@ -305,13 +320,84 @@
                                             graphic = new esri.Graphic(polygon, symbol);
                                             break;
                                     }
-
+                                    console.log(graphic);
                                     graphicsSHPlayer.add(graphic);
                                 }
                             }
                         }
                     })
 
+                    // var initExtent = new esri.geometry.Extent({ xmin: 107.12726, ymin: 24.01941, xmax: 110.92726, ymax: 25.01941, spatialReference: map.spatialReference });
+                    // this.map.setExtent(initExtent);
+
+
+                    this.axios.get("/static/demo-hunanguanqu/system.json").then((res)=>{
+
+                        this.system_info = res.data;
+                        console.log(this.system_info);
+
+                        //逐个获取监控图层数据
+                        this.system_info.FeatureLayers.forEach(v=>{
+
+                            this.axios.get(v.url).then((layer_res)=>{
+
+                                //构建并添加到地图
+                                var featureCollection = { layerDefinition: layer_res.data, featureSet: new esri.tasks.FeatureSet(layer_res.data) };
+                                var JsonFlayer = new esri.layers.FeatureLayer(featureCollection);
+                                if (v.show!=='1') JsonFlayer.hide();
+                                this.map.addLayer(JsonFlayer);
+
+                                //保存到本页的监控图层对象
+                                v.LayerObject = JsonFlayer;
+                                v.Rows = layer_res.data.features;
+                                this.FeatrueLayers.push(v);
+                                console.log(v);
+
+                                //设置本图层的元素图标
+                                var symbol =  new esri.symbol.PictureMarkerSymbol(v.icon, 22, 27);
+                                var renderer = new esri.renderer.SimpleRenderer(symbol);
+                                JsonFlayer.setRenderer(renderer);
+
+                                //当鼠标点击元素
+                                // JsonFlayer.on("click",  (evt)=> {
+                                //     var graphic = evt.graphic;
+                                //     console.log(graphic);
+                                //
+                                //     if (this.drawer_show_left) {
+                                //         this.info_right = graphic.attributes;
+                                //         this.info_right.itype = v.itype;
+                                //         this.drawer_show_right = true;
+                                //     }
+                                //     else {
+                                //         this.info_left = graphic.attributes;
+                                //         this.info_left.itype = v.itype;
+                                //         this.drawer_show_left = true;
+                                //     }
+                                //
+                                // });
+                                //当鼠标悬停在元素上
+                                // JsonFlayer.on("mouse-over",  (evt)=> {
+                                //     var graphic = evt.graphic;
+                                //
+                                //     this.info_tips = graphic.attributes;
+                                //     this.info_tips.itype = v.itype;
+                                //
+                                //     var content = this.$refs.tip.innerHTML;
+                                //     var zoompoint = graphic.geometry;
+                                //     this.map.infoWindow.resize(250, 650);
+                                //     this.map.infoWindow.setTitle(graphic.attributes.NAME);
+                                //     this.map.infoWindow.setContent(content);
+                                //     this.map.infoWindow.show(zoompoint);
+                                // });
+                                // //当鼠标离开元素
+                                // JsonFlayer.on("mouse-out",  (evt)=> {
+                                //     this.map.infoWindow.hide();
+                                // });
+                                console.log(JsonFlayer);
+                            });
+                        });
+
+                    });
                     /*/!* eslint-disable *!/
                     // 创建Map实例
                     let map = new BMap.Map("map");
@@ -337,6 +423,9 @@
 <style>
     .el-radio__label {
         display: none;
+    }
+    #shishi #map_zoom_slider{
+        left: 300px;
     }
 </style>
 <style>
