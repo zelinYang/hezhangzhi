@@ -262,34 +262,37 @@
             createMap() {
                 loadModules(['esri/map',
                     'esri/layers/GraphicsLayer',
-                    ],opt).then(([Map,MapView]) => {
+                    "esri/layers/FeatureLayer"
+                    ],opt).then(([Map,MapView,FeatureLayer]) => {
+
 
                     // 创建地图对象
                     this.map = new Map('map',
                         {
-                            logo: false,
                             basemap: 'topo',
+                            logo: false,
                             center:[109.44626,24.33941],
                             zoom: 13
                         }
                     );
-            //         console.log(1);
+                    console.log(this.map);
 
                     // 底图（基础）部分
-                    // let graphicsSHPlayer = new esri.layers.GraphicsLayer();
-                    // this.map.addLayer(graphicsSHPlayer);
+                    //var graphicsSHPlayer = new esri.layers.GraphicsLayer();
+                    //this.map.addLayer(graphicsSHPlayer);
 
                     // 加载底图
                     // 模块化代码
-                    // let wkid = this.map.spatialReference.wkid;
+                    // let wkid = this.map.extent.spatialReference.wkid;
                     // debugger;
+                    // console.warn(wkid);
 
                     shp("/static/demo-hunanguanqu/shp.zip").then(data => {
                         console.log(data);
                         if(data && data.length > 0){
                             // debugger;
                             // console.log(graphicsSHPlayer);
-                            // graphicsSHPlayer.clear();
+                            graphicsSHPlayer.clear();
                             for(let i = 0;i < data.length;i ++){
                                 console.log(1);
                                 let features = data[i].features;
@@ -320,17 +323,16 @@
                                             graphic = new esri.Graphic(polygon, symbol);
                                             break;
                                     }
-                                    console.log(graphic);
+                                    // console.log(graphic);
                                     graphicsSHPlayer.add(graphic);
                                 }
                             }
                         }
-                    })
-
-                    // var initExtent = new esri.geometry.Extent({ xmin: 107.12726, ymin: 24.01941, xmax: 110.92726, ymax: 25.01941, spatialReference: map.spatialReference });
-                    // this.map.setExtent(initExtent);
+                    });
 
 
+
+                    // 获取系统数据
                     this.axios.get("/static/demo-hunanguanqu/system.json").then((res)=>{
 
                         this.system_info = res.data;
@@ -515,7 +517,7 @@
     }
 
     .left-side-third {
-        min-height: 400px;
+        min-height: 416px;
         height: 45vh;
         border-top: @border;
     }
