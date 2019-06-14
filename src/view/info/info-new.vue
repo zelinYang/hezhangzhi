@@ -262,8 +262,8 @@
             createMap() {
                 loadModules(['esri/map',
                     'esri/layers/GraphicsLayer',
-                    "esri/layers/FeatureLayer"
-                    ],opt).then(([Map,MapView,FeatureLayer]) => {
+                    "dojo/domReady!"
+                    ],opt).then(([Map]) => {
 
 
                     // 创建地图对象

@@ -44,6 +44,9 @@
 </template>
 
 <script>
+
+    const opt = { version: '3.28' };
+    import {loadModules} from "esri-loader";
     let data = require('../../../../public/data/echartsData.js');
     let echarts = require('echarts');
     export default {
@@ -110,20 +113,37 @@
         },
         methods: {
             createMap() {
+                loadModules(['esri/map',
+                    'esri/layers/GraphicsLayer',
+                    "dojo/domReady!"
+                ],opt).then(([Map]) => {
+
+
+                    // 创建地图对象
+                    this.map = new Map('map',
+                        {
+                            basemap: 'topo',
+                            logo: false,
+                            center:[109.44626,24.33941],
+                            zoom: 13
+                        }
+                    );
+                });
+
                 /* eslint-disable */
-                // 创建Map实例
-                var map = new BMap.Map("map");
-                // 初始化地图,设置中心点坐标和地图级别
-                map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
-                //添加地图类型控件
-                map.addControl(new BMap.MapTypeControl({
-                    mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
-                }));
-                // 设置地图显示的城市 此项是必须设置的
-                map.setCurrentCity("柳州");
-                //开启鼠标滚轮缩放
-                map.enableScrollWheelZoom(true);
-                /* eslint-enable */
+                // // 创建Map实例
+                // var map = new BMap.Map("map");
+                // // 初始化地图,设置中心点坐标和地图级别
+                // map.centerAndZoom(new BMap.Point(109.434425, 24.331961), 11);
+                // //添加地图类型控件
+                // map.addControl(new BMap.MapTypeControl({
+                //     mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+                // }));
+                // // 设置地图显示的城市 此项是必须设置的
+                // map.setCurrentCity("柳州");
+                // //开启鼠标滚轮缩放
+                // map.enableScrollWheelZoom(true);
+                // /* eslint-enable */
             },
         },
         mounted() {
